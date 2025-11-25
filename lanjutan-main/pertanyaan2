@@ -1,0 +1,35 @@
+❓ REVIEW QUESTIONS
+Sebelum saya mulai coding, mohon konfirmasi:
+
+1. Struktur Folder ✅
+Apakah struktur folder Hybrid di atas sudah OK? Ada yang perlu disesuaikan? sudah ok 
+
+2. Database Schema ✅
+37 tabel sudah cukup? Atau ada tabel custom yang perlu ditambahkan? klo misalkan lebih dari 37 gpp 
+
+3. Naming Convention ✅
+Folder: lowercase dengan dash (demo-requests/)
+File PHP: lowercase dengan dash (order-detail.php)
+Class: PascalCase (UserController)
+Function: camelCase (getUserById())
+Setuju dengan convention ini? ok 
+
+4. Demo Websites (50 portfolio) ✅
+Untuk 50 demo website di folder /demo/, apakah:
+
+Saya buat 50 folder kosong dulu dengan index.html sederhana? boleh kamu bantu buat kan demo sekalian sesuai nama dan usaha ,jasa atau bisnis nya , kamu buat demo paling perfect karan untuk contoh client biar percaya
+Atau skip dulu (nanti batch terpisah)?
+5. Development Priority ✅
+Apakah saya ikuti roadmap batch 1-9 di atas, atau ada yang perlu diprioritaskan lebih dulu? kamu atur aja 
+
+6. Testing Account ✅
+Untuk testing, apakah saya buat akun dummy: iya akun dummy dulu
+
+Admin: admin@situneo.my.id / [password] admin123
+Client: client@situneo.my.id / [password] client123
+Freelancer: freelancer@situneo.my.id / [password]freelance123
+
+
+freelance itu yang cari order ya , jadi yang membuat nya team situneo , freelance tugas utama nya mencari orderan / cari client 
+
+setiap halaman singkron 1 sama lain , dan konsisten dengan warna brand nya , pokok nya webiste saya harus paling bagus dan paling mahal , karna saya akan menjadi agency terbsera se indonesia itu target saya 

@@ -1,0 +1,456 @@
+🔷 BATCH 9: ADMIN PANEL - WITHDRAWAL & JOB BOARD MANAGEMENT
+Priority: HIGH | Files: ~45 | Duration: Test 2-3 hari
+📂 Files to Create:
+/admin/
+├── /withdrawals/
+│   ├── index.php                 # All withdrawal requests
+│   ├── pending.php               # Pending approvals ⭐
+│   ├── approve-withdrawal.php    # Approve withdrawal ⭐
+│   ├── reject-withdrawal.php     # Reject withdrawal
+│   ├── processing.php            # Processing withdrawals
+│   ├── completed.php             # Completed withdrawals
+│   ├── view.php                  # Withdrawal detail
+│   ├── upload-proof.php          # Upload transfer proof ⭐
+│   ├── bulk-approve.php          # Bulk approve (batch payments)
+│   ├── statistics.php            # Withdrawal statistics
+│   ├── export.php                # Export withdrawal data
+│   └── payment-schedule.php      # Schedule batch payments
+│
+├── /jobs/                         # Job Board for Partners
+│   ├── index.php                 # All jobs
+│   ├── create.php                # Create new job ⭐
+│   ├── edit.php                  # Edit job
+│   ├── delete.php                # Delete job
+│   ├── view.php                  # Job detail & applications
+│   ├── applications.php          # All applications for a job
+│   ├── approve-application.php   # Approve partner for job
+│   ├── reject-application.php    # Reject application
+│   ├── submissions.php           # Work submissions
+│   ├── review-submission.php     # Review submitted work
+│   ├── approve-submission.php    # Approve & pay partner
+│   ├── reject-submission.php     # Reject & request revision
+│   ├── active-jobs.php           # Jobs in progress
+│   ├── completed-jobs.php        # Completed jobs
+│   ├── statistics.php            # Job board analytics
+│   └── templates.php             # Job templates (pre-fill forms)
+│
+├── /commissions/
+│   ├── index.php                 # All commissions
+│   ├── pending.php               # Pending commissions
+│   ├── paid.php                  # Paid commissions
+│   ├── calculate.php             # Manual commission calculation
+│   ├── adjust.php                # Adjust commission (corrections)
+│   ├── reverse.php               # Reverse commission (refunds)
+│   ├── tier-management.php       # Manage tier percentages
+│   ├── bonus-tiers.php           # Manage SPV/Manager bonus tiers
+│   ├── statistics.php            # Commission analytics
+│   ├── reconciliation.php        # Commission reconciliation tool
+│   └── export.php                # Export commission data
+│
+├── /penalties/
+│   ├── index.php                 # All penalties
+│   ├── subscription-stops.php    # Auto-deduct penalties
+│   ├── late-deliveries.php       # Late job delivery penalties
+│   ├── quality-issues.php        # Quality-based penalties
+│   ├── apply-penalty.php         # Manual penalty application
+│   ├── remove-penalty.php        # Remove penalty (admin discretion)
+│   ├── appeals.php               # Penalty appeals from partners
+│   ├── approve-appeal.php        # Approve appeal (waive penalty)
+│   ├── reject-appeal.php         # Reject appeal
+│   └── statistics.php            # Penalty statistics
+│
+└── /bonus-distribution/          # SPV & Manager Bonuses
+    ├── spv-bonuses.php           # SPV bonus tracker
+    ├── manager-bonuses.php       # Manager bonus tracker
+    ├── calculate-arpu.php        # Calculate ARPU monthly
+    ├── distribute-bonuses.php    # Distribute bonuses
+    ├── bonus-history.php         # Bonus payment history
+    └── bonus-settings.php        # Configure bonus tiers
+
+/controllers/admin/
+├── WithdrawalController.php
+├── JobBoardController.php
+├── CommissionController.php
+├── PenaltyController.php
+└── BonusController.php
+
+/models/
+├── WithdrawalManagement.php
+├── JobManagement.php
+├── JobApplication.php
+├── JobSubmission.php
+├── CommissionManagement.php
+├── PenaltyManagement.php
+├── BonusDistribution.php
+└── ARPU.php
+
+/emails/admin/
+├── withdrawal-requested.php      # Notify admin of new withdrawal
+├── job-application.php           # Notify admin of new application
+├── job-submitted.php             # Notify admin of work submission
+└── penalty-appeal.php            # Notify admin of penalty appeal
+
+/emails/partner/
+├── withdrawal-rejected.php       # Withdrawal rejection notice
+├── job-approved.php              # Job application approved
+├── job-rejected.php              # Job application rejected
+├── submission-approved.php       # Work approved & paid
+├── submission-rejected.php       # Work needs revision
+├── penalty-applied.php           # Penalty notice
+├── appeal-approved.php           # Appeal approved
+├── appeal-rejected.php           # Appeal rejected
+└── bonus-earned.php              # Bonus payment notice
+
+/cron/
+├── process-withdrawals.php       # Auto-process approved withdrawals
+├── calculate-monthly-arpu.php    # Monthly ARPU calculation
+├── distribute-bonuses.php        # Quarterly bonus distribution
+└── job-deadline-reminders.php    # Send deadline reminders to partners
+✅ Features Completed:
+Withdrawal Management:
+
+✅ Pending Withdrawal Approvals:
+
+List all pending withdrawal requests
+Display partner info
+Display withdrawal amount
+Display bank account/QRIS details
+Display current balance
+Display available balance (after withdrawal)
+
+
+✅ Approve Withdrawal Process:
+
+  1. Admin reviews withdrawal request
+  2. Admin clicks "Approve"
+  3. System checks partner balance (must be sufficient)
+  4. System marks withdrawal as "Approved"
+  5. System creates payout record
+  6. Admin transfers money manually
+  7. Admin uploads transfer proof (screenshot/receipt)
+  8. System marks withdrawal as "Completed"
+  9. System deducts amount from partner balance
+  10. Email notification sent to partner
+
+✅ Reject Withdrawal:
+
+Provide rejection reason
+Return withdrawal to partner (can re-request)
+Email notification with reason
+
+
+✅ Upload Transfer Proof:
+
+Upload bank transfer receipt
+Upload QRIS transfer screenshot
+Attach notes/comments
+Timestamp tracking
+
+
+✅ Batch Payments:
+
+Select multiple pending withdrawals
+Approve all at once
+Generate batch payment list
+Export to CSV for bank upload
+Bulk upload transfer proofs
+
+
+✅ Withdrawal Statistics:
+
+Total withdrawals (today, this month, all time)
+Average withdrawal amount
+Processing time metrics
+Pending vs completed ratio
+Top withdrawing partners
+
+
+✅ Payment Schedule:
+
+Schedule automatic payout dates (e.g., every Monday)
+Auto-approve withdrawals on schedule
+Email reminders to admin
+
+
+
+Job Board Management:
+
+✅ Create Job (Admin Posts Task):
+
+Job title
+Description (detailed requirements)
+Category (website dev, content, design, etc)
+Deadline (number of days)
+Commission amount (fixed payment)
+Required skills/experience
+Number of partners needed (1 or multiple)
+Attachments (briefs, assets, reference files)
+Priority (low, medium, high)
+
+
+✅ Job Broadcast:
+
+Auto-broadcast to all eligible partners (via dashboard notification)
+Email notification to partners
+WhatsApp notification (optional)
+Filter recipients by tier, performance, skills
+
+
+✅ View Job Applications:
+
+List all partners who applied
+View partner profile & stats
+View partner proposal/message
+View partner portfolio/past work
+Compare applicants side-by-side
+
+
+✅ Approve Partner for Job:
+
+Select partner(s) for job
+If multiple partners needed:
+
+Assign roles (lead, support)
+Split commission (custom or auto)
+
+
+Send job assignment email
+Start deadline countdown
+Job status: "In Progress"
+
+
+✅ Reject Application:
+
+Provide reason (optional)
+Send rejection email
+
+
+✅ Review Work Submission:
+
+Partner submits completed work
+Admin reviews submission
+View submitted files/links
+View partner notes
+Check quality & requirements
+
+
+✅ Approve Submission (Pay Partner):
+
+  1. Admin approves work
+  2. System calculates payment:
+     - Base commission
+     - Check deadline:
+       - On time: Full payment
+       - Late 1-3 days: Warning (full payment)
+       - Late 4-7 days: -10% penalty
+       - Late >7 days: -25% penalty
+     - If multiple partners: Split as configured
+  3. Add commission to partner balance
+  4. Send payment confirmation email
+  5. Job status: "Completed"
+  6. Log in job earnings history
+
+✅ Reject Submission (Request Revision):
+
+Provide detailed feedback
+Set revision deadline
+Send revision request email
+Track revision attempts
+
+
+✅ Job Templates:
+
+Save frequent jobs as templates
+Pre-fill job creation form
+Quick job posting
+
+
+✅ Job Statistics:
+
+Total jobs posted
+Completion rate
+Average completion time
+Partner performance on jobs
+Most popular job types
+
+
+
+Commission Management:
+
+✅ Commission Overview:
+
+Total commissions paid (all time)
+Pending commissions
+Paid commissions
+Commission breakdown by role (Partner/SPV/Manager)
+
+
+✅ Manual Commission Calculation:
+
+Recalculate commission for specific order
+Fix calculation errors
+Adjust commission amount
+Add manual commission (bonus, compensation)
+
+
+✅ Reverse Commission:
+
+Reverse on refund
+Reverse on cancellation
+Reverse on subscription stop (<3 months)
+Automatic cascade reversal
+
+
+✅ Tier Management:
+
+Configure tier thresholds (orders per month)
+Configure tier percentages (30%, 40%, 50%, 55%)
+Edit tier benefits
+Tier maintenance rules
+
+
+✅ Bonus Tier Configuration:
+
+SPV Bonus Tiers:
+
+Tier 1: ARPU Rp 15jt → Bonus Rp 500K
+Tier 2: ARPU Rp 35jt → Bonus Rp 1jt
+Tier 3: ARPU Rp 75jt → Bonus Rp 2jt
+Tier 4: ARPU Rp 200jt+ → Bonus Rp 10jt
+
+
+Manager Bonus Tiers:
+
+Tier 1: ARPU Rp 45jt → Bonus Rp 1jt
+Tier 2: ARPU Rp 105jt → Bonus Rp 2jt
+Tier 3: ARPU Rp 225jt → Bonus Rp 3jt
+Tier 4: ARPU Rp 600jt+ → Bonus Rp 15jt
+
+
+
+
+✅ Commission Reconciliation:
+
+Compare calculated vs paid commissions
+Identify discrepancies
+Auto-fix or manual review
+Generate reconciliation report
+
+
+✅ Commission Export:
+
+Export commission data (CSV, Excel, PDF)
+Tax report generation (NPWP-based)
+Custom date range export
+
+
+
+Penalty Management:
+
+✅ Subscription Stop Penalties:
+
+View all auto-deducted penalties
+Penalty amount & date
+Partner affected
+Cascade distribution (SPV 10%, Manager 5%)
+Reversal option (admin discretion)
+
+
+✅ Late Delivery Penalties:
+
+Job board late penalties
+Automatic percentage deduction
+Warning tracking (multiple lates = blacklist)
+
+
+✅ Quality Issue Penalties:
+
+Admin can apply manual penalty
+Provide reason
+Set penalty amount
+Send penalty notice to partner
+
+
+✅ Penalty Appeals:
+
+Partner submits appeal
+Admin reviews appeal
+View partner's explanation
+Approve appeal (waive penalty, refund deduction)
+Reject appeal (penalty stands)
+
+
+✅ Penalty Statistics:
+
+Total penalties applied
+Most common penalty types
+Partners with most penalties
+Penalty trend over time
+
+
+
+Bonus Distribution (SPV & Manager):
+
+✅ Monthly ARPU Calculation:
+
+Cron job runs on 1st of every month
+Calculate ARPU for each SPV:
+
+
+
+    SPV ARPU = Total revenue from downline partners / Number of downline partners
+
+Calculate ARPU for each Manager:
+
+    Manager ARPU = Total revenue from region (SPVs + Partners) / Number of partners in region
+
+✅ Bonus Distribution:
+
+Check ARPU against bonus tiers
+Determine bonus amount
+Add bonus to SPV/Manager balance
+Send bonus earned email
+Log bonus payment
+
+
+✅ Bonus History:
+
+View all bonus payments
+Filter by SPV/Manager
+Filter by month/year
+Export bonus data
+
+
+✅ Bonus Settings:
+
+Configure bonus tiers (amounts & thresholds)
+Set distribution frequency (monthly, quarterly)
+Enable/disable bonus program
+Bonus eligibility rules
+
+
+
+🧪 Testing Checklist:
+
+ Withdrawal approval works
+ Transfer proof upload works
+ Withdrawal rejection sends email
+ Batch payment processing works
+ Balance deducted on completion
+ Can create job posting
+ Job broadcast to partners works
+ Can approve job application
+ Partner can submit work
+ Can approve submission
+ Commission calculated correctly (with penalty if late)
+ Can request revision
+ Late penalty applies correctly
+ Manual commission adjustment works
+ Commission reversal works
+ Tier configuration saves
+ Bonus tiers configurable
+ ARPU calculates monthly
+ Bonus distributes correctly
+ Penalty auto-deduct works
+ Penalty appeal functional
+ Appeal approval waives penalty

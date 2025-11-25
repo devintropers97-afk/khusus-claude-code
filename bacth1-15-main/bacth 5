@@ -1,0 +1,171 @@
+🔷 BATCH 5: PARTNER DASHBOARD - ADVANCED + SUBSCRIPTION AUTO-DEDUCT
+Priority: HIGH | Files: ~40 | Duration: Test 2-3 hari
+📂 Files to Create:
+/partner/
+├── /penalties/
+│   ├── index.php                 # Penalties overview
+│   ├── subscription-stops.php    # Auto-deduct tracking
+│   ├── late-deliveries.php       # Late delivery penalties
+│   ├── quality-issues.php        # Quality-based penalties
+│   └── appeal.php                # Appeal penalty (future)
+│
+├── /notifications/
+│   ├── index.php                 # All notifications
+│   ├── commission-alerts.php     # Commission notifications
+│   ├── withdrawal-updates.php    # Withdrawal status updates
+│   ├── job-notifications.php     # Job board notifications
+│   └── system-announcements.php  # System-wide announcements
+│
+├── /leaderboard/                  # 🆕 Will be in Batch 8-10
+│   └── preview.php               # Leaderboard preview (read-only)
+│
+└── /reports/
+    ├── monthly-report.php        # Generate monthly report
+    ├── tax-report.php            # Tax calculation (NPWP)
+    └── export.php                # Export data (CSV, PDF)
+
+/cron/
+├── check-subscription-stops.php  # Daily cron: Check stopped subscriptions
+├── auto-deduct-commissions.php   # Process auto-deductions
+├── calculate-arpu.php            # Monthly ARPU calculation
+├── tier-maintenance.php          # Update tiers (never decrease)
+└── bonus-distribution.php        # Distribute SPV/Manager bonuses
+
+/controllers/partner/
+├── PenaltyController.php
+├── NotificationController.php
+├── ReportController.php
+└── SubscriptionMonitorController.php
+
+/models/
+├── Penalty.php
+├── SubscriptionMonitor.php
+├── NotificationPartner.php
+└── PartnerReport.php
+
+/emails/partner/
+├── commission-earned.php         # Commission notification
+├── withdrawal-approved.php       # Withdrawal approved
+├── withdrawal-completed.php      # Transfer completed
+├── job-assigned.php              # Job assigned notification
+├── job-approved.php              # Job application approved
+├── penalty-applied.php           # Penalty notification
+├── subscription-stopped.php      # Client subscription stopped
+├── tier-upgraded.php             # Tier upgraded notification
+└── bonus-earned.php              # ARPU bonus earned (SPV/Manager)
+
+/api/webhooks/
+├── payment-verified.php          # Webhook: Payment verified → Calculate commission
+├── subscription-renewed.php      # Webhook: Subscription renewed
+├── subscription-cancelled.php    # Webhook: Subscription cancelled → Check 3-month rule
+└── order-completed.php           # Webhook: Order completed
+✅ Features Completed:
+Subscription Auto-Deduct System (CRITICAL):
+
+✅ 3-Month Minimum Rule:
+
+Client MUST subscribe minimum 3 months for partner to keep commission
+If client stops before 3 months:
+→ Auto-deduct commission from partner balance
+→ Cascade deduction: Partner loses full amount, SPV gets 10%, Manager gets 5%
+→ If partner balance insufficient: Goes negative (debt)
+
+
+✅ Daily Cron Job:
+
+Runs every day at 00:00
+Checks all subscriptions
+Identifies stopped subscriptions
+Calculates months subscribed
+If < 3 months: Trigger auto-deduct
+
+
+✅ Auto-Deduct Process:
+
+  1. Check if subscription stopped
+  2. Calculate subscription duration
+  3. If duration < 3 months:
+     - Get original commission amount
+     - Deduct from partner balance
+     - If partner has downline:
+       → SPV gets 10% of deducted amount (as compensation)
+       → Manager gets 5% of deducted amount (as compensation)
+     - If no downline:
+       → Partner loses 100%
+  4. Send notification to partner
+  5. Log penalty in database
+  6. Update partner balance
+
+✅ Negative Balance Handling:
+
+Partner can go negative balance
+Future commissions will offset negative balance first
+Cannot withdraw until balance is positive
+Email notification on negative balance
+
+
+✅ Client Follow-Up Alternative:
+
+Instead of auto-deduct, admin can assign follow-up to partner
+Partner gets 7 days to convince client to continue
+If successful: No deduction
+If unsuccessful: Deduction applies
+
+
+
+Penalty System:
+
+✅ Subscription stop penalties (auto-deduct)
+✅ Late delivery penalties (job board)
+✅ Quality issue penalties (admin-initiated)
+✅ Penalty history tracking
+✅ Penalty appeal system (manual review)
+
+Notification System:
+
+✅ Real-time notifications (in-app)
+✅ Email notifications
+✅ Notification categories:
+
+Commission earned
+Withdrawal updates
+Job board updates
+Penalties applied
+Tier changes
+Bonus earned
+System announcements
+
+
+✅ Mark as read/unread
+✅ Notification preferences (email on/off per category)
+
+Reporting:
+
+✅ Monthly performance report (PDF download)
+✅ Tax report (NPWP-based calculation)
+✅ Commission breakdown report
+✅ Export data (CSV, Excel, PDF)
+✅ Custom date range reports
+
+Cron Jobs:
+
+✅ Daily subscription monitor
+✅ Monthly ARPU calculation
+✅ Monthly tier updates
+✅ Quarterly bonus distribution (SPV/Manager)
+
+🧪 Testing Checklist:
+
+ Subscription stop detected correctly
+ Auto-deduct calculates accurately
+ Cascade deduction works (Partner/SPV/Manager)
+ Negative balance displays properly
+ Cannot withdraw with negative balance
+ Future commissions offset negative balance
+ Cron jobs run successfully
+ ARPU calculates monthly
+ Tier never decreases
+ Bonuses distribute correctly
+ Notifications sent properly
+ Reports generate correctly
+ Penalty tracking accurate

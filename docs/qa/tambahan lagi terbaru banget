@@ -1,0 +1,191 @@
+nama pakai ini  PT SITUNEO DIGITAL SOLUSI INDONESIA
+
+terus logic parner masukin code referal , pakai code refarall spv ya , terus data2 yang di lengkapin saat daftar partner , wajib lampirin ktp,cv dan alamat domisi , contoh kaya materi yang sudah saya kirim ,terus ada  SPLIT DESIGN LOGIN/REGISTER dengan 2 SECTION kaya contoh yang sudah saya buat di materi yang saya kirim
+
+jika partner ga punya spv , tanpa referal juga bisa
+
+
+iya ini boleh , Nanti bisa diassign ke SPV oleh admin (opsional) , biar partner ada yang ngebimbing ,
+saat register , ada pilihan spv sama manager area ga ya ? ketika dia daftar , mungkin ada tugas2 utama nya di dashboard , ketika data2 lengkap dan di setujuin sama admin , nanti admin bakal telfon atau ketemuan , untuk interview lebih lanjut
+Opsi 1: Dengan Referral SPV
+✅ Partner daftar pakai kode referral SPV
+✅ Otomatis terhubung ke SPV tersebut
+✅ SPV dapat 10% komisi dari order partner ini
+✅ Jika SPV punya Manager, Manager dapat 5%
+Opsi 2: Tanpa Referral (Direct)
+✅ Partner daftar TANPA kode referral
+✅ Langsung jadi partner independent
+✅ Tidak ada atasan (SPV/Manager)
+✅ Dapat komisi base 30-55% (sesuai tier)
+✅ Nanti bisa diassign ke SPV oleh admin (opsional)
+🎯 Form Partner Registration:
+WAJIB:
+
+Nama Lengkap
+Email
+Password
+No. WhatsApp
+Upload KTP (foto/scan)
+Upload CV (PDF/Word)
+Alamat Domisili Lengkap
+
+OPSIONAL:
+
+Kode Referral SPV (jika punya)
+iya ini boleh , Nanti bisa diassign ke SPV oleh admin (opsional) , biar partner ada yang ngebimbing ,
+saat register , ada pilihan spv sama manager area ga ya ? ketika dia daftar , mungkin ada tugas2 utama nya di dashboard , ketika data2 lengkap dan di setujuin sama admin , nanti admin bakal telfon atau ketemuan , untuk interview lebih lanjut
+1️⃣ Register Partner/SPV/Manager
+Form Registration (1 form untuk semua, tapi ada pilihan role):
+┌─────────────────────────────────────────┐
+│   🚀 DAFTAR SEBAGAI MITRA SITUNEO      │
+├─────────────────────────────────────────┤
+│                                         │
+│  Pilih Role:                            │
+│  ○ Partner (Sales/Freelancer)           │
+│  ○ SPV (Supervisor)                     │
+│  ○ Manager Area                         │
+│                                         │
+│  ───────── DATA DIRI ─────────          │
+│  Nama Lengkap: [____________]           │
+│  Email: [____________]                  │
+│  No. WhatsApp: [____________]           │
+│  Password: [____________]               │
+│                                         │
+│  ───────── DOKUMEN ─────────            │
+│  Upload KTP: [Browse...]                │
+│  Upload CV: [Browse...]                 │
+│  Alamat Domisili Lengkap:               │
+│  [________________________]             │
+│  [________________________]             │
+│                                         │
+│  ───────── REFERRAL (Opsional) ────     │
+│  Kode Referral: [____________]          │
+│  (Kosongkan jika tidak punya)           │
+│                                         │
+│  [✓] Saya setuju S&K                    │
+│                                         │
+│  [ DAFTAR SEKARANG ]                  
+
+2️⃣ Setelah Submit Registration
+Status: PENDING APPROVAL (data masuk database, tapi belum aktif)
+Yang terjadi:
+
+✅ Data tersimpan di database
+✅ Status: pending_approval
+✅ Email notifikasi ke partner: "Pendaftaran diterima, menunggu verifikasi admin"
+✅ Notifikasi ke ADMIN: "Partner baru mendaftar, perlu review"
+
+Partner BELUM BISA LOGIN - harus tunggu approval admin dulu
+
+3️⃣ Admin Review & Approval
+Admin Dashboard - Menu "Partner Applications"
+Tampil list semua partner yang pending:
+┌──────────────────────────────────────────────────────┐
+│  PENDING PARTNER APPLICATIONS (3 new)               │
+├──────────────────────────────────────────────────────┤
+│                                                      │
+│  #1. John Doe                                        │
+│      Email: john@email.com                           │
+│      WhatsApp: 08123456789                           │
+│      Role: SPV                                       │
+│      Referral: SITABC123 (SPV Budi)                 │
+│      Dokumen: ✅ KTP | ✅ CV | ✅ Alamat             │
+│      Tanggal Daftar: 10 Nov 2025, 15:30             │
+│                                                      │
+│      [📄 Lihat Detail] [✅ APPROVE] [❌ REJECT]      │
+│  ─────────────────────────────────────────────────  │
+│                                                      │
+│  #2. Jane Smith                                      │
+│      Email: jane@email.com                           │
+│      WhatsApp: 08129876543                           │
+│      Role: Partner                                   │
+│      Referral: (kosong)                              │
+│      Dokumen: ✅ KTP | ✅ CV | ✅ Alamat             │
+│      Tanggal Daftar: 10 Nov 2025, 14:20             │
+│                                                      │
+│      [📄 Lihat Detail] [✅ APPROVE] [❌ REJECT]      │
+└──────────────────────────────────────────────────────┘
+Admin bisa:
+
+✅ Lihat detail lengkap (KTP, CV, alamat)
+✅ Download dokumen
+✅ Approve → Partner bisa login & mulai kerja
+✅ Reject → Beri alasan penolakan
+✅ Schedule Interview → Tandai untuk telepon/ketemuan
+
+4️⃣ Admin Action Options
+Ketika Admin klik "Lihat Detail":
+┌─────────────────────────────────────────────┐
+│  DETAIL APLIKASI PARTNER                    │
+├─────────────────────────────────────────────┤
+│                                             │
+│  📋 DATA DIRI                               │
+│  Nama: John Doe                             │
+│  Email: john@email.com                      │
+│  WhatsApp: 08123456789                      │
+│  Role: SPV                                  │
+│                                             │
+│  📄 DOKUMEN                                 │
+│  KTP: [📥 Download] [👁️ Preview]           │
+│  CV: [📥 Download] [👁️ Preview]            │
+│  Alamat: Jl. Kebon Jeruk No. 123           │
+│           Jakarta Barat 11530               │
+│                                             │
+│  🔗 REFERRAL                                │
+│  Code: SITABC123                            │
+│  Dari: SPV Budi Santoso                     │
+│                                             │
+│  ───────── ADMIN ACTION ─────────           │
+│                                             │
+│  Status Saat Ini: PENDING                   │
+│                                             │
+│  1️⃣ APPROVE                                │
+│     [✅ Approve & Aktifkan Akun]            │
+│     □ Assign ke SPV: [dropdown SPV list]    │
+│     □ Assign ke Manager: [dropdown]         │
+│                                             │
+│  2️⃣ SCHEDULE INTERVIEW                     │
+│     [📞 Tandai untuk Interview]             │
+│     Tanggal: [___________]                  │
+│     Catatan: [___________]                  │
+│     □ Kirim email reminder                  │
+│                                             │
+│  3️⃣ REJECT                                 │
+│     [❌ Tolak Aplikasi]                     │
+│     Alasan: [___________]                   │
+│                                             │
+│  [💬 Kirim Pesan ke Applicant]              │
+└─────────────────────────────────────────────┘
+
+5️⃣ Dashboard Partner (Setelah Approved)
+Partner login pertama kali, akan muncul:
+┌─────────────────────────────────────────────┐
+│  🎉 SELAMAT DATANG DI SITUNEO!              │
+├─────────────────────────────────────────────┤
+│                                             │
+│  Akun Anda telah disetujui!                 │
+│                                             │
+│  📋 TUGAS AWAL ANDA:                        │
+│                                             │
+│  ☐ Lengkapi profil (foto, bio, dll)        │
+│  ☐ Setup rekening bank (untuk komisi)      │
+│  ☐ Pelajari katalog layanan                │
+│  ☐ Download marketing kit                  │
+│  ☐ Buat referral link pertama              │
+│  ☐ Ikuti training video (5 video)          │
+│                                             │
+│  🎯 TARGET AWAL:                            │
+│  Dapatkan 1 client dalam 7 hari pertama!   │
+│                                             │
+│  💰 KOMISI ANDA:                            │
+│  Tier: Bronze (15%)                         │
+│  Target upgrade: 6 orders                   │
+│                                             │
+│  👤 PEMBIMBING ANDA:                        │
+│  SPV: Budi Santoso                          │
+│  WA: 08123456789                            │
+│  [💬 Chat SPV]                              │
+│                                             │
+│  [✅ Mulai Sekarang]                        │
+└─────────────────────────────────────────────┘
+

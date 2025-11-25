@@ -1,0 +1,370 @@
+🔷 BATCH 6: ADMIN PANEL - USER MANAGEMENT
+Priority: HIGH | Files: ~50 | Duration: Test 3-4 hari
+📂 Files to Create:
+/admin/
+├── dashboard.php                  # Admin main dashboard
+│
+├── /users/
+│   ├── index.php                 # All users list (datatable)
+│   ├── view.php                  # View user detail
+│   ├── edit.php                  # Edit user
+│   ├── delete.php                # Delete user (soft delete)
+│   ├── ban.php                   # Ban/unban user
+│   ├── activity-log.php          # User activity history
+│   ├── login-history.php         # Login attempts & history
+│   ├── bulk-actions.php          # Bulk user operations
+│   └── export.php                # Export users (CSV, Excel)
+│
+├── /clients/
+│   ├── index.php                 # All clients list
+│   ├── view.php                  # Client detail (orders, payments, websites)
+│   ├── edit.php                  # Edit client info
+│   ├── orders.php                # Client's orders
+│   ├── payments.php              # Client's payments
+│   ├── subscriptions.php         # Client's subscriptions
+│   ├── websites.php              # Client's websites
+│   ├── support-tickets.php       # Client's support tickets
+│   ├── statistics.php            # Client analytics
+│   ├── referral-source.php       # How client found us
+│   └── lifetime-value.php        # Client LTV calculation
+│
+├── /partners/
+│   ├── index.php                 # All partners list
+│   ├── pending-approval.php      # Pending partner approvals ⭐
+│   ├── approve-partner.php       # Approve/reject partner ⭐
+│   ├── view.php                  # Partner detail
+│   ├── edit.php                  # Edit partner info
+│   ├── commissions.php           # Partner's commissions
+│   ├── withdrawals.php           # Partner's withdrawals
+│   ├── performance.php           # Partner performance metrics
+│   ├── tier-management.php       # Change partner tier
+│   ├── blacklist.php             # Blacklist/whitelist partner
+│   ├── referred-clients.php      # Partner's referred clients
+│   ├── downlines.php             # Partner's downlines (if SPV/Manager)
+│   └── statistics.php            # Partner analytics
+│
+├── /spv/
+│   ├── index.php                 # All SPVs list
+│   ├── view.php                  # SPV detail
+│   ├── promote-to-spv.php        # Promote partner to SPV
+│   ├── demote-from-spv.php       # Demote SPV to partner
+│   ├── assign-partners.php       # Assign partners to SPV
+│   ├── downlines.php             # SPV's downline partners
+│   ├── arpu-tracking.php         # SPV ARPU tracking
+│   ├── bonuses.php               # SPV bonuses earned
+│   └── performance.php           # SPV performance dashboard
+│
+├── /managers/
+│   ├── index.php                 # All Managers list
+│   ├── view.php                  # Manager detail
+│   ├── promote-to-manager.php    # Promote SPV to Manager
+│   ├── assign-region.php         # Assign region to Manager
+│   ├── assign-spvs.php           # Assign SPVs to Manager
+│   ├── region-performance.php    # Regional performance
+│   ├── arpu-tracking.php         # Manager ARPU tracking
+│   ├── bonuses.php               # Manager bonuses earned
+│   └── team-overview.php         # Full team hierarchy
+│
+├── /staff/                        # 🆕 Multi-admin support
+│   ├── index.php                 # Staff users list
+│   ├── create.php                # Create new staff
+│   ├── edit.php                  # Edit staff
+│   ├── permissions.php           # Manage permissions
+│   └── activity-log.php          # Staff activity tracking
+│
+└── /hierarchy/
+    ├── organization-chart.php    # Visual hierarchy tree
+    ├── manage-structure.php      # Manage hierarchies
+    └── bulk-assign.php           # Bulk assignment tool
+
+/controllers/admin/
+├── DashboardController.php
+├── UserController.php
+├── ClientController.php
+├── PartnerController.php
+├── SPVController.php
+├── ManagerController.php
+├── StaffController.php
+└── HierarchyController.php
+
+/models/
+├── Admin.php
+├── Staff.php
+├── Permission.php
+├── UserManagement.php
+├── ClientManagement.php
+├── PartnerManagement.php
+└── Hierarchy.php
+
+/includes/admin/
+├── header.php                    # Admin panel header
+├── sidebar.php                   # Admin sidebar (permission-based)
+├── footer.php                    # Admin panel footer
+├── datatable.php                 # Reusable datatable component
+├── stats-widget.php              # Dashboard stats widget
+└── quick-actions.php             # Quick action buttons
+
+/assets/css/
+├── admin-dashboard.css           # Admin-specific styles
+├── admin-tables.css              # Datatable custom styles
+└── admin-responsive.css          # Admin mobile styles
+
+/assets/js/
+├── admin-dashboard.js            # Admin dashboard scripts
+├── datatable-init.js             # DataTables initialization
+├── chart-admin.js                # Admin charts (Chart.js)
+├── user-management.js            # User CRUD operations
+├── bulk-actions.js               # Bulk operations handler
+└── hierarchy-tree.js             # Organization chart visualizer
+✅ Features Completed:
+Admin Dashboard:
+
+✅ Real-time Stats:
+
+Total users (clients, partners, SPVs, managers)
+Total orders (today, this month, all time)
+Total revenue (today, this month, all time)
+Pending approvals (partners, payments, withdrawals)
+Active subscriptions count
+Conversion rate
+
+
+✅ Charts & Analytics:
+
+Revenue chart (last 12 months)
+Order trends (line chart)
+User growth (bar chart)
+Payment method distribution (pie chart)
+Top performing partners (table)
+Recent activities timeline
+
+
+✅ Quick Actions:
+
+Approve pending partner
+Approve payment
+Approve withdrawal
+Create new order
+View support tickets
+
+
+
+User Management:
+
+✅ All users list with DataTables (search, filter, sort, pagination)
+✅ Filter by role (admin, manager, spv, partner, client)
+✅ Filter by status (active, inactive, banned, pending)
+✅ View user detail (profile, activity, login history)
+✅ Edit user information
+✅ Ban/unban user
+✅ Soft delete (can restore)
+✅ Activity log per user
+✅ Login history (IP, device, location, time)
+✅ Bulk actions (activate, deactivate, delete, export)
+✅ Export to CSV/Excel
+
+Client Management:
+
+✅ All clients list with advanced filters
+✅ Client detail dashboard:
+
+Personal info
+Order history
+Payment history
+Active subscriptions
+Owned websites
+Support tickets
+Referral source tracking
+Lifetime value (LTV)
+Activity timeline
+
+
+✅ Edit client information
+✅ View all client orders with status
+✅ View payment history
+✅ Manage subscriptions (pause, resume, cancel)
+✅ Client statistics & analytics
+✅ Client segmentation (VIP, regular, at-risk)
+✅ Export client data
+
+Partner Management:
+
+✅ Pending Partner Approvals:
+
+List of pending partners (awaiting approval)
+View partner application details
+Approve partner (send approval email)
+Reject partner (with reason, send rejection email)
+Bulk approve/reject
+
+
+✅ All Partners List:
+
+Filter by tier (Tier 1, 2, 3, MAX)
+Filter by status (active, inactive, blacklisted)
+Search by name, email, referral code
+Sort by earnings, referrals, performance
+
+
+✅ Partner Detail Dashboard:
+
+Personal info & documents
+Commission overview (pending, paid, total)
+Withdrawal history
+Referred clients list
+Performance metrics (conversion rate, ARPU, etc)
+Downlines (if SPV/Manager)
+Activity timeline
+Notes/comments (admin-only)
+
+
+✅ Tier Management:
+
+View current tier
+Manually change tier (if needed)
+Tier history tracking
+Tier maintenance (never decreases)
+
+
+✅ Blacklist Management:
+
+Blacklist partner (with reason)
+Whitelist partner
+Blacklist history
+Appeal system (partner can request review)
+
+
+✅ Partner statistics dashboard
+✅ Export partner data
+
+SPV Management:
+
+✅ All SPVs list
+✅ SPV detail dashboard:
+
+Personal info
+Downline partners list
+Total downline orders
+ARPU tracking
+Bonus tier status
+Bonuses earned history
+Performance metrics
+
+
+✅ Promote Partner to SPV:
+
+Select partner
+Assign region/area
+Set initial downlines
+Send promotion notification
+
+
+✅ Demote SPV to Partner:
+
+Reassign downlines
+Remove SPV privileges
+Send demotion notification
+
+
+✅ Assign Partners to SPV:
+
+Bulk partner assignment
+Transfer partners between SPVs
+Unassign partner from SPV
+
+
+✅ ARPU tracking & visualization
+✅ Bonus calculation & distribution
+
+Manager Management:
+
+✅ All Managers list
+✅ Manager detail dashboard:
+
+Personal info
+Assigned region
+Downline SPVs list
+Total downline partners (via SPVs)
+Regional ARPU tracking
+Bonus tier status
+Bonuses earned history
+Regional performance metrics
+
+
+✅ Promote SPV to Manager:
+
+Select SPV
+Assign region
+Assign SPVs to manage
+Send promotion notification
+
+
+✅ Regional Management:
+
+Define regions (Jakarta, Bandung, Surabaya, etc)
+Assign region to Manager
+View regional statistics
+
+
+✅ Team Hierarchy Visualization:
+
+Manager → SPVs → Partners tree view
+Interactive organization chart
+Drag & drop reassignment
+
+
+
+Staff Management (Multi-Admin):
+
+✅ 1 Super Admin (You) + Staff:
+
+Super Admin: Full access to everything
+Staff: Limited access based on permissions
+
+
+✅ Permission System:
+
+View users (read-only)
+Manage users (create, edit, delete)
+View orders
+Manage orders
+Approve payments
+Approve withdrawals
+Manage services
+View reports
+Manage settings (Super Admin only)
+
+
+✅ Staff CRUD operations
+✅ Permission assignment
+✅ Staff activity tracking
+
+Hierarchy Management:
+
+✅ Visual organization chart (Manager → SPV → Partner)
+✅ Drag & drop partner reassignment
+✅ Bulk assignment tools
+✅ Hierarchy reports
+✅ Commission flow visualization
+
+🧪 Testing Checklist:
+
+ Dashboard loads with real-time stats
+ Charts display correctly
+ User list loads with DataTables
+ Can edit user information
+ Can ban/unban users
+ Activity log tracks actions
+ Client detail shows all info
+ Partner approval works
+ Approve/reject sends emails
+ Tier management functional
+ Blacklist system works
+ Promote to SPV works
+ Assign partners to SPV works
+ Promote to Manager works
+ ARPU tracking accurate
+ Bonus calculation correct
+ Staff permissions work
+ Organization chart displays
+ Export functions work

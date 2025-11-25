@@ -1,0 +1,1099 @@
+📋 REKAPITULASI LENGKAP & DETAIL - SITUNEO DIGITAL PROJECT
+Date: November 10, 2025
+Project: SITUNEO Digital Platform - Complete Rebuild
+Status: ✅ READY TO START DEVELOPMENT
+
+📚 PART 1: SEMUA FILE YANG SUDAH DIBACA
+✅ Total: 65+ Files | 75,000+ Baris Kode & Dokumentasi
+NoFile NameBarisStatusKategori1ARTI-FILOSOFI-NAMA-SITUNEO-LENGKAP.md630✅Brand & Philosophy2baca_ini367✅Instructions3cek645✅Bug Report4ini_materi_fix30✅Summary5rekapan_final2,650✅Complete Spec6TAMBAHAN1305✅Q&A Answers7TAMBAHAN23,023✅Requirements8fix_wajib2,496✅Main Template9semuamaterifix5,768✅Service Catalog1050_LAYANAN_KATEGORI53✅Categories11database_wajib512✅DB Credentials12komisi_freelance1,500✅Commission System13dahsboard122K✅Dashboard Template14indexx110K✅Index Template15contohlayanan240K✅Service Examples16formulir4.5K✅Form Templates17login12K✅Login Page18registerr15K✅Register Page19-65lanjutan2 - lanjutan51Various✅Code Snippets
+
+🎯 PART 2: BRAND & PHILOSOPHY
+A. Filosofi Nama SITUNEO
+SITU (Situs = Website dalam Bahasa Indonesia)
+  +
+NEO (New = Baru dalam Bahasa Yunani)
+  =
+SITUNEO = "Website Era Baru" / "New Generation Digital Platform"
+B. Brand Identity
+
+Tagline: "Build Your Future, Today"
+Campaign: "GO NEO" - Mengajak bisnis transformasi digital
+Vision 2035: Platform digital empowerment terbesar Indonesia
+
+C. Brand Personality
+
+Innovator: Selalu pakai teknologi terbaru
+Enabler: Memberdayakan bisnis kecil
+Reliable: Bisa diandalkan 24/7
+Accessible: Mudah diakses semua kalangan
+Visionary: Melihat jauh ke depan
+
+D. Design System
+Colors:
+cssPrimary Blue: #1E5C99
+Dark Blue: #0F3057
+Gold: #FFB400
+Bright Gold: #FFD700
+White: #FFFFFF
+Text Light: #E9ECEF
+
+Gradients:
+- Primary: linear-gradient(135deg, #1E5C99 0%, #0F3057 100%)
+- Gold: linear-gradient(135deg, #FFD700 0%, #FFB400 100%)
+```
+
+**Typography:**
+```
+Headings: Plus Jakarta Sans (400, 600, 700, 800, 900)
+Body: Inter (300, 400, 500, 600, 700, 800, 900)
+```
+
+**Effects & Animations:**
+- Network particle background (Canvas API)
+- Circuit pattern overlay
+- Loading screen with logo animation
+- Floating WhatsApp button (pulse effect)
+- Order notification popup (bottom-left)
+- Back to top button
+- Smooth scroll (GSAP)
+- AOS animations (fade, slide, zoom)
+- NIB badge with pulse animation
+
+---
+
+## 💼 **PART 3: BUSINESS MODEL LENGKAP**
+
+### **A. Pricing System**
+
+#### **1. BELI PUTUS (One-Time Payment)**
+```
+Landing Page (1 halaman): Rp 350,000
+Multi-page: Rp 350,000 × jumlah halaman
+
+Contoh:
+- 1 halaman = Rp 350,000
+- 5 halaman = Rp 1,750,000
+- 10 halaman = Rp 3,500,000
+
+Included:
+✅ Website jadi (ownership 100%)
+✅ Domain gratis 1 tahun
+✅ Hosting gratis 1 bulan
+✅ SSL Certificate
+
+NOT Included:
+❌ Maintenance & support
+❌ Hosting perpanjangan
+❌ Minor updates
+```
+
+#### **2. SEWA BULANAN (Subscription)**
+```
+Landing Page (1 halaman): Rp 150,000/bulan
+Multi-page: Rp 150,000 × jumlah halaman
+
+Contoh:
+- 1 halaman = Rp 150,000/bulan
+- 5 halaman = Rp 750,000/bulan
+- 10 halaman = Rp 1,500,000/bulan
+
+KEY FEATURES:
+✅ NO Setup Fee (GRATIS!)
+✅ NO Kontrak Minimum
+✅ Minimal berlangganan: 3 bulan (untuk komisi partner)
+
+Included:
+✅ Domain (always included)
+✅ Hosting (always included)
+✅ SSL Certificate (always included)
+✅ Maintenance & backup
+✅ Support 24/7 via WhatsApp
+✅ Minor updates (text, foto)
+✅ Security updates
+```
+
+#### **3. Special: Client Premium (>Rp 5jt)**
+```
+Jika client order >Rp 5 juta:
+✅ Dapat akses dashboard admin khusus
+✅ Bisa edit website sendiri
+✅ Full control atas konten
+✅ Training penggunaan dashboard
+```
+
+#### **4. Paket Bundling (6 Paket)**
+```
+1. Starter Package: Rp 2,500,000 (dari Rp 3,500,000)
+2. Business Package: Rp 4,000,000 (dari Rp 6,000,000) ⭐ MOST POPULAR
+3. Premium Package: Rp 6,500,000 (dari Rp 10,000,000)
+4. Corporate Package: Rp 12,000,000
+5. Enterprise Package: Rp 25,000,000
+6. Custom Package: Negotiable
+```
+
+---
+
+### **B. Commission System - Partner/Freelancer**
+
+#### **Tier Structure (FINAL)**
+```
+┌──────────┬─────────────────┬──────────┬─────────────────┐
+│   Tier   │  Order/Bulan    │  Komisi  │  Maintenance    │
+├──────────┼─────────────────┼──────────┼─────────────────┤
+│ TIER 1   │  0-10 order     │   30%    │  TETAP BERTAHAN │
+│ TIER 2   │  10-25 order    │   40%    │  TETAP BERTAHAN │
+│ TIER 3   │  50+ order      │   50%    │  TETAP BERTAHAN │
+│ TIER MAX │  75+ order      │   55%    │  BONUS 5%       │
+└──────────┴─────────────────┴──────────┴─────────────────┘
+
+CRITICAL RULE: Tier MAINTENANCE
+- Jika Tier 2 bulan ini, bulan depan <10 order → TETAP Tier 2
+- Tier tidak turun, hanya naik!
+```
+
+#### **Komisi Calculation Rules**
+
+**A. Beli Putus (One-Time):**
+```
+Komisi = (Harga × Tier %)
+Dibayar: Setelah client bayar lunas & serah terima (admin approve)
+
+Contoh:
+- Client order Landing Page Rp 350K
+- Partner Tier 2 (40%)
+- Komisi = Rp 350K × 40% = Rp 140K
+```
+
+**B. Sewa Bulanan (Subscription):**
+```
+Komisi = (Harga Bulanan × Tier %) × 1 bulan ONLY
+Syarat: Client WAJIB minimal berlangganan 3 bulan
+
+CRITICAL RULE:
+- Jika client STOP sebelum 3 bulan:
+  → Komisi partner DIPOTONG di bulan berikutnya
+  → Potongan dibagi: SPV 10%, Manager Area 5% (jika ada)
+  → Jika tidak punya atasan: Partner dipotong 100%
+  → Alternatif: Partner diberi data client untuk follow-up
+
+Contoh:
+- Client order Landing Page Rp 150K/bulan
+- Partner Tier 2 (40%)
+- Komisi = Rp 150K × 40% = Rp 60K (ONE-TIME, bulan pertama)
+- Client harus berlangganan minimal 3 bulan
+- Jika client stop bulan ke-2:
+  → Partner kena potong Rp 60K dari saldo
+  → SPV dapat Rp 6K (10%)
+  → Manager dapat Rp 3K (5%)
+  → Partner sisa dipotong Rp 51K
+```
+
+---
+
+### **C. Partner Hierarchy System**
+```
+┌─────────────────────────────────────┐
+│       ADMIN (GOD MODE)              │
+│  - Full control semua website       │
+│  - Manage users, services, pricing  │
+│  - Approve payments & withdrawals   │
+│  - Assign tasks ke partner          │
+└─────────────────┬───────────────────┘
+                  │
+    ┌─────────────┴─────────────┐
+    │                           │
+┌───▼───────────┐    ┌──────────▼──────────┐
+│ MANAGER AREA  │    │  CLIENT (BUYER)     │
+│ - 5% komisi   │    │  - Order website    │
+│ - Bonus tiers │    │  - Pay & manage     │
+└───┬───────────┘    └─────────────────────┘
+    │
+┌───▼──────────┐
+│     SPV      │
+│ - 10% komisi │
+│ - Bonus tiers│
+└───┬──────────┘
+    │
+┌───▼──────────┐
+│   PARTNER    │
+│ - 30-55% base│
+│ - Cari client│
+│ - Terima task│
+└──────────────┘
+```
+
+#### **1. PARTNER (Base Level)**
+```
+Tugas Utama:
+✅ Cari client via referral link
+✅ Terima tugas tambahan dari admin (opsional)
+✅ Follow-up client yang berhenti berlangganan
+
+Referral Link Format:
+https://situneo.my.id/register/partner-username
+
+Tracking:
+- Partner bisa custom username
+- Link pertama yang diklik = yang dapat komisi
+- Cookie tracking: TIDAK (siapa daftar duluan = dapat)
+
+Komisi:
+- 30-55% dari order (sesuai tier)
+- One-time per order
+- Bisa withdraw minimal Rp 50K
+```
+
+#### **2. SPV (Supervisor)**
+```
+Tugas:
+✅ Manage partner-partner dibawahnya
+✅ Cari client (seperti partner)
+✅ Monitor performance downline
+
+Komisi:
+- 10% dari setiap order yang dibawa partner downline-nya
+- Bonus tier berdasarkan ARPU (Average Revenue Per User)
+
+Bonus Tier SPV:
+┌──────┬────────────────┬─────────────┐
+│ Tier │ Target ARPU    │ Bonus       │
+├──────┼────────────────┼─────────────┤
+│  1   │ Rp 15,000,000  │ Rp 500,000  │
+│  2   │ Rp 35,000,000  │ Rp 1,000,000│
+│  3   │ Rp 75,000,000  │ Rp 2,000,000│
+│  4   │ Rp 200,000,000+│ Rp 10,000,000│
+└──────┴────────────────┴─────────────┘
+```
+
+#### **3. MANAGER AREA**
+```
+Tugas:
+✅ Manage SPV-SPV di area tertentu
+✅ Cari client (seperti partner)
+✅ Strategi & growth planning
+
+Komisi:
+- 5% dari setiap order yang dibawa SPV & partner dibawahnya
+- Bonus tier berdasarkan ARPU
+
+Bonus Tier Manager Area:
+┌──────┬────────────────┬─────────────┐
+│ Tier │ Target ARPU    │ Bonus       │
+├──────┼────────────────┼─────────────┤
+│  1   │ Rp 45,000,000  │ Rp 1,000,000│
+│  2   │ Rp 105,000,000 │ Rp 2,000,000│
+│  3   │ Rp 225,000,000 │ Rp 3,000,000│
+│  4   │ Rp 600,000,000+│ Rp 15,000,000│
+└──────┴────────────────┴─────────────┘
+
+Contoh Cascade:
+┌──────────────────────────────────────┐
+│ Client order Rp 10,000,000           │
+├──────────────────────────────────────┤
+│ Partner (Tier 2, 40%) = Rp 4,000,000│
+│ SPV (10%)             = Rp 1,000,000│
+│ Manager (5%)          = Rp 500,000  │
+│ SITUNEO               = Rp 4,500,000│
+└──────────────────────────────────────┘
+```
+
+---
+
+### **D. Job Board System (Tugas Tambahan)**
+```
+Flow: ADMIN → POST TUGAS → BROADCAST → PARTNER APPLY → ADMIN APPROVE → PARTNER KERJA → SUBMIT → ADMIN REVIEW → PAYMENT
+
+Job Types:
+1. Website Development (bulk order)
+2. Content Writing (artikel SEO)
+3. Design (logo, banner, brochure)
+4. Marketing (social media management)
+5. Data Entry
+6. Customer Support
+7. Custom Tasks
+```
+
+---
+
+## 🏢 **PART 4: LAYANAN & KATEGORI**
+
+### **A. 232+ Layanan dalam 10 Divisi**
+```
+DIVISI 1: WEBSITE DEVELOPMENT (26 layanan)
+DIVISI 2: DIGITAL MARKETING (32 layanan)
+DIVISI 3: BRANDING & DESIGN (28 layanan)
+DIVISI 4: CONTENT CREATION (24 layanan)
+DIVISI 5: AI & AUTOMATION (18 layanan)
+DIVISI 6: ANALYTICS & DATA (22 layanan)
+DIVISI 7: MAINTENANCE & SUPPORT (20 layanan)
+DIVISI 8: TRAINING & CONSULTING (18 layanan)
+DIVISI 9: LEGAL & COMPLIANCE (15 layanan)
+DIVISI 10: INTEGRATION & API (29 layanan)
+```
+
+### **B. 53 Kategori Bisnis → 1500+ Website Types**
+
+**Top 20 Categories:**
+1. E-commerce & Toko Online
+2. Company Profile
+3. Restoran & Cafe
+4. Klinik & Kesehatan
+5. Properti & Real Estate
+6. Hotel & Pariwisata
+7. Pendidikan & Kursus
+8. Salon & Kecantikan
+9. Otomotif (Bengkel, Dealer, Car Wash)
+10. Fashion & Retail
+11. Jasa Profesional (Konsultan, IT, Marketing)
+12. Event Organizer
+13. Laundry & Cleaning Service
+14. Undangan Digital
+15. Portfolio & Galeri
+16. Komunitas & Forum
+17. Marketplace
+18. Membership & Subscription
+19. Booking System
+20. Dashboard & Admin Panel
+
+**...dan 33 kategori lainnya** (total 53)
+
+---
+
+## 💾 **PART 5: DATABASE STRUCTURE**
+
+### **A. Database Credentials**
+```
+Host: localhost
+Database: nrrskfvk_situneo_digital
+Username: nrrskfvk_user_situneo_digital
+Password: Devin1922$ (akan dipindah ke .env)
+Charset: utf8mb4
+Collation: utf8mb4_unicode_ci
+B. Database Tables (70+ Tables)
+Core Tables:
+sql1. users (admin, client, freelancer)
+2. user_roles
+3. user_permissions
+4. sessions
+5. login_attempts
+6. password_resets
+7. email_verifications
+8. activity_logs
+Business Tables:
+sql9. categories (53 main categories)
+10. subcategories
+11. services (232+ layanan)
+12. service_categories
+13. pricing_plans
+14. pricing_tiers
+15. bundles
+Order & Payment:
+sql16. orders
+17. order_items
+18. order_status_history
+19. payments
+20. payment_methods
+21. invoices
+22. transactions
+Partner System:
+sql23. partners
+24. partner_tiers
+25. referrals
+26. commissions
+27. commission_history
+28. withdrawals
+29. withdrawal_requests
+30. partner_hierarchy
+Job Board:
+sql31. jobs
+32. job_applications
+33. job_submissions
+34. job_reviews
+Demo & Portfolio:
+sql35. demos
+36. demo_categories
+37. portfolios
+38. portfolio_images
+Content:
+sql39. pages
+40. posts
+41. post_categories
+42. post_tags
+43. comments
+44. faqs
+45. testimonials
+Communication:
+sql46. support_tickets
+47. ticket_messages
+48. notifications
+49. email_templates
+50. email_queue
+Settings:
+sql51. settings
+52. languages
+53. translations
+54. currencies
+Analytics:
+sql55. visitor_logs
+56. page_views
+57. conversion_tracking
+58. utm_tracking
+Media:
+sql59. media
+60. media_folders
+Additional Tables (10+):
+sql61-70. Custom tables sesuai kebutuhan fitur tambahan
+```
+
+---
+
+## 🎨 **PART 6: DESIGN & TECH STACK**
+
+### **A. Frontend**
+```
+HTML5 (Semantic markup)
+CSS3 (Custom properties, Grid, Flexbox)
+Bootstrap 5.3.3 (Layout & components)
+JavaScript ES6+ (Modules, async/await)
+```
+
+### **B. Backend**
+```
+PHP 7.4+ (OOP, PDO, prepared statements)
+MySQL 8.0+ (InnoDB, transactions)
+C. Libraries & Frameworks
+javascript// Animations
+GSAP 3.x (Timeline animations)
+AOS 2.3.1 (Scroll animations)
+
+// UI Enhancements
+Bootstrap Icons 1.11.3
+Canvas API (Network particles)
+
+// Utilities
+jQuery 3.x (DOM manipulation - minimal use)
+SweetAlert2 (Beautiful alerts)
+Chart.js (Analytics charts)
+DataTables (Table management)
+D. Fonts
+css@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;600;700;800;900&display=swap');
+E. CDN Resources
+html<!-- Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+
+<!-- Bootstrap Icons -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+<!-- AOS -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+
+<!-- GSAP -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+```
+
+---
+
+## 📁 **PART 7: FILE STRUCTURE (400+ Files)**
+
+### **Architecture: MODULAR**
+```
+Principle: 1 FILE = 1 PURPOSE
+Benefits: 
+- Easy to find
+- Easy to edit
+- Easy to test
+- Easy to revise
+- Easy to maintain
+```
+
+### **Root Structure:**
+```
+situneo/
+├── .env                          # Environment variables (GIT IGNORE!)
+├── .htaccess                     # URL rewriting, security
+├── index.php                     # Entry point
+├── composer.json                 # Dependencies (future)
+├── package.json                  # NPM packages (future)
+├── README.md                     # Documentation
+├── LICENSE                       # License file
+│
+├── /config/                      # Configuration files
+│   ├── database.php              # DB connection (uses .env)
+│   ├── bootstrap.php             # App initialization
+│   ├── constants.php             # Global constants
+│   ├── routes.php                # URL routes
+│   └── mail.php                  # Email configuration
+│
+├── /core/                        # Core classes
+│   ├── Database.php              # PDO wrapper
+│   ├── Router.php                # URL routing
+│   ├── Session.php               # Session management
+│   ├── Auth.php                  # Authentication
+│   ├── Validator.php             # Input validation
+│   ├── Upload.php                # File upload handler
+│   ├── Paginator.php             # Pagination
+│   └── Mailer.php                # Email sender
+│
+├── /helpers/                     # Helper functions
+│   ├── common.php                # Common functions
+│   ├── formatting.php            # Format helpers
+│   ├── pricing.php               # Price calculations
+│   ├── validation.php            # Validation rules
+│   ├── security.php              # Security functions
+│   └── email.php                 # Email helpers
+│
+├── /includes/                    # Reusable components
+│   ├── header/
+│   │   ├── public-header.php
+│   │   ├── client-header.php
+│   │   ├── freelancer-header.php
+│   │   └── admin-header.php
+│   ├── footer/
+│   │   ├── public-footer.php
+│   │   ├── client-footer.php
+│   │   ├── freelancer-footer.php
+│   │   └── admin-footer.php
+│   ├── sidebar/
+│   │   ├── client-sidebar.php
+│   │   ├── freelancer-sidebar.php
+│   │   └── admin-sidebar.php
+│   └── components/
+│       ├── alert.php
+│       ├── breadcrumb.php
+│       ├── modal.php
+│       └── pagination.php
+│
+├── /public/                      # Public pages
+│   ├── index.php                 # Homepage
+│   ├── about.php                 # About us
+│   ├── services.php              # Services catalog
+│   ├── service-detail.php        # Service detail
+│   ├── pricing.php               # Pricing packages
+│   ├── portfolio.php             # Portfolio grid
+│   ├── portfolio-detail.php      # Portfolio detail
+│   ├── demo.php                  # Demo showcase
+│   ├── contact.php               # Contact form
+│   ├── blog.php                  # Blog listing
+│   ├── blog-detail.php           # Blog post
+│   ├── calculator.php            # Price calculator
+│   ├── faq.php                   # FAQ page
+│   ├── terms.php                 # Terms & conditions
+│   ├── privacy.php               # Privacy policy
+│   └── sitemap.php               # HTML sitemap
+│
+├── /auth/                        # Authentication
+│   ├── login.php
+│   ├── register.php
+│   ├── register-freelancer.php
+│   ├── forgot-password.php
+│   ├── reset-password.php
+│   ├── verify-email.php
+│   └── logout.php
+│
+├── /client/                      # Client dashboard
+│   ├── dashboard.php
+│   ├── orders/
+│   │   ├── index.php
+│   │   ├── create.php
+│   │   ├── detail.php
+│   │   └── history.php
+│   ├── payments/
+│   │   ├── index.php
+│   │   ├── invoice.php
+│   │   └── history.php
+│   ├── profile/
+│   │   ├── index.php
+│   │   ├── edit.php
+│   │   └── change-password.php
+│   └── support/
+│       ├── index.php
+│       ├── create.php
+│       └── detail.php
+│
+├── /freelancer/                  # Freelancer dashboard
+│   ├── dashboard.php
+│   ├── referrals/
+│   │   ├── index.php
+│   │   └── link.php
+│   ├── commissions/
+│   │   ├── index.php
+│   │   └── history.php
+│   ├── withdrawals/
+│   │   ├── index.php
+│   │   ├── request.php
+│   │   └── history.php
+│   ├── jobs/
+│   │   ├── index.php
+│   │   ├── apply.php
+│   │   ├── my-jobs.php
+│   │   └── submit.php
+│   ├── profile/
+│   │   ├── index.php
+│   │   ├── edit.php
+│   │   └── change-password.php
+│   └── analytics/
+│       └── index.php
+│
+├── /admin/                       # Admin panel
+│   ├── dashboard.php
+│   ├── users/
+│   │   ├── index.php
+│   │   ├── create.php
+│   │   ├── edit.php
+│   │   └── delete.php
+│   ├── services/
+│   │   ├── index.php
+│   │   ├── create.php
+│   │   ├── edit.php
+│   │   └── delete.php
+│   ├── categories/
+│   │   ├── index.php
+│   │   ├── create.php
+│   │   ├── edit.php
+│   │   └── delete.php
+│   ├── orders/
+│   │   ├── index.php
+│   │   ├── detail.php
+│   │   ├── approve.php
+│   │   └── cancel.php
+│   ├── payments/
+│   │   ├── index.php
+│   │   ├── approve.php
+│   │   └── reject.php
+│   ├── withdrawals/
+│   │   ├── index.php
+│   │   ├── approve.php
+│   │   └── reject.php
+│   ├── jobs/
+│   │   ├── index.php
+│   │   ├── create.php
+│   │   ├── edit.php
+│   │   └── applications.php
+│   ├── demos/
+│   │   ├── index.php
+│   │   ├── create.php
+│   │   ├── edit.php
+│   │   └── builder.php
+│   ├── portfolios/
+│   │   ├── index.php
+│   │   ├── create.php
+│   │   └── edit.php
+│   ├── pricing/
+│   │   ├── index.php
+│   │   └── edit.php
+│   ├── settings/
+│   │   ├── general.php
+│   │   ├── email.php
+│   │   ├── payment.php
+│   │   └── seo.php
+│   └── reports/
+│       ├── sales.php
+│       ├── commissions.php
+│       └── analytics.php
+│
+├── /demos/                       # 50 Demo websites
+│   ├── demo-1-toko-fashion/
+│   ├── demo-2-restoran/
+│   ├── demo-3-klinik/
+│   └── ... (50 demos total)
+│
+├── /assets/                      # Static assets
+│   ├── css/
+│   │   ├── main.css
+│   │   ├── animations.css
+│   │   ├── responsive.css
+│   │   ├── client.css
+│   │   ├── freelancer.css
+│   │   └── admin.css
+│   ├── js/
+│   │   ├── main.js
+│   │   ├── network-animation.js
+│   │   ├── smooth-scroll.js
+│   │   ├── aos-init.js
+│   │   ├── form-validation.js
+│   │   ├── chart-init.js
+│   │   └── admin.js
+│   ├── images/
+│   │   ├── logo/
+│   │   ├── icons/
+│   │   ├── backgrounds/
+│   │   └── placeholders/
+│   └── uploads/
+│       ├── avatars/
+│       ├── portfolios/
+│       └── demos/
+│
+├── /api/                         # API endpoints (future)
+│   └── v1/
+│
+├── /cron/                        # Cron jobs
+│   ├── email-queue.php
+│   └── backup.php
+│
+└── /vendor/                      # Composer packages (future)
+```
+
+---
+
+## 🏢 **PART 8: COMPANY DATA**
+```
+Nama Perusahaan: PT Permata Cahaya Abadi
+Brand: SITUNEO DIGITAL
+Tagline: Build Your Future, Today
+
+Direktur: Devin Prasetyo Hermawan
+NIB: 20250-9261-4570-4515-5453
+NPWP: 90.296.264.6-002.000
+
+Website: https://situneo.my.id
+Email: vins@situneo.my.id
+WhatsApp: +62 831-7386-8915
+
+Address:
+Jl. Bekasi Timur IX Dalam No. 27
+Jakarta Timur
+Indonesia
+
+Social Media:
+Instagram: @situneo.digital
+Facebook: /situneo.digital
+LinkedIn: /company/situneo-digital
+Twitter: @situneo_id
+```
+
+---
+
+## ✅ **PART 9: HASIL JAWABAN PERTANYAAN**
+
+### **Q1: DATABASE**
+✅ **Langsung Production** (otomatis semua)
+- Connect langsung ke: `nrrskfvk_situneo_digital`
+- Auto-create tables dengan migration
+- No manual import needed
+
+### **Q2: BATCH SYSTEM**
+✅ **Opsi B - 10 Batch Sedang** (40-50 files per batch)
+```
+Batch 1: Foundation & Core Setup (45-50 files)
+Batch 2: Authentication System (40 files)
+Batch 3: Client Dashboard (45 files)
+Batch 4: Freelancer Dashboard (50 files)
+Batch 5: Admin Panel Part 1 (50 files)
+Batch 6: Admin Panel Part 2 + 10 Demos (45 files)
+Batch 7: 10 Demos (30 files)
+Batch 8: 10 Demos (30 files)
+Batch 9: 10 Demos (30 files)
+Batch 10: 10 Demos + Final Polish (40 files)
+Q3: 50 DEMO WEBSITES
+✅ Opsi C - Bertahap (10 demo per batch)
+
+Batch 6: Demo 1-10
+Batch 7: Demo 11-20
+Batch 8: Demo 21-30
+Batch 9: Demo 31-40
+Batch 10: Demo 41-50
+
+Q4: EXISTING FILES
+✅ Opsi B & C - Fresh Start + Mix
+
+Fresh start untuk struktur baru
+Ambil yang bagus dari existing (logic, design patterns)
+Rebuild semua dengan standard baru
+
+Q5: CREDENTIALS & SECURITY
+✅ Ganti ke .env file
+env# .env file
+DB_HOST=localhost
+DB_NAME=nrrskfvk_situneo_digital
+DB_USER=nrrskfvk_user_situneo_digital
+DB_PASS=Devin1922$
+DB_CHARSET=utf8mb4
+DB_COLLATE=utf8mb4_unicode_ci
+
+APP_ENV=production
+APP_DEBUG=false
+APP_URL=https://situneo.my.id
+
+MAIL_HOST=smtp.yourdomain.com
+MAIL_PORT=587
+MAIL_USERNAME=noreply@situneo.my.id
+MAIL_PASSWORD=your_mail_password
+MAIL_FROM=noreply@situneo.my.id
+MAIL_FROM_NAME=SITUNEO DIGITAL
+```
+
+### **Q6: DEPLOYMENT**
+✅ **Opsi A - ZIP File + Manual Upload**
+- Saya kirim ZIP file setiap batch
+- Anda upload manual ke cPanel
+- Extract langsung ke `public_html/`
+
+### **Q7: TESTING**
+✅ **Opsi B - Anda Test di Production**
+- Saya kirim batch complete
+- Anda upload & test di https://situneo.my.id
+- Anda kasih feedback
+- Saya fix jika ada issue
+
+### **Q8: BUGS**
+✅ **Opsi B - Fresh Start (Ignore Bugs Lama)**
+- Rebuild dari nol dengan struktur baru
+- Implement best practices from the start
+- No legacy bugs
+
+### **Q9: TIMELINE**
+✅ **Secepat Mungkin, Quality Maksimal**
+- Fast development
+- High quality code
+- Production-ready
+- No deadline pressure, tapi optimized speed
+
+### **Q10: COMMUNICATION**
+✅ **Opsi A - Update Per Batch di Chat Ini**
+- Setiap batch selesai, saya update progress
+- Kirim ZIP file + changelog
+- Anda review & feedback
+- Lanjut batch berikutnya
+
+---
+
+## 🎯 **PART 10: DEVELOPMENT PLAN LENGKAP**
+
+### **BATCH 1: FOUNDATION & CORE SETUP** ⏳ Est: 45-50 files
+
+**Files to Create:**
+```
+✅ .env (credentials aman)
+✅ .htaccess (security + URL rewriting)
+✅ index.php (entry point)
+✅ /config/ (4 files: database, bootstrap, constants, routes)
+✅ /core/ (7 files: Database, Router, Session, Auth, Validator, Upload, Paginator)
+✅ /helpers/ (6 files: common, formatting, pricing, validation, security, email)
+✅ /includes/header/ (1 file: public-header)
+✅ /includes/footer/ (1 file: public-footer)
+✅ /assets/css/ (3 files: main, animations, responsive)
+✅ /assets/js/ (5 files: main, network-animation, smooth-scroll, aos-init, form-validation)
+✅ /public/ (5 files: index, about, services, contact, 404)
+✅ /database/migrations/ (8 files: create tables)
+✅ README.md (installation guide)
+Database Tables to Create:
+sql1. users
+2. user_roles
+3. sessions
+4. categories (53 categories pre-populated)
+5. services (232+ services pre-populated)
+6. settings
+7. pages
+8. languages
+```
+
+**Features:**
+- ✅ Network particle background (Canvas)
+- ✅ Circuit pattern overlay
+- ✅ Loading screen animation
+- ✅ Floating WhatsApp button
+- ✅ NIB badge (pulse effect)
+- ✅ Smooth scroll + AOS
+- ✅ Mobile-first responsive
+
+---
+
+### **BATCH 2: AUTHENTICATION SYSTEM** ⏳ Est: 40 files
+
+**Files:**
+```
+✅ /auth/ (7 files: login, register, register-freelancer, forgot-password, reset-password, verify-email, logout)
+✅ /includes/components/ (3 files: alert, modal, form-helpers)
+✅ Email templates (5 files)
+✅ Auth middleware
+Database Tables:
+sql9. password_resets
+10. email_verifications
+11. login_attempts
+12. activity_logs
+```
+
+---
+
+### **BATCH 3: CLIENT DASHBOARD** ⏳ Est: 45 files
+
+**Files:**
+```
+✅ /client/ (20+ files: dashboard, orders, payments, profile, support)
+✅ /includes/header/client-header.php
+✅ /includes/footer/client-footer.php
+✅ /includes/sidebar/client-sidebar.php
+✅ /assets/css/client.css
+✅ /assets/js/client.js
+Database Tables:
+sql13. orders
+14. order_items
+15. order_status_history
+16. payments
+17. invoices
+18. transactions
+19. support_tickets
+20. ticket_messages
+```
+
+---
+
+### **BATCH 4: FREELANCER DASHBOARD** ⏳ Est: 50 files
+
+**Files:**
+```
+✅ /freelancer/ (25+ files: dashboard, referrals, commissions, withdrawals, jobs, profile, analytics)
+✅ /includes/header/freelancer-header.php
+✅ /includes/footer/freelancer-footer.php
+✅ /includes/sidebar/freelancer-sidebar.php
+✅ /assets/css/freelancer.css
+✅ /assets/js/freelancer.js
+Database Tables:
+sql21. partners
+22. partner_tiers
+23. referrals
+24. commissions
+25. commission_history
+26. withdrawals
+27. withdrawal_requests
+28. partner_hierarchy
+29. jobs
+30. job_applications
+31. job_submissions
+32. job_reviews
+```
+
+---
+
+### **BATCH 5: ADMIN PANEL (Part 1)** ⏳ Est: 50 files
+
+**Files:**
+```
+✅ /admin/ (30+ files: dashboard, users, services, categories, orders, payments)
+✅ /includes/header/admin-header.php
+✅ /includes/footer/admin-footer.php
+✅ /includes/sidebar/admin-sidebar.php
+✅ /assets/css/admin.css
+✅ /assets/js/admin.js
+Database Tables:
+sql33. admin_logs
+34. notifications
+35. email_templates
+36. email_queue
+```
+
+---
+
+### **BATCH 6: ADMIN PANEL (Part 2) + 10 DEMOS** ⏳ Est: 45 files
+
+**Files:**
+```
+✅ /admin/ (15+ files: demos, portfolios, pricing, settings, reports)
+✅ /demos/demo-1-toko-fashion/
+✅ /demos/demo-2-restoran/
+✅ /demos/demo-3-klinik/
+✅ /demos/demo-4-service-ac/
+✅ /demos/demo-5-kursus/
+✅ /demos/demo-6-laundry/
+✅ /demos/demo-7-property/
+✅ /demos/demo-8-hotel/
+✅ /demos/demo-9-carwash/
+✅ /demos/demo-10-salon/
+Database Tables:
+sql37. demos
+38. demo_categories
+39. portfolios
+40. portfolio_images
+41. pricing_plans
+42. pricing_tiers
+43. bundles
+```
+
+---
+
+### **BATCH 7-9: 30 DEMOS** ⏳ Est: 30 files each
+
+**Demo 11-40 berbagai kategori bisnis**
+
+---
+
+### **BATCH 10: 10 DEMOS + FINAL POLISH** ⏳ Est: 40 files
+
+**Files:**
+```
+✅ Demo 41-50
+✅ SEO optimization (meta tags, schema markup, sitemap.xml, robots.txt)
+✅ Performance tuning (image optimization, caching, minification)
+✅ Security hardening (XSS, CSRF, SQL injection prevention)
+✅ Testing & debugging
+✅ Documentation (README, INSTALLATION, API docs)
+✅ Deployment guide
+Final Database Tables:
+sql44-70. Additional tables sesuai kebutuhan
+```
+
+---
+
+## 📊 **PART 11: QUALITY STANDARDS**
+
+### **Code Quality:**
+```
+✅ Clean Code (readable, maintainable)
+✅ PSR-12 Coding Standards (PHP)
+✅ ESLint (JavaScript)
+✅ Comments & documentation
+✅ DRY principle (Don't Repeat Yourself)
+✅ SOLID principles (OOP)
+✅ Error handling (try-catch)
+✅ Input validation (server & client)
+✅ Security best practices
+```
+
+### **Design Quality:**
+```
+✅ Visual hierarchy
+✅ Consistent typography
+✅ Color contrast (WCAG AA)
+✅ Intuitive navigation
+✅ Clear CTAs
+✅ Loading indicators
+✅ Success/error feedback
+✅ Mobile-first responsive
+✅ Touch-friendly (44px minimum)
+✅ No horizontal scroll
+```
+
+### **Performance:**
+```
+✅ Optimized images (WebP, lazy loading)
+✅ Minified CSS/JS
+✅ Caching headers
+✅ Database query optimization
+✅ CDN for static assets
+✅ Gzip compression
+```
+
+### **SEO:**
+```
+✅ Meta tags (title, description, keywords)
+✅ Schema markup (JSON-LD)
+✅ Open Graph (social media)
+✅ robots.txt
+✅ sitemap.xml
+✅ Semantic HTML
+✅ Alt text for images
+✅ Clean URLs
+```
+
+### **Security:**
+```
+✅ SQL injection prevention (prepared statements)
+✅ XSS prevention (htmlspecialchars, CSP)
+✅ CSRF protection (tokens)
+✅ Password hashing (bcrypt)
+✅ Session security (secure, httponly, samesite)
+✅ HTTPS (SSL certificate)
+✅ Input sanitization
+✅ Rate limiting
+✅ .env for credentials (not in git)
+

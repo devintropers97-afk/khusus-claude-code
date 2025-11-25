@@ -1,0 +1,589 @@
+🔷 BATCH 8: ADMIN PANEL - SERVICES & CONTENT MANAGEMENT
+Priority: MEDIUM | Files: ~60 | Duration: Test 3-4 hari
+📂 Files to Create:
+/admin/
+├── /services/
+│   ├── index.php                 # All 232+ services list
+│   ├── view.php                  # Service detail
+│   ├── create.php                # Create new service
+│   ├── edit.php                  # Edit service
+│   ├── delete.php                # Delete service (soft delete)
+│   ├── bulk-upload.php           # Bulk upload services (CSV/Excel)
+│   ├── bulk-edit.php             # Bulk edit services
+│   ├── duplicate.php             # Duplicate service
+│   ├── reorder.php               # Reorder services (drag & drop)
+│   ├── categories.php            # Service categories (10 divisi)
+│   ├── features.php              # Service features management
+│   ├── pricing.php               # Service pricing rules
+│   ├── addons.php                # Service addons
+│   ├── faqs.php                  # Service FAQs
+│   ├── reviews.php               # Service reviews moderation
+│   └── statistics.php            # Service analytics (most popular, etc)
+│
+├── /business-categories/
+│   ├── index.php                 # 53 main categories
+│   ├── view.php                  # Category detail
+│   ├── create.php                # Create category
+│   ├── edit.php                  # Edit category
+│   ├── delete.php                # Delete category
+│   ├── subcategories.php         # Manage subcategories
+│   ├── reorder.php               # Reorder categories
+│   └── icon-upload.php           # Upload category icon
+│
+├── /website-types/
+│   ├── index.php                 # 1500+ website types list
+│   ├── auto-generate.php         # Auto-generate types ⭐
+│   ├── view.php                  # Type detail
+│   ├── edit.php                  # Edit type
+│   ├── bulk-edit.php             # Bulk edit types
+│   ├── pricing-rules.php         # Dynamic pricing per type
+│   ├── features.php              # Features per type
+│   ├── templates.php             # Assign template to type
+│   └── statistics.php            # Popular types analytics
+│
+├── /packages/
+│   ├── index.php                 # 6 bundling packages
+│   ├── create.php                # Create package
+│   ├── edit.php                  # Edit package
+│   ├── delete.php                # Delete package
+│   ├── services.php              # Assign services to package
+│   ├── pricing.php               # Package pricing & discounts
+│   ├── featured.php              # Featured packages
+│   └── statistics.php            # Package sales analytics
+│
+├── /blog/
+│   ├── posts/
+│   │   ├── index.php            # All blog posts
+│   │   ├── create.php           # Create post (WYSIWYG editor)
+│   │   ├── edit.php             # Edit post
+│   │   ├── delete.php           # Delete post
+│   │   ├── publish.php          # Publish/unpublish post
+│   │   ├── schedule.php         # Schedule post
+│   │   ├── preview.php          # Preview post
+│   │   └── seo.php              # Post SEO settings
+│   ├── categories/
+│   │   ├── index.php            # Blog categories
+│   │   ├── create.php           # Create category
+│   │   ├── edit.php             # Edit category
+│   │   └── delete.php           # Delete category
+│   ├── tags/
+│   │   ├── index.php            # Blog tags
+│   │   ├── create.php           # Create tag
+│   │   ├── edit.php             # Edit tag
+│   │   └── delete.php           # Delete tag
+│   └── comments/
+│       ├── index.php            # All comments
+│       ├── approve.php          # Approve comment
+│       ├── reject.php           # Reject/spam comment
+│       └── bulk-moderate.php    # Bulk moderation
+│
+├── /portfolio/
+│   ├── index.php                # All portfolio items
+│   ├── create.php               # Create portfolio
+│   ├── edit.php                 # Edit portfolio
+│   ├── delete.php               # Delete portfolio
+│   ├── upload-images.php        # Upload portfolio images (gallery)
+│   ├── categories.php           # Portfolio categories
+│   ├── featured.php             # Featured portfolios
+│   └── reorder.php              # Reorder portfolio items
+│
+├── /pages/
+│   ├── index.php                # Static pages (About, Terms, Privacy)
+│   ├── edit-homepage.php        # Edit homepage content ⭐
+│   ├── edit-about.php           # Edit about page
+│   ├── edit-services.php        # Edit services page
+│   ├── edit-pricing.php         # Edit pricing page
+│   ├── edit-contact.php         # Edit contact page
+│   ├── edit-faq.php             # Edit FAQ page
+│   ├── edit-terms.php           # Edit terms & conditions
+│   ├── edit-privacy.php         # Edit privacy policy
+│   ├── create-custom.php        # Create custom page
+│   └── page-builder.php         # Drag & drop page builder 🆕
+│
+├── /faqs/
+│   ├── index.php                # All FAQs
+│   ├── create.php               # Create FAQ
+│   ├── edit.php                 # Edit FAQ
+│   ├── delete.php               # Delete FAQ
+│   ├── categories.php           # FAQ categories
+│   ├── reorder.php              # Reorder FAQs
+│   └── bulk-import.php          # Bulk import FAQs (CSV)
+│
+├── /testimonials/
+│   ├── index.php                # All testimonials
+│   ├── create.php               # Create testimonial
+│   ├── edit.php                 # Edit testimonial
+│   ├── approve.php              # Approve testimonial
+│   ├── delete.php               # Delete testimonial
+│   ├── featured.php             # Featured testimonials
+│   └── reorder.php              # Reorder testimonials
+│
+├── /contact-messages/
+│   ├── index.php                # All contact form submissions
+│   ├── view.php                 # View message detail
+│   ├── reply.php                # Reply to message
+│   ├── mark-read.php            # Mark as read
+│   ├── delete.php               # Delete message
+│   └── export.php               # Export messages
+│
+├── /media-library/              # 🆕 BONUS FEATURE
+│   ├── index.php                # Media library (images, videos, files)
+│   ├── upload.php               # Upload media
+│   ├── folders.php              # Organize in folders
+│   ├── edit-image.php           # Image editor (crop, resize)
+│   ├── bulk-delete.php          # Bulk delete
+│   └── storage-usage.php        # Storage usage statistics
+│
+└── /website-builder/            # 🆕 BONUS FEATURE
+    ├── templates.php            # Manage templates
+    ├── create-template.php      # Create new template
+    ├── edit-template.php        # Edit template
+    ├── blocks.php               # Reusable blocks (header, footer, etc)
+    ├── create-block.php         # Create block
+    └── export-template.php      # Export template (ZIP)
+
+/controllers/admin/
+├── ServiceController.php
+├── CategoryController.php
+├── WebsiteTypeController.php
+├── PackageController.php
+├── BlogController.php
+├── PortfolioController.php
+├── PageController.php
+├── FAQController.php
+├── TestimonialController.php
+├── ContactController.php
+├── MediaController.php          # 🆕
+└── TemplateController.php       # 🆕
+
+/models/
+├── Service.php
+├── ServiceCategory.php
+├── BusinessCategory.php
+├── WebsiteType.php
+├── Package.php
+├── BlogPost.php
+├── BlogCategory.php
+├── BlogTag.php
+├── Portfolio.php
+├── Page.php
+├── FAQ.php
+├── Testimonial.php
+├── ContactMessage.php
+├── Media.php                    # 🆕
+└── Template.php                 # 🆕
+
+/includes/admin/
+├── wysiwyg-editor.php           # TinyMCE/CKEditor integration
+├── image-uploader.php           # Drag & drop image uploader
+├── file-manager.php             # File browser component
+└── page-builder.php             # Drag & drop page builder UI
+
+/assets/js/
+├── service-management.js        # Service CRUD operations
+├── wysiwyg-init.js             # WYSIWYG editor initialization
+├── image-upload.js              # Image upload handler
+├── page-builder.js              # Page builder drag & drop 🆕
+├── media-library.js             # Media library UI 🆕
+└── auto-generate-types.js       # Auto-generate website types script
+✅ Features Completed:
+Service Management (232+ Services):
+
+✅ Service List:
+
+All 232+ services in datatable
+Filter by division (10 divisi)
+Filter by status (active, inactive)
+Search by name, description
+Sort by price, popularity
+
+
+✅ Service CRUD:
+
+Create new service (name, description, division, pricing, features)
+Edit service
+Duplicate service (quick copy)
+Soft delete service
+Restore deleted service
+
+
+✅ Service Details:
+
+Service name & slug
+Division (1-10)
+Description (WYSIWYG editor)
+Features list (checkboxes)
+Pricing:
+
+One-time price (beli putus)
+Monthly price (sewa bulanan)
+Price range (from-to)
+
+
+Addons (optional extras)
+FAQs (per service)
+SEO settings (meta title, description, keywords)
+Images (service icon, preview images)
+
+
+✅ Bulk Operations:
+
+Bulk upload via CSV/Excel
+Bulk edit (change division, pricing, status)
+Bulk delete
+Bulk export
+
+
+✅ Service Analytics:
+
+Most popular services
+Revenue per service
+Conversion rate per service
+Service reviews & ratings
+
+
+
+Business Categories (53 Categories):
+
+✅ Category Management:
+
+53 main categories pre-populated
+Category CRUD operations
+Subcategories support
+Category icons/images
+Reorder categories (drag & drop)
+Category slug for SEO
+
+
+✅ Category Features:
+
+Category name & slug
+Description
+Icon/image upload
+Parent category (for subcategories)
+Order index
+Active/inactive status
+SEO settings
+
+
+
+Website Types (1500+ Auto-Generated):
+
+✅ Auto-Generate System:
+
+Algorithm:
+
+
+
+    For each of 53 categories:
+      Generate variations:
+      - [Category] Basic (Landing Page)
+      - [Category] Standard (3-5 pages)
+      - [Category] Professional (6-10 pages)
+      - [Category] Business (11-15 pages)
+      - [Category] Enterprise (16-20 pages)
+      - [Category] Premium (21-30 pages)
+      - [Category] Corporate (31-50 pages)
+      - [Category] Custom (51+ pages)
+      
+      + Feature variations:
+      - [Category] + E-commerce
+      - [Category] + Blog
+      - [Category] + Booking System
+      - [Category] + Membership
+      - [Category] + Multi-language
+      - [Category] + Custom Dashboard
+      ... etc
+      
+      = Total: ~1500+ unique website types
+
+✅ Website Type Management:
+
+View all 1500+ types
+Filter by category
+Filter by complexity (basic → enterprise)
+Edit type details
+Set pricing per type
+Assign features per type
+Assign template per type
+
+
+✅ Dynamic Pricing:
+
+Base price formula: Rp 350,000 × number_of_pages
+Feature multipliers (e-commerce: +50%, blog: +20%, etc)
+Package discounts
+Automatic calculation
+
+
+
+Package Management (6 Packages):
+
+✅ 6 Pre-defined Packages:
+
+Starter Package: Rp 2,500,000
+Business Package: Rp 4,000,000 ⭐ Most Popular
+Premium Package: Rp 6,500,000
+Corporate Package: Rp 12,000,000
+Enterprise Package: Rp 25,000,000
+Custom Package: Negotiable
+
+
+✅ Package Features:
+
+Package name & description
+Services included (multi-select)
+Original price (sum of services)
+Package price (discounted)
+Discount percentage
+Featured flag
+Benefits list
+Comparison table data
+
+
+✅ Package Analytics:
+
+Package sales statistics
+Conversion rate per package
+Most popular package tracking
+
+
+
+Blog Management:
+
+✅ Post Management:
+
+Create/edit posts with WYSIWYG editor (TinyMCE/CKEditor)
+Rich text formatting
+Image upload & embedding
+Video embedding (YouTube, Vimeo)
+Code syntax highlighting
+Post scheduling (publish later)
+Draft/publish/unpublish
+Post preview
+
+
+✅ Post Features:
+
+Title & slug
+Content (WYSIWYG)
+Excerpt
+Featured image
+Categories (multi-select)
+Tags (multi-select)
+Author
+Publish date
+SEO settings (meta title, description, keywords)
+Related posts
+Comments (enable/disable)
+
+
+✅ Category & Tag Management:
+
+Create/edit/delete categories
+Create/edit/delete tags
+Category hierarchy (parent/child)
+
+
+✅ Comment Moderation:
+
+Approve/reject comments
+Mark as spam
+Bulk moderation
+Email notifications on new comments
+
+
+
+Portfolio Management:
+
+✅ Portfolio CRUD:
+
+Create portfolio item
+Edit portfolio
+Delete portfolio
+Portfolio categories
+Featured portfolios
+Reorder portfolios
+
+
+✅ Portfolio Features:
+
+Project title & slug
+Description
+Client name
+Project date
+Category
+Tags
+Gallery (multiple images)
+Demo URL
+Technologies used
+Project outcome/results
+Testimonial quote
+Featured flag
+
+
+
+Page Management (CMS):
+
+✅ Edit Static Pages via Dashboard:
+
+Homepage sections:
+
+Hero section (title, subtitle, CTA)
+About section
+Services showcase
+Portfolio showcase
+Testimonials
+Pricing
+Blog posts
+Contact CTA
+Footer
+
+
+About page content
+Services page content
+Pricing page content
+Contact page content
+FAQ page content
+Terms & Conditions
+Privacy Policy
+
+
+✅ Page Builder (BONUS):
+
+Drag & drop interface
+Pre-built sections:
+
+Headers (5 styles)
+Heroes (10 styles)
+Features (8 styles)
+Services (6 styles)
+Pricing tables (4 styles)
+Testimonials (5 styles)
+CTAs (7 styles)
+Footers (4 styles)
+
+
+Custom HTML/CSS/JS sections
+Responsive preview (desktop/tablet/mobile)
+Save as template
+Live preview
+Version history
+
+
+✅ Custom Page Creation:
+
+Create unlimited custom pages
+Custom URL slugs
+Page templates
+SEO settings per page
+
+
+
+FAQ Management:
+
+✅ FAQ CRUD operations
+✅ FAQ categories
+✅ Reorder FAQs (drag & drop)
+✅ Bulk import FAQs (CSV)
+✅ FAQ search functionality
+
+Testimonial Management:
+
+✅ Testimonial CRUD operations
+✅ Approve/reject testimonials
+✅ Featured testimonials
+✅ Testimonial ratings (1-5 stars)
+✅ Client name, company, avatar
+✅ Reorder testimonials
+
+Contact Message Management:
+
+✅ View all contact form submissions
+✅ Mark as read/unread
+✅ Reply to messages
+✅ Delete messages
+✅ Export messages (CSV)
+✅ Auto-reply on submission
+
+🆕 Media Library (BONUS):
+
+✅ Upload Manager:
+
+Drag & drop file upload
+Multiple file upload
+Progress bar
+File type validation
+Size limit enforcement
+
+
+✅ Media Organization:
+
+Folder structure
+Move files between folders
+Rename files
+Delete files
+Bulk operations
+
+
+✅ Image Editor:
+
+Crop image
+Resize image
+Rotate image
+Adjust brightness/contrast
+Apply filters
+Generate thumbnails
+
+
+✅ Media Details:
+
+File name
+File size
+Dimensions (for images)
+Upload date
+Used in (track where media is used)
+Alt text (SEO)
+Title & description
+
+
+✅ Storage Management:
+
+Storage usage dashboard
+Disk space monitoring
+Auto-cleanup old files
+Compress images on upload
+
+
+
+🆕 Template Builder (BONUS):
+
+✅ Template CRUD operations
+✅ Reusable blocks (header, footer, navbar)
+✅ Export/import templates
+✅ Template preview
+✅ Clone templates
+
+🧪 Testing Checklist:
+
+ Can create/edit services
+ Bulk upload services works
+ Service pricing displays correctly
+ Categories CRUD functional
+ Auto-generate website types works
+ 1500+ types created successfully
+ Package management works
+ Blog post creation with WYSIWYG works
+ Can schedule blog posts
+ Comment moderation functional
+ Portfolio creation works
+ Gallery upload works
+ Can edit homepage via dashboard
+ Page builder drag & drop works
+ FAQ management works
+ Testimonial approval works
+ Contact messages display
+ Media library uploads files
+ Image editor works
+ Template builder functional
+ All SEO settings save correctly

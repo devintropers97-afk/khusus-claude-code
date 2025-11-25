@@ -1,0 +1,692 @@
+🔷 BATCH 11: ADMIN PANEL - SETTINGS & SYSTEM
+Priority: MEDIUM | Files: ~45 | Duration: Test 2-3 hari
+📂 Files to Create:
+/admin/
+├── /settings/
+│   ├── index.php                 # Settings overview
+│   │
+│   ├── /general/
+│   │   ├── site-info.php        # Site name, logo, description
+│   │   ├── contact-info.php     # Email, phone, address, WhatsApp
+│   │   ├── social-media.php     # Social media links
+│   │   ├── maintenance-mode.php # Enable/disable maintenance
+│   │   ├── timezone.php         # Site timezone
+│   │   ├── date-format.php      # Date/time format
+│   │   └── currency.php         # Currency settings
+│   │
+│   ├── /email/
+│   │   ├── smtp-config.php      # SMTP configuration ⭐
+│   │   ├── test-email.php       # Send test email
+│   │   ├── email-templates.php  # Edit email templates
+│   │   ├── template-editor.php  # Template WYSIWYG editor
+│   │   ├── email-logs.php       # Email sending logs
+│   │   ├── failed-emails.php    # Failed email queue
+│   │   └── email-settings.php   # From name, from email, etc
+│   │
+│   ├── /payment/
+│   │   ├── methods.php          # Payment methods (bank, QRIS)
+│   │   ├── bank-accounts.php    # Company bank accounts
+│   │   ├── qris-code.php        # Upload QRIS code image
+│   │   ├── payment-gateway.php  # Future: Midtrans/Xendit config
+│   │   └── auto-verify.php      # Auto-verification settings (future)
+│   │
+│   ├── /commission/
+│   │   ├── tier-config.php      # Configure partner tiers
+│   │   ├── tier-thresholds.php  # Orders needed per tier
+│   │   ├── tier-percentages.php # Commission % per tier
+│   │   ├── spv-bonuses.php      # SPV bonus tier config
+│   │   ├── manager-bonuses.php  # Manager bonus tier config
+│   │   ├── penalty-rules.php    # Configure penalty rules
+│   │   └── three-month-rule.php # 3-month rule settings
+│   │
+│   ├── /seo/
+│   │   ├── meta-tags.php        # Default meta tags
+│   │   ├── open-graph.php       # Open Graph settings
+│   │   ├── twitter-cards.php    # Twitter Card settings
+│   │   ├── google-analytics.php # Google Analytics ID
+│   │   ├── facebook-pixel.php   # Facebook Pixel ID
+│   │   ├── google-tag-manager.php # GTM ID
+│   │   ├── schema-markup.php    # Schema.org markup
+│   │   ├── sitemap.php          # Generate sitemap.xml
+│   │   ├── robots-txt.php       # Edit robots.txt
+│   │   └── canonical-urls.php   # Canonical URL settings
+│   │
+│   ├── /security/
+│   │   ├── 2fa-settings.php     # 2FA requirements
+│   │   ├── captcha.php          # CAPTCHA settings (reCAPTCHA)
+│   │   ├── rate-limiting.php    # Rate limit config
+│   │   ├── ip-whitelist.php     # IP whitelist
+│   │   ├── ip-blacklist.php     # IP blacklist
+│   │   ├── session-timeout.php  # Session timeout duration
+│   │   ├── password-policy.php  # Password requirements
+│   │   ├── login-attempts.php   # Max login attempts
+│   │   └── ssl-config.php       # Force HTTPS
+│   │
+│   ├── /notifications/
+│   │   ├── in-app.php           # In-app notification settings
+│   │   ├── email-notify.php     # Email notification toggles
+│   │   ├── sms-notify.php       # SMS notification settings (future)
+│   │   ├── push-notify.php      # Push notification settings 🆕
+│   │   └── templates.php        # Notification templates
+│   │
+│   ├── /api/                     # 🆕 API SETTINGS
+│   │   ├── enable-api.php       # Enable/disable API
+│   │   ├── api-keys.php         # Generate API keys
+│   │   ├── rate-limits.php      # API rate limiting
+│   │   ├── webhooks.php         # Webhook endpoints
+│   │   ├── documentation.php    # API documentation link
+│   │   └── logs.php             # API request logs
+│   │
+│   ├── /backup/
+│   │   ├── manual-backup.php    # Create manual backup
+│   │   ├── scheduled-backup.php # Schedule auto backups
+│   │   ├── restore.php          # Restore from backup
+│   │   ├── download-backup.php  # Download backup file
+│   │   ├── backup-history.php   # Backup history
+│   │   └── storage-config.php   # Backup storage (local, cloud)
+│   │
+│   ├── /integrations/            # 🆕 THIRD-PARTY INTEGRATIONS
+│   │   ├── google-drive.php     # Google Drive integration
+│   │   ├── dropbox.php          # Dropbox integration
+│   │   ├── whatsapp-api.php     # WhatsApp Business API
+│   │   ├── slack.php            # Slack notifications
+│   │   ├── zapier.php           # Zapier integration
+│   │   └── custom-webhooks.php  # Custom webhook endpoints
+│   │
+│   └── /advanced/
+│       ├── cron-jobs.php        # Manage cron jobs
+│       ├── cache-settings.php   # Cache configuration
+│       ├── cdn-config.php       # CDN settings (Cloudflare)
+│       ├── debug-mode.php       # Enable/disable debug mode
+│       ├── error-logging.php    # Error log settings
+│       └── database-optimize.php # Database optimization tools
+│
+├── /logs/
+│   ├── error-logs.php            # View error logs
+│   ├── activity-logs.php         # View activity logs
+│   ├── email-logs.php            # View email logs
+│   ├── login-logs.php            # View login attempts
+│   ├── api-logs.php              # View API request logs 🆕
+│   └── clear-logs.php            # Clear old logs
+│
+├── /system/
+│   ├── info.php                  # System information (PHP, MySQL)
+│   ├── health-check.php          # System health dashboard
+│   ├── disk-usage.php            # Disk space usage
+│   ├── database-size.php         # Database size statistics
+│   ├── performance.php           # Performance metrics
+│   └── updates.php               # System updates (manual)
+│
+└── /tools/
+    ├── sql-query.php             # Run SQL queries (Super Admin only)
+    ├── clear-cache.php           # Clear all caches
+    ├── rebuild-index.php         # Rebuild search indexes
+    ├── optimize-images.php       # Batch image optimization
+    ├── fix-permissions.php       # Fix file permissions
+    └── import-export.php         # Import/export data (CSV, JSON)
+
+/controllers/admin/
+├── SettingsController.php
+├── EmailSettingsController.php
+├── PaymentSettingsController.php
+├── SEOSettingsController.php
+├── SecuritySettingsController.php
+├── NotificationSettingsController.php
+├── APISettingsController.php     # 🆕
+├── BackupController.php
+├── IntegrationController.php     # 🆕
+├── LogController.php
+├── SystemController.php
+└── ToolsController.php
+
+/models/
+├── Settings.php
+├── EmailSettings.php
+├── PaymentSettings.php
+├── SEOSettings.php
+├── SecuritySettings.php
+├── NotificationSettings.php
+├── APISettings.php               # 🆕
+├── Backup.php
+├── Integration.php               # 🆕
+├── SystemInfo.php
+└── Log.php
+
+/cron/
+├── auto-backup.php               # Daily/weekly backups
+├── cleanup-logs.php              # Delete old logs
+├── optimize-database.php         # Weekly DB optimization
+├── clear-cache.php               # Clear expired cache
+├── send-admin-digest.php         # Daily admin digest email
+└── health-check.php              # System health monitoring
+
+/api/                              # 🆕 REST API
+├── v1/
+│   ├── auth/
+│   │   ├── login.php            # API login
+│   │   └── refresh-token.php    # Refresh JWT token
+│   ├── services/
+│   │   ├── list.php             # Get services list
+│   │   └── detail.php           # Get service detail
+│   ├── orders/
+│   │   ├── create.php           # Create order via API
+│   │   ├── list.php             # Get orders
+│   │   └── status.php           # Get order status
+│   ├── partners/
+│   │   ├── register.php         # Partner registration via API
+│   │   ├── commissions.php      # Get commissions
+│   │   └── stats.php            # Get partner stats
+│   └── webhooks/
+│       ├── payment-callback.php # Payment gateway callback
+│       └── subscription.php     # Subscription webhook
+✅ Features Completed:
+General Settings:
+
+✅ Site Information:
+
+Site name (SITUNEO DIGITAL)
+Site tagline (Build Your Future, Today)
+Logo upload (main logo, white logo, favicon)
+Site description (for meta tags)
+Site URL
+
+
+✅ Contact Information:
+
+Company name (PT Permata Cahaya Abadi)
+Director name (Devin Prasetyo Hermawan)
+Email (vins@situneo.my.id)
+Phone number
+WhatsApp number (+62 831-7386-8915)
+Address (Jl. Bekasi Timur IX Dalam No. 27, Jakarta Timur)
+NIB (20250-9261-4570-4515-5453)
+NPWP (90.296.264.6-002.000)
+
+
+✅ Social Media:
+
+Instagram, Facebook, LinkedIn, Twitter
+YouTube, TikTok (optional)
+
+
+✅ Maintenance Mode:
+
+Enable/disable site maintenance
+Maintenance message (customizable)
+Allow admin access during maintenance
+Expected downtime duration
+
+
+✅ Timezone & Format:
+
+Site timezone (Asia/Jakarta)
+Date format (DD-MM-YYYY, MM/DD/YYYY, etc)
+Time format (12-hour, 24-hour)
+Currency (IDR - Rupiah)
+
+
+
+Email Settings:
+
+✅ SMTP Configuration:
+
+  SMTP Host: (e.g., smtp.gmail.com, mail.situneo.my.id)
+  SMTP Port: 587 (TLS) or 465 (SSL)
+  SMTP Username: (email address)
+  SMTP Password: (app password)
+  Encryption: TLS/SSL
+  From Name: SITUNEO DIGITAL
+  From Email: noreply@situneo.my.id
+
+✅ Test Email:
+
+Send test email to verify SMTP works
+Test all email templates
+
+
+✅ Email Templates (14+ Templates):
+
+Welcome Client
+Welcome Partner
+Partner Approval Pending
+Partner Approved
+Partner Rejected
+Email Verification
+Password Reset
+Order Confirmation
+Payment Received
+Order Status Update
+Commission Earned
+Withdrawal Approved
+Withdrawal Completed
+Subscription Renewal Reminder
+Support Ticket Reply
+
+
+✅ Template Editor:
+
+WYSIWYG editor for email templates
+Template variables: {{name}}, {{email}}, {{order_number}}, etc
+Preview before saving
+Reset to default template
+
+
+✅ Email Logs:
+
+View all sent emails
+Failed email queue
+Retry failed emails
+Email delivery status
+
+
+
+Payment Settings:
+
+✅ Payment Methods:
+
+Enable/disable Bank Transfer
+Enable/disable QRIS
+Enable/disable Payment Gateway (future: Midtrans, Xendit)
+
+
+✅ Bank Accounts:
+
+Add company bank accounts (BCA, Mandiri, BNI, BRI, etc)
+Account number
+Account holder name
+Branch
+Set primary account
+Display on payment page
+
+
+✅ QRIS Code:
+
+Upload QRIS code image
+QRIS account name
+Display instructions
+
+
+✅ Auto-Verification (Future):
+
+Integration with payment gateway for auto-verification
+Currently: Manual verification by admin
+
+
+
+Commission Settings:
+
+✅ Tier Configuration:
+
+Tier 1: 0-10 orders/month → 30% commission
+Tier 2: 10-25 orders/month → 40% commission
+Tier 3: 50+ orders/month → 50% commission
+Tier MAX: 75+ orders/month → 55% commission
+Editable thresholds & percentages
+
+
+✅ SPV Bonus Tiers:
+
+Tier 1: Rp 15jt ARPU → Rp 500K bonus
+Tier 2: Rp 35jt ARPU → Rp 1jt bonus
+Tier 3: Rp 75jt ARPU → Rp 2jt bonus
+Tier 4: Rp 200jt+ ARPU → Rp 10jt bonus
+Editable
+
+
+✅ Manager Bonus Tiers:
+
+Tier 1: Rp 45jt ARPU → Rp 1jt bonus
+Tier 2: Rp 105jt ARPU → Rp 2jt bonus
+Tier 3: Rp 225jt ARPU → Rp 3jt bonus
+Tier 4: Rp 600jt+ ARPU → Rp 15jt bonus
+Editable
+
+
+✅ Penalty Rules:
+
+Late delivery penalties (%, amount)
+Quality issue penalties
+Subscription stop penalties
+
+
+✅ 3-Month Rule:
+
+Enable/disable 3-month rule
+Auto-deduct settings
+Follow-up grace period (7 days default)
+Cascade deduction percentages (Partner 100%, SPV 10%, Manager 5%)
+
+
+
+SEO Settings:
+
+✅ Meta Tags:
+
+Default meta title
+Default meta description
+Default meta keywords
+Per-page meta tag override
+
+
+✅ Open Graph:
+
+OG title, description, image
+OG type (website, article, etc)
+Facebook App ID
+
+
+✅ Twitter Cards:
+
+Twitter card type
+Twitter site username
+Twitter creator username
+
+
+✅ Analytics:
+
+Google Analytics ID (GA4)
+Google Tag Manager ID
+Facebook Pixel ID
+Custom tracking scripts
+
+
+✅ Schema Markup:
+
+Organization schema
+LocalBusiness schema
+Service schema
+Review schema
+Auto-generate JSON-LD
+
+
+✅ Sitemap & Robots:
+
+Auto-generate sitemap.xml
+Update frequency
+Priority settings
+Edit robots.txt
+Submit to search engines
+
+
+
+Security Settings:
+
+✅ 2FA Settings:
+
+Require 2FA for admin (yes/no)
+Optional 2FA for partners/clients
+2FA method (Google Authenticator, SMS - future)
+
+
+✅ CAPTCHA:
+
+Google reCAPTCHA v3
+Site key & secret key
+Enable on login/register
+CAPTCHA score threshold (0.0-1.0)
+
+
+✅ Rate Limiting:
+
+Login attempts: 5 per 15 minutes (default)
+API requests: 100 per minute (default)
+Contact form: 3 per hour (default)
+Customizable limits
+
+
+✅ IP Management:
+
+IP whitelist (always allow)
+IP blacklist (always block)
+Auto-block on suspicious activity
+View blocked IPs
+
+
+✅ Session Security:
+
+Session timeout (30 minutes default)
+Force logout on inactivity
+Concurrent session limit
+
+
+✅ Password Policy:
+
+Minimum length (8 characters default)
+Require uppercase (yes/no)
+Require lowercase (yes/no)
+Require number (yes/no)
+Require special character (yes/no)
+Password expiry (90 days - optional)
+Prevent password reuse
+
+
+✅ SSL/HTTPS:
+
+Force HTTPS
+HSTS (HTTP Strict Transport Security)
+Mixed content warning
+
+
+
+🆕 Notification Settings:
+
+✅ In-App Notifications:
+
+Enable/disable
+Notification sound
+Desktop notifications (browser)
+
+
+✅ Email Notifications:
+
+Toggle per notification type
+Batch notifications (digest)
+Notification frequency
+
+
+✅ Push Notifications:
+
+Firebase Cloud Messaging (FCM)
+Service Worker setup
+Push notification templates
+Schedule push campaigns
+
+
+
+🆕 API Settings:
+
+✅ API Management:
+
+Enable/disable REST API
+Generate API keys
+API key permissions
+Revoke API keys
+
+
+✅ Rate Limiting:
+
+Requests per minute/hour/day
+Burst allowance
+Throttling strategy
+
+
+✅ Webhooks:
+
+Register webhook endpoints
+Webhook events (order.created, payment.verified, etc)
+Webhook secrets (HMAC verification)
+Webhook retry logic
+Webhook logs
+
+
+✅ API Documentation:
+
+Auto-generated Swagger/OpenAPI docs
+Interactive API explorer
+Authentication guide
+Code examples (PHP, JavaScript, Python)
+
+
+
+Backup & Restore:
+
+✅ Manual Backup:
+
+One-click full backup
+Database backup (.sql)
+Files backup (uploads, assets)
+Combined backup (ZIP)
+
+
+✅ Scheduled Backups:
+
+Daily/weekly/monthly backups
+Backup retention (keep last N backups)
+Auto-delete old backups
+Email notification on completion
+
+
+✅ Restore:
+
+Upload backup file
+Restore database
+Restore files
+Rollback functionality
+
+
+✅ Cloud Storage (BONUS):
+
+Upload backups to Google Drive
+Upload to Dropbox
+Upload to AWS S3 (future)
+
+
+
+🆕 Third-Party Integrations:
+
+✅ Google Drive:
+
+OAuth authentication
+Auto-backup to Drive
+Share files from Drive
+
+
+✅ WhatsApp Business API:
+
+Send notifications via WhatsApp
+WhatsApp template messages
+Two-way chat (future)
+
+
+✅ Slack:
+
+Send notifications to Slack channels
+Alert on critical events (payment, withdrawal, etc)
+
+
+✅ Zapier:
+
+Zapier webhook integration
+Connect to 5000+ apps
+Automated workflows
+
+
+
+System Information:
+
+✅ System Info Dashboard:
+
+PHP version
+MySQL version
+Server OS
+Disk space (total, used, free)
+Memory usage
+CPU usage
+Uptime
+
+
+✅ Health Check:
+
+Database connection (✓/✗)
+SMTP connection (✓/✗)
+File permissions (✓/✗)
+Cron jobs running (✓/✗)
+SSL certificate valid (✓/✗)
+Disk space sufficient (✓/✗)
+Overall health score
+
+
+✅ Performance Metrics:
+
+Page load time
+Database query time
+API response time
+Slow query log
+Recommendations for optimization
+
+
+
+Admin Tools:
+
+✅ SQL Query Tool (Super Admin Only):
+
+Run custom SQL queries
+Query history
+Export results
+Dangerous query warning
+
+
+✅ Clear Cache:
+
+Clear page cache
+Clear query cache
+Clear session cache
+Clear compiled views
+
+
+✅ Image Optimization:
+
+Batch compress images
+Convert to WebP
+Generate thumbnails
+Remove EXIF data
+
+
+✅ Import/Export:
+
+Import data (CSV, JSON)
+Export data (CSV, Excel, JSON)
+Bulk operations
+Data mapping tool
+
+
+
+🧪 Testing Checklist:
+
+ Site info saves correctly
+ Logo upload works
+ SMTP configuration works
+ Test email sends successfully
+ Email templates save
+ Bank accounts save
+ QRIS code uploads
+ Tier configuration saves
+ Bonus tiers editable
+ Meta tags save correctly
+ Google Analytics ID works
+ Sitemap generates
+ robots.txt editable
+ 2FA settings work
+ CAPTCHA configures
+ Rate limiting enforces
+ IP blacklist blocks
+ Session timeout works
+ Manual backup creates
+ Scheduled backup runs
+ Restore from backup works
+ API key generates
+ Webhook registers
+ System health check displays
+ SQL query tool works (Super Admin)
+ Cache clears successfully
+

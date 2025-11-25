@@ -1,0 +1,919 @@
+🔷 BATCH 12: PUBLIC WEBSITE - PART 1 (HOMEPAGE, SERVICES, PRICING)
+Priority: HIGH | Files: ~55 | Duration: Test 3-4 hari
+📂 Files to Create:
+/public/
+├── index.php                     # Homepage (Landing Page) ⭐
+├── about.php                     # About Us page
+├── services.php                  # Services catalog (232+ services)
+├── service-detail.php            # Individual service detail page
+├── pricing.php                   # Pricing page (packages + calculator)
+├── calculator.php                # Price calculator tool (standalone)
+├── portfolio.php                 # Portfolio showcase
+├── portfolio-detail.php          # Portfolio detail page
+├── demos.php                     # Demo websites showcase (50 demos)
+├── demo-preview.php              # Individual demo preview/iframe
+├── blog.php                      # Blog listing
+├── blog-detail.php               # Blog post detail
+├── contact.php                   # Contact page
+├── faq.php                       # FAQ page
+├── terms.php                     # Terms & Conditions
+├── privacy.php                   # Privacy Policy
+├── sitemap-html.php              # HTML sitemap
+├── leaderboard.php               # Public partner leaderboard ⭐
+├── careers.php                   # Join as Partner (recruitment) 🆕
+└── demo-request.php              # Demo request form ⭐
+
+/controllers/public/
+├── HomeController.php
+├── AboutController.php
+├── ServiceController.php
+├── PricingController.php
+├── CalculatorController.php
+├── PortfolioController.php
+├── DemoController.php
+├── BlogController.php
+├── ContactController.php
+├── FAQController.php
+├── LeaderboardController.php
+└── DemoRequestController.php
+
+/models/
+├── PublicService.php
+├── PublicPortfolio.php
+├── PublicDemo.php
+├── PublicBlog.php
+├── ContactMessage.php
+├── DemoRequest.php
+└── Leaderboard.php
+
+/includes/public/
+├── header.php                    # Public site header (navbar)
+├── footer.php                    # Public site footer (with NIB badge)
+├── whatsapp-float.php            # Floating WhatsApp button
+├── order-notification.php        # Bottom-left order notification popup
+├── back-to-top.php               # Back to top button
+├── cookie-consent.php            # Cookie consent banner 🆕
+└── chat-widget.php               # Live chat widget 🆕
+
+/assets/public/css/
+├── homepage.css                  # Homepage styles
+├── services.css                  # Services page styles
+├── pricing.css                   # Pricing page styles
+├── portfolio.css                 # Portfolio page styles
+├── blog.css                      # Blog page styles
+├── contact.css                   # Contact page styles
+├── animations-public.css         # Public animations
+└── responsive-public.css         # Public responsive
+
+/assets/public/js/
+├── homepage.js                   # Homepage interactions
+├── network-animation.js          # Canvas particle animation
+├── circuit-pattern.js            # Circuit background
+├── smooth-scroll.js              # GSAP smooth scroll
+├── aos-public.js                 # AOS initialization (public)
+├── price-calculator.js           # Real-time price calculator
+├── service-filter.js             # Service filtering/search
+├── portfolio-lightbox.js         # Portfolio image lightbox
+├── demo-iframe.js                # Demo preview handler
+├── form-submit.js                # Contact/demo form submission
+├── order-notification.js         # Order notification popup
+├── whatsapp-widget.js            # WhatsApp floating button
+├── language-toggle.js            # ID/EN language switcher
+└── lazy-load.js                  # Image lazy loading 🆕
+
+/emails/public/
+├── contact-form-admin.php        # Contact form to admin
+├── contact-form-client.php       # Contact form confirmation to client
+├── demo-request-admin.php        # Demo request to admin
+└── demo-request-client.php       # Demo request confirmation
+✅ Features Completed:
+HOMEPAGE (index.php) - Based on "indexx" file:
+
+✅ Hero Section:
+
+Large headline: "Build Your Future, Today" or custom
+Subheadline: "Platform Digital Empowerment Terbesar Indonesia"
+Primary CTA: "Mulai Sekarang" (scroll to services/order)
+Secondary CTA: "Lihat Demo" (link to demos)
+Network particle animation background (Canvas)
+Circuit pattern overlay
+Animated typing effect for tagline 🆕
+Hero image/illustration (right side)
+
+
+✅ About Section:
+
+Brief company introduction
+Key statistics (animated counter):
+
+1000+ Clients Served
+500+ Active Partners
+232+ Services Available
+99% Satisfaction Rate
+
+
+"Learn More" CTA to about page
+
+
+✅ Services Showcase:
+
+Featured services (top 6-8 services)
+Service cards with:
+
+Icon
+Service name
+Short description
+Starting price
+"Learn More" CTA
+
+
+"View All Services" button
+Horizontal scroll on mobile
+
+
+✅ How It Works:
+
+Step-by-step process:
+
+Choose Service
+Customize Your Needs
+Get Instant Quote
+Order & Pay
+We Deliver
+
+
+Visual timeline with icons
+Animated on scroll (AOS)
+
+
+✅ Pricing Packages:
+
+6 packages displayed:
+
+Starter (Rp 2.5jt)
+Business (Rp 4jt) ⭐ Most Popular
+Premium (Rp 6.5jt)
+Corporate (Rp 12jt)
+Enterprise (Rp 25jt)
+Custom (Negotiable)
+
+
+Package features list
+Comparison table
+"Choose Package" CTA
+
+
+✅ Portfolio Showcase:
+
+Featured portfolios (latest 6-8)
+Grid layout with hover effects
+Categories filter
+"View All Portfolio" button
+
+
+✅ Demo Websites:
+
+Featured demos (6-8 demos)
+Demo preview cards
+"Try Demo" button (opens in modal/new tab)
+"View All Demos" button
+
+
+✅ Testimonials:
+
+Client testimonials carousel
+Star ratings
+Client name, company, avatar
+Auto-rotate + manual navigation
+
+
+✅ Stats Section:
+
+Animated statistics
+Background gradient/pattern
+Icon + number + label
+
+
+✅ Partner CTA Section:
+
+"Become a Partner" call-to-action
+Benefits highlights
+"Join Now" button (to partner registration)
+
+
+✅ Blog Preview:
+
+Latest 3 blog posts
+Post thumbnail, title, excerpt, date
+"Read More" links
+"View All Posts" button
+
+
+✅ Contact CTA:
+
+"Ready to Start?" section
+Contact form (quick contact)
+WhatsApp, email, phone display
+Map integration (optional)
+
+
+✅ Footer:
+
+Company info (name, address, contact)
+Quick links (About, Services, Pricing, Blog, Contact)
+Social media links
+NIB badge (pulse animation) ⭐
+Copyright notice
+Payment method icons
+Trust badges (SSL, secure payment)
+
+
+
+SERVICES PAGE (services.php):
+
+✅ Services Catalog:
+
+All 232+ services displayed
+Grid layout (3-4 columns desktop, 1-2 mobile)
+Service cards with:
+
+Service icon
+Service name
+Division badge
+Short description
+Price range (Rp XXX - Rp XXX)
+"View Details" button
+
+
+
+
+✅ Filtering & Search:
+
+Filter by division (10 divisi dropdown)
+Filter by price range (slider)
+Search by keyword (real-time)
+Sort by: Name, Price (low-high), Price (high-low), Popular
+Results count display
+
+
+✅ Service Categories:
+
+10 Division tabs/buttons:
+
+Website Development
+Digital Marketing
+Branding & Design
+Content Creation
+AI & Automation
+Analytics & Data
+Maintenance & Support
+Training & Consulting
+Legal & Compliance
+Integration & API
+
+
+Click to filter by division
+
+
+✅ Pagination:
+
+12-24 services per page
+Pagination controls
+Load more button (optional)
+
+
+✅ CTA Section:
+
+"Not sure what you need? Let's talk!"
+Contact button
+Free consultation offer
+
+
+
+SERVICE DETAIL PAGE (service-detail.php):
+
+✅ Service Header:
+
+Service name
+Division badge
+Star rating (from reviews)
+"Order Now" CTA
+
+
+✅ Service Information:
+
+Detailed description (WYSIWYG content)
+Features list (what's included)
+Pricing section:
+
+One-time price (Beli Putus)
+Monthly price (Sewa Bulanan)
+Price calculator (pages × Rp 350K)
+
+
+Delivery time estimate
+Requirements (if any)
+
+
+✅ Addons:
+
+Optional addons list
+Addon price
+Add to quote
+
+
+✅ Service FAQs:
+
+Per-service FAQs
+Accordion style
+Expand/collapse
+
+
+✅ Related Services:
+
+Similar/complementary services
+"You might also like" section
+
+
+✅ Reviews:
+
+Client reviews for this service
+Star rating
+Review text
+Client name
+Date
+
+
+✅ Order CTA:
+
+"Order This Service" button
+Goes to client registration/order page
+Or contact via WhatsApp
+
+
+
+PRICING PAGE (pricing.php):
+
+✅ Pricing Calculator: ⭐
+
+Interactive Price Calculator:
+
+
+
+    Step 1: Select business category (53 categories dropdown)
+    Step 2: Select website type (auto-filtered based on category)
+    Step 3: Number of pages (slider 1-100)
+    Step 4: Select features (checkboxes):
+      - E-commerce (+50%)
+      - Blog (+20%)
+      - Booking System (+30%)
+      - Membership (+40%)
+      - Multi-language (+25%)
+      - Custom Dashboard (Premium clients >5jt)
+      - etc.
+    Step 5: Order type:
+      - Beli Putus (one-time)
+      - Sewa Bulanan (subscription)
+    
+    Real-time price calculation displayed:
+    - Base price
+    - Feature additions
+    - Subtotal
+    - Discount (if package)
+    - Final price
+    
+    CTA: "Get This Quote" → Client registration/order
+
+✅ Package Pricing:
+
+6 packages in comparison table
+Features comparison (checkmarks)
+Price for each package
+"Choose Package" buttons
+Highlight "Most Popular" package
+
+
+✅ Pricing FAQ:
+
+Common pricing questions
+Payment methods accepted
+Refund policy
+Price guarantee
+
+
+✅ Custom Quote CTA:
+
+"Need a custom solution?"
+Contact form for custom quote
+Or WhatsApp direct chat
+
+
+
+PORTFOLIO PAGE (portfolio.php):
+
+✅ Portfolio Grid:
+
+All portfolios displayed
+Masonry/grid layout
+Portfolio cards with:
+
+Featured image
+Project title
+Client name (optional)
+Category badge
+"View Project" overlay on hover
+
+
+
+
+✅ Filtering:
+
+Filter by category
+All / Web Design / E-commerce / Branding / etc.
+Animated filter transition
+
+
+✅ Lightbox/Modal:
+
+Click to view portfolio detail
+Modal with:
+
+Project images (gallery/slider)
+Project description
+Technologies used
+Project date
+Client testimonial (if any)
+Demo link (if available)
+
+
+Next/previous navigation
+
+
+
+PORTFOLIO DETAIL PAGE (portfolio-detail.php):
+
+✅ Full Portfolio View:
+
+Hero image
+Project title & description
+Client name & logo
+Project date
+Category & tags
+Image gallery (full-width slider)
+Project details (services used, features, outcome)
+Client testimonial
+Demo/live site link
+"Start Your Project" CTA
+
+
+✅ Related Projects:
+
+Similar portfolio items
+3-4 related projects
+
+
+✅ Contact CTA:
+
+"Want results like this?"
+Contact form / WhatsApp
+
+
+
+DEMOS PAGE (demos.php):
+
+✅ Demo Showcase:
+
+50 demo websites listed
+Grid layout (3-4 columns)
+Demo cards with:
+
+Screenshot/preview image
+Demo name
+Category
+"View Demo" button
+
+
+
+
+✅ Category Filter:
+
+Filter by business category
+E-commerce, Restaurant, Clinic, Property, etc.
+
+
+✅ Demo Preview:
+
+Click "View Demo" → Opens demo in:
+
+Option 1: Modal with iframe
+Option 2: New tab
+Option 3: Fullscreen overlay
+
+
+Demo controls:
+
+Desktop/tablet/mobile preview toggle
+Fullscreen mode
+"Use This Template" CTA
+
+
+
+
+✅ Demo Request CTA:
+
+"Don't see what you need?"
+Request custom demo form
+
+
+
+🆕 DEMO REQUEST FORM (demo-request.php):
+
+✅ Comprehensive Form (26 Fields, 8 Sections):
+Section 1: Basic Information
+
+Full Name
+Email Address
+Phone Number (WhatsApp)
+Company Name (optional)
+
+Section 2: Business Category
+
+Select Category (53 categories dropdown)
+Subcategory (auto-populated based on category)
+Brief Business Description (textarea)
+
+Section 3: Website Requirements
+
+Number of Pages (1-100)
+Preferred Color Scheme (color picker or text)
+Reference Websites (URLs you like)
+
+Section 4: Features Needed (Checkboxes)
+
+E-commerce / Online Store
+Blog / News Section
+Booking / Reservation System
+Membership / Login System
+Multi-language (ID/EN)
+Contact Form
+Google Maps Integration
+Social Media Integration
+Newsletter Subscription
+Live Chat
+Custom Dashboard (Premium)
+Other (specify)
+
+Section 5: Content
+
+Do you have logo? (Yes/No)
+Do you have content ready? (Yes/No/Partial)
+Do you need copywriting service? (Yes/No)
+Do you need photography? (Yes/No)
+
+Section 6: Timeline & Budget
+
+Desired Launch Date (date picker)
+Budget Range (dropdown: <2jt, 2-5jt, 5-10jt, 10-25jt, >25jt)
+Order Type:
+
+Beli Putus (One-time payment)
+Sewa Bulanan (Monthly subscription)
+
+
+
+Section 7: Marketing & SEO
+
+Need SEO optimization? (Yes/No)
+Need Google Ads setup? (Yes/No)
+Need Social Media setup? (Yes/No)
+
+Section 8: Additional Information
+
+Competitors (who are your competitors?)
+Special Requirements (textarea)
+How did you hear about us? (dropdown: Google, Social Media, Referral, Partner, Other)
+Partner Referral Code (optional - for commission tracking)
+
+
+✅ Form Features:
+
+Multi-step form (8 steps with progress bar)
+Client-side validation
+Auto-save to localStorage (prevent data loss)
+Price estimate (real-time calculation)
+Upload attachments (logos, reference images)
+reCAPTCHA v3
+Email confirmation to client
+Notification to admin
+WhatsApp notification (optional)
+
+
+
+BLOG PAGE (blog.php):
+
+✅ Blog Listing:
+
+All blog posts
+Grid layout (3 columns desktop, 1 mobile)
+Post cards with:
+
+Featured image
+Category badge
+Post title
+Excerpt (150 chars)
+Author & date
+Read time estimate
+"Read More" button
+
+
+
+
+✅ Filtering:
+
+Filter by category
+Search posts
+Sort by: Latest, Oldest, Popular
+
+
+✅ Pagination:
+
+9-12 posts per page
+Load more button
+
+
+✅ Sidebar:
+
+Search box
+Categories list
+Popular posts
+Recent posts
+Tags cloud
+Newsletter signup 🆕
+
+
+
+BLOG DETAIL PAGE (blog-detail.php):
+
+✅ Post Content:
+
+Featured image
+Post title
+Author info (avatar, name, bio)
+Publish date & read time
+Category & tags
+Full content (WYSIWYG formatted)
+Social share buttons (Facebook, Twitter, LinkedIn, WhatsApp)
+
+
+✅ Comments Section:
+
+Comment form (name, email, comment)
+Display approved comments
+Reply to comments (nested)
+Comment moderation (admin approval)
+
+
+✅ Related Posts:
+
+3-4 related posts
+Same category or tags
+
+
+✅ Newsletter CTA:
+
+"Subscribe for more articles"
+Email signup form
+
+
+
+CONTACT PAGE (contact.php):
+
+✅ Contact Form:
+
+Name
+Email
+Phone
+Subject (dropdown: General, Sales, Support, Partnership)
+Message (textarea)
+reCAPTCHA
+Submit button
+Success/error message
+
+
+✅ Contact Information:
+
+Company address (with map)
+Email address
+Phone number
+WhatsApp number (click to chat)
+Office hours
+
+
+✅ Google Maps:
+
+Embedded map with location marker
+"Get Directions" link
+
+
+✅ Social Media:
+
+Icons linking to social profiles
+
+
+✅ Alternative Contact:
+
+"Prefer to chat?" WhatsApp button
+"Need immediate help?" Support link
+
+
+
+FAQ PAGE (faq.php):
+
+✅ FAQ Categories:
+
+General Questions
+Services & Pricing
+Orders & Payments
+Partner Program
+Technical Support
+
+
+✅ FAQ Accordion:
+
+Expandable/collapsible FAQs
+Search FAQs
+Smooth animations
+
+
+✅ Still Have Questions:
+
+"Can't find your answer?"
+Contact form / WhatsApp CTA
+
+
+
+🆕 PUBLIC LEADERBOARD (leaderboard.php):
+
+✅ Partner Leaderboard:
+
+Top Partners (This Month):
+
+Rank
+Partner name (or username/code for privacy)
+Total clients referred
+Total revenue generated
+Tier badge
+Avatar (optional)
+
+
+Top 10/20/50 Display:
+
+Podium style for top 3 (1st, 2nd, 3rd)
+Table for remaining
+
+
+Filter Options:
+
+This Month
+This Quarter
+This Year
+All Time
+
+
+Separate Leaderboards:
+
+Top Partners
+Top SPVs
+Top Managers
+Rising Stars (new partners with high performance)
+
+
+Privacy:
+
+Option to hide real names (use username/partner code)
+Partners can opt-in/opt-out of leaderboard
+
+
+
+
+✅ Gamification Elements:
+
+Achievement badges
+Level/tier display
+"Join the Leaders" CTA to partner registration
+
+
+
+TERMS & PRIVACY:
+
+✅ Terms & Conditions (terms.php):
+
+Comprehensive T&C
+Sections:
+
+User Agreement
+Services Description
+Payment Terms
+Refund Policy
+Intellectual Property
+Limitation of Liability
+Dispute Resolution
+Governing Law
+
+
+Last updated date
+
+
+✅ Privacy Policy (privacy.php):
+
+Data collection practices
+Data usage
+Data protection
+Cookies policy
+User rights
+Contact for privacy concerns
+
+
+
+🆕 ADDITIONAL FEATURES:
+
+✅ Cookie Consent Banner:
+
+GDPR compliant
+Accept/Decline cookies
+Cookie preferences
+
+
+✅ Live Chat Widget:
+
+Floating chat button
+Connect to WhatsApp Business or live chat tool
+Offline message form
+
+
+✅ Language Toggle (ID/EN):
+
+Flag icons in header
+Switch between Indonesian & English
+Save preference in cookie/session
+All pages support both languages
+
+
+✅ WhatsApp Floating Button:
+
+Sticky button (bottom-right)
+Pulse animation
+"Chat with Us" tooltip
+Click to open WhatsApp chat
+Pre-filled message template
+
+
+✅ Order Notification Popup:
+
+Bottom-left notification
+"John from Jakarta just ordered Website E-commerce"
+Appears every 30-60 seconds
+Real or simulated orders
+Close button
+Builds social proof
+
+
+✅ Back to Top Button:
+
+Appears on scroll
+Smooth scroll to top
+Animated arrow icon
+
+
+
+🧪 Testing Checklist:
+
+ Homepage loads correctly
+ Network animation renders
+ Hero section displays properly
+ Services showcase works
+ Pricing packages display
+ Testimonials carousel works
+ Services page loads all 232+ services
+ Service filtering works
+ Service detail page displays
+ Price calculator calculates correctly
+ Portfolio grid displays
+ Portfolio lightbox works
+ Demos page shows 50 demos
+ Demo preview works (iframe/new tab)
+ Demo request form submits
+ Demo request sends emails
+ Blog listing works
+ Blog detail displays
+ Comments work
+ Contact form submits
+ Contact emails send
+ FAQ accordion works
+ Leaderboard displays correctly
+ Language toggle switches ID/EN
+ WhatsApp button works
+ Order notification popups
+ Back to top works
+ Cookie consent displays
+ All pages responsive (mobile/tablet/desktop)

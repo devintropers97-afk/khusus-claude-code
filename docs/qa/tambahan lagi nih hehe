@@ -1,0 +1,429 @@
+A. DATABASE & STRUCTURE
+
+1. Database Tables:
+
+Saya sudah list 80+ tables. Ada table custom yang perlu ditambah?
+
+
+
+
+
+Atau 80+ tables sudah cukup?
+
+
+
+Ada field khusus yang Anda mau di table tertentu? KAMU ATUR , BOLEH KAMU TAMBAH JIKA ITU ADA FUNGSI NYA DAN BISA BUAT RAPIH
+
+2. Dummy Data:
+
+Untuk testing, saya generate dummy data:
+
+
+
+
+
+❓ Berapa client dummy? (10? 50? 100?)
+
+
+
+❓ Berapa partner dummy? (20? 50?)
+
+
+
+❓ Berapa SPV dummy? (5? 10?)
+
+
+
+❓ Berapa Manager dummy? (2? 5?)
+
+
+
+❓ Berapa order dummy? (50? 100? 500?)
+
+
+
+❓ Dummy data dengan status bervariasi (pending, completed, dll)? SEPERTI NYA DUMMY HASIL BUAT WEBSITE AJA DEH , KLO YANG LAIN NYA GA USAH , BIKIN SESUAI MATERI YANG SAYA KIRIM AJA
+
+3. Referral Link Format:
+
+Partner/SPV/Manager referral link:
+
+
+
+
+
+❓ Format A: situneo.my.id?ref=USERNAME
+
+
+
+❓ Format B: situneo.my.id/register/USERNAME
+
+
+
+❓ Format C: situneo.my.id/r/USERNAME
+
+
+
+PILIH MANA? RERALL UNTUK PARTNER KE CLIENT situneo.my.id/register/CLIENT/USERNAME
+
+
+
+
+
+ RERALL UNTUK SPV KE PARTNER situneo.my.id/register/PARTNER/USERNAME
+
+
+
+
+
+ RERALL UNTUK MANAGER AREA KE SPV situneo.my.id/register/SPV/USERNAME
+
+4. Demo Websites (50 Total):
+
+Batch 1 saya buat 10 demo. Untuk 40 sisanya:
+
+
+
+
+
+❓ Anda mau list spesifik 40 demo? (nama bisnis, kategori)
+
+
+
+❓ Atau saya pilih sendiri dari 53 kategori yang paling marketable? BOLEH KAMU ATUR YANG PENTING LENGKAP DAN MUDAH DI BACA KETIKA DI BACA SAMA CLIENT 
+
+5. Demo Subdomain:
+
+
+
+
+
+❓ Format: demo1.situneo.my.id, demo2.situneo.my.id (pakai angka)?
+
+
+
+❓ Atau: toko-baju.demo.situneo.my.id, restoran.demo.situneo.my.id (pakai nama)?
+
+
+
+PILIH MANA? GA USAH PAKAI SUBDOMAIN , TAPI BIKIN FOLDER DI CPANEL , DAN BISA TAMPIL DAN BERFUNGSI SESUAI NAMA DAN TEMA , CONTOH DEMO WAJIB PALING BAGUS DAN TERLIHAT MAHAL DESAIN DAN TAMPILANNYA , KARNA ITU CONTOH BUAT CLIENT , BIAR CLIENT PERCAYA DAN YAKIN , DAN SUKA
+
+6. Demo Content:
+
+Setiap demo website isinya:
+
+
+
+
+
+❓ Lorem ipsum placeholder atau content real yang sesuai bisnis?
+
+
+
+❓ Pakai nama bisnis real (contoh: "Toko Baju Modis Jakarta") atau generic ("Demo Toko Baju")?IYA PAKAI NAMA BISNIS REAL SEMUA NYA TERLIHAT REAL , TETAPI DEMO , DEMO TERLIHAT NYATA 
+
+7. Loading Screen:
+
+
+
+
+
+❓ Muncul di setiap page load? MUNCUL SETIAP PAGE , DAN ADA LOGO , KATA2 , SEPERTI CONTOH YANG UDAH SAYA BUAT , YANG SUDAH SAYA KIRIM DI MATERI , TERUS KASIH TAMBAHAN , CONTOH , SEBENTAR SEDANG MEMUAT KE HALAMAN APA GITU , SESUAI TUJUAN YANG DIA KLIK
+
+
+
+❓ Atau hanya homepage saja?
+
+
+
+❓ Atau hanya first visit (pakai cookie)?
+
+8. Network Particle Background:
+
+
+
+
+
+❓ Di SEMUA halaman (termasuk dashboard, form, dll)? DI SEMUA , BIAR KONSISTEN
+
+
+
+❓ Atau hanya public pages?
+
+
+
+❓ Intensity nya: High (80 particles) atau Low (30-40 particles)? LOW AJA 
+
+9. NIB Badge:
+
+
+
+
+
+❓ Di footer semua halaman? BOLEH
+
+
+
+❓ Atau di homepage aja?
+
+
+
+❓ Size: Besar (prominent) atau Medium (subtle)? MEDIUM AJA
+
+10. FREE DEMO 24 JAM Banner:
+
+
+
+
+
+❓ Floating banner (always visible)? ALWAYS 
+
+
+
+❓ Atau sticky header banner?
+
+
+
+❓ Atau hanya section di homepage?
+
+
+
+OH IYA POP UP DEMO MUNCUL DI HOMEPAGE 10 DETIK MUNCUL YA , KETIKA DIA MAU AJUIN DEMO , DIA HARUS REGIST DAN LOGIN DULU
+
+11. Email Notifications:
+
+Email apa saja yang AUTO kirim:
+
+
+
+
+
+✅ Registration confirmation?
+
+
+
+✅ Partner application submitted?
+
+
+
+✅ Partner approved?
+
+
+
+✅ Order notification (to client)?
+
+
+
+✅ Order notification (to admin)?
+
+
+
+✅ Payment received?
+
+
+
+✅ Order completed?
+
+
+
+✅ Commission earned?
+
+
+
+✅ Withdrawal requested?
+
+
+
+✅ Withdrawal approved?
+
+
+
+✅ Password reset?
+
+
+
+✅ Demo request submitted?
+
+
+
+Semua di atas? IYA SEMUA NYA , SELAGI ITU SANGAT PENTING DAN PENTING , WAJIB PAKAI NOTIF EMAIL
+
+12. Invoice Generation:
+
+
+
+
+
+❓ Format nomor: INV-2025-0001 atau SITUNEO-20251112-0001? INV-SITUNEO-20-OKT-2025
+
+
+
+❓ Auto-generate PDF atau manual admin yang kirim? MANUAL
+
+
+
+❓ Email otomatis ke client atau admin yang kirim manual?EMAIL OTOMATIS
+
+13. Commission Payout:
+
+Komisi masuk ke balance partner setelah:
+
+
+
+
+
+❓ Client bayar lunas langsung?
+
+
+
+❓ Atau setelah admin approve payment? SETELAH CLIENT LUNAS , DAN NUNGGU ADMIN APPROVED , KARNA HARUS SERAH TERIMA DAN DEAL2AN DULU
+
+
+
+❓ Atau setelah project delivered?
+
+14. ARPU Calculation:
+
+ARPU untuk SPV/Manager bonus dihitung:
+
+
+
+
+
+❓ Otomatis setiap bulan (cron job)?
+
+
+
+❓ Manual admin calculate?
+
+
+
+❓ Real-time (setiap ada order)? REAL TIME SETIAP ADA ORDER YANG SUDAH DI ACC SAMA ADMIN
+
+15. Website Content Editing:
+
+Admin bisa edit content website via dashboard:
+
+
+
+
+
+❓ Homepage sections (hero, about, services preview, dll)?
+
+
+
+❓ Services catalog (232+ services)?
+
+
+
+❓ Pricing packages?
+
+
+
+❓ Portfolio demos?
+
+
+
+❓ Semua di atas? SEMUA DI ATAS , DAN SEMUA FUNGSI WEBSITE DAN ISI2 NYA , POKOK NYA SEMUA NYA, DARI CLIENT , PARTNER , SPV DAN MANAGER AREA , SEMUA
+
+16. "Copy for AI" Feature:
+
+Tombol "Copy for AI" di demo request detail: JANGAN PAKAI KATA2 UNTUK AI , SEOLAH OLAH TEAM SITUNEO YANG BUAT
+
+
+
+
+
+❓ Format output: Plain text, JSON, atau Markdown? BOLEH
+
+
+
+❓ Include semua 26 fields? LENGKAP , POKOK NYA , BIAR AI PASTI PAHAM , KETIKA SAYA KIRIM FORMULIR NYA
+
+
+
+❓ Formatted siap paste ke ChatGPT/Claude? IYA
+
+17. Hierarchy Assignment:
+
+Admin assign Partner ke SPV:
+
+
+
+
+
+❓ Dropdown select SPV dari list? SEBENERNYA DARI REFERALL YANG SPV KASIH
+
+
+
+❓ Atau input SPV username/email?
+
+
+
+❓ Bisa reassign (pindah atasan) sewaktu-waktu? IYA BISA , NANTI ADMIN YANG UBAH2 
+
+18. Commission Split Visualization:
+
+Di dashboard admin, komisi breakdown:
+
+
+
+
+
+❓ Tampil sebagai table?
+
+
+
+❓ Atau pie chart?
+
+
+
+❓ Atau both?
+
+
+
+SEMUA NYA LENGKAP , BIAR JELAS DAN GAMPANG DI PAHAMIN DAN ADA SENI NYA , SESUAIKAN LOGIC NYA
+
+19. Image Optimization:
+
+
+
+
+
+❓ Pakai lazy loading semua images? Aktifkan untuk semua gambar
+
+
+
+❓ WebP format atau JPG/PNG? Pakai WebP (fallback JPG/PNG)
+
+
+
+❓ Compress otomatis saat upload? Aktifkan
+
+20. Google Analytics:
+
+Anda bilang sudah ada di materi:
+
+
+
+
+
+❓ Bisa kasih tahu Google Analytics ID nya? G-RPW3MZ3RPY
+
+
+
+❓ Atau saya cari di file mana?
+
+
+
+❓ Track event (button click, form submit)?
+
+
+
+21.SEMUA LOGIC KAMU ATUR BIAR RAPIH DAN TERTRUKTUR DAN AMAN KETIKA BERJALAN 
+
+22.SEMUA FOTO SEMENTARA PAKAI UNPLAS YA YANG PASTI MUNCUL GAMBAR NYA , KLO PAKAI PLACEHOLDER PASTI MUNCUL YA GPP , YANG PENTING GAMBAR SESUAI JUDUL NYA DAN TEMA NYA , BIAR SINGKRON
+
+23.SEMUA TAMPILAN PUBLIC SINGKAT DAN INTI2NYA AJA YA , KLO CLIENT,PARTNER,SPV DAN MANAGER AREA , MAU LIHAT LENGKAT , DIA HARUS DAFTAR DAN LOGIN , KARNA SEMUA NYA FULL LENGKAP DI DALEM ,TERUS SEMUA CTA ARAHIN KE REGIST DAN LOGIN , WHATSAPP HANYA TOMBOL POP UP 1 DI BAGIAN KANAN BAWAH 
+
+24.HALAMAN PUBLIC DAN DI TAMPILKAN HANYA UNTUK PARTNER, SPV DAN MANAGER AREA, MEREKA BISA KE HALAMAN TERSEBUT , JADI SEMUA, NAMA DAN DI BAGI SESUAI JABATAN , MANA YANG TERBAIK , JADI SEMUA BISA KONTROL TEAM SIAPA YANG TERBAIK , DAN PARTNER MANA YANG TERBAIK , SEMUA NYA TRANSPARAN , SISA NYA KAMU ATUR LOGIC NYA

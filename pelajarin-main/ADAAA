@@ -1,0 +1,188 @@
+Sistem mana yang FINAL? 3 Role atau 5 Role? 5 ROLE
+Jika 5 Role, apakah SPV & Manager ini sudah ada orangnya sekarang atau sistem untuk nanti recruit? UNTUK NANTI KETIKA ADA YANG BERMINAT  , KEDEPANNYA PASTI BERJALAN
+Untuk recruitment SPV & Manager, apakah:
+Promote dari Partner yang perform bagus?
+Hire dari luar (via register + admin approve)? HIRE DARI LUAR VIA REGISTER + ADMIN APPROVED
+Atau ditunjuk manual oleh Admin? ❓ PERTANYAAN: 4. Apakah 1 SPV bisa punya banyak Partner dibawahnya? IYA GA ADA BATASAN , MINIMAL 1 SPV HARUS PUNYA 10 PARTNER  5. Apakah 1 Manager bisa punya banyak SPV dibawahnya? BETUL DAN GA ADA BATASAN , MINIMAL PUNYA 3 SPV  6. Jika Partner A recruit Client, lalu Client order Rp 10 juta:
+Partner A dapat: 40% = Rp 4 juta ✅
+SPV (atasan Partner A) dapat: 10% = Rp 1 juta ✅
+Manager (atasan SPV) dapat: 5% = Rp 500K ✅
+Total komisi keluar: 55% = Rp 5.5 juta ✅
+SITUNEO dapat: 45% = Rp 4.5 juta ✅ Apakah perhitungan ini BENAR? BETUL
+Jika Partner tidak punya SPV (daftar langsung tanpa referral):
+Partner tetap dapat komisi 40% TETEP DAPET , BENEFIT NYA KLO PARTNER MEMILIKI SPV , DIA KAN ADA YANG BIMBING , TERUS KETIKA ADA ORDERAN SEWA WEBSITE , TERUS CLIENT CUMAN BAYAR 1 BULAN , NAH SPV DAN MANAGER AREA IKUT PATUNGAN UNTUK BAYAR TANGGUNGAN , YANG MINIMAL BERLANGGANAN 3 BULAN , JADI BEBAS POTONGAN PARTNER TIDAK SENDIRI
+SPV & Manager share (10% + 5%) kemana? Ke SITUNEO atau hilang? B1. Tier Partner - Maintenance Rule Dari materi:
+Tier 1: 0-10 order → 30%
+Tier 2: 10-25 order → 40%
+Tier 3: 50+ order → 50%
+Tier MAX: 75+ order → 55% ❓ PERTANYAAN: 8. Partner di Tier 2 (sudah 25 order total):
+Bulan depan cuma dapat 8 order
+Dia tetap di Tier 2 atau turun ke Tier 1? TURUN TIER 1 , KARNA DIA TIDA BISA MEMPERTAHAN KAN ORDERAN NYA , MINIMAL TIER 2 10 DALAM SEBULAN 
+(Dari TAMBAHAN1 Anda bilang "TETAP BERTAHAN")
+Jika "TETAP BERTAHAN", artinya TIDAK PERNAH TURUN tier selamanya?
+Atau ada kondisi tertentu yang bisa bikin turun?
+PARTNER BARU TERUS BELUM SEBULAN DIA UDAH DAPET 75 ORDERAN , DIA OTOMATIS AKAN NAIK OTOMATIS SESUAI TARGET TIER JADI PARTNER BARU BISA LANGSUNG DAPET TIER MAX ,DALAM 1 BULAN B2. Komisi Beli Putus vs Sewa Beli Putus: Rp 350K/halaman Sewa: Rp 150K/halaman/bulan (min 3 bulan) ❓ PERTANYAAN: 10. Beli Putus (misal 5 halaman = Rp 1.75 juta): - Partner dapat komisi 40% = Rp 700K SEKALI saat serah terima ✅ - Benar? BETUL
+Sewa (misal 5 halaman = Rp 750K/bulan):
+Bulan 1: Partner dapat 40% = Rp 300K ✅
+Bulan 2-12: Partner TIDAK dapat komisi lagi ✅
+Benar? BENAR
+Jika Client stop langganan <3 bulan (misal stop bulan ke-2):
+Partner kena potong komisi bulan 1 yang sudah dibayar? IYA PARTNER AKAN BAYAR SESUAI TAGIHANNYA SEBULAN
+Atau komisi bulan 1 tetap dia punya, tapi kena sanksi lain (warning, suspend, dll)? B3. ARPU Bonus (SPV & Manager) SPV Bonus Tiers:
+ARPU Rp 15M → Bonus Rp 500K
+ARPU Rp 35M → Bonus Rp 1M
+ARPU Rp 75M → Bonus Rp 2M
+ARPU Rp 200M+ → Bonus Rp 10M ❓ PERTANYAAN: 13. ARPU = Average Revenue Per User, tapi dihitung dari: - Total revenue BULAN INI dari semua Partner dibawahnya? - Atau TOTAL REVENUE SEPANJANG WAKTU? TOTAL PARTNER YANG DI BAWAHNYA , DI AKUMULASI SEMUA NYA DAN TUTUP BUKU DI AKHIR BULAN , MISALKAN SPV ADA 10 PARTNER , SETIAP PARTNER TARGET 10 ORDERAN TOTAL MENCAPAI TARGET ARPU KESELURUHAN TEAM NYA , SPV DAPET BONUS
+Bonus ARPU diberikan:
+Sekali pas capai target?
+Atau setiap bulan selama ARPU masih di level itu? SETIAP BULAN , TARGET ARPU ITU SETIAP BULAN UNTUK SPV DAN MANAGER AREA
+Contoh: SPV punya 10 Partner, total revenue bulan ini Rp 40 juta:
+Komisi base 10% = Rp 4 juta ✅
+ARPU Rp 40M → Bonus Rp 1M (tier Rp 35M-75M) ✅
+Total SPV dapat: Rp 5 juta bulan ini ✅
+Benar? BETUL C1. Demo Request Form (26 Fields) ❓ PERTANYAAN: 16. Form 26 fields ini untuk: - Client request demo gratis sebelum order? ✅ - Atau untuk Client yang mau order langsung (jadi form order sekaligus)? SEBENERNYA FORM ORDER NYA NYA ADA 2 PILIHAN , LANGSUNG ORDER ATAU DEMO DULU ,KLO CLIENT MAU LANGSUNG ORDER YA GPP
+Setelah submit form 26 fields:
+Admin buat demo dalam 24 jam, kirim link ke client?
+Atau Admin review dulu, baru approve/reject, baru buat demo? ADMIN REVIEW DULU , BARU APPROVED ATAU RIJECT , LALU BARU BIKIN DEMO , JIKA FORMULIR ADA YANG KURANG , ADMIN PASTI INFOKAN UNTUK KEKURANGANNYA , LEWAT WHATSAPP ATAU KIRIM PESAN KE DASHBOARD CLIENT
+"Copy Detail" button di admin dashboard:
+Copy semua 26 fields dalam format apa? SEPERTI FORMAT RAPIH AJA 
+Plain text? JSON? Atau formatted untuk langsung paste ke AI (ChatGPT/Claude)? PLAIN TEKS DAN JSON ATAU FILE , ADA UDAH REKAPAN MANUAL DAN BENTUK FILE , YANG SIAP UPLOAD KE CLAUDE AI C2. Task Board untuk Partner Dari materi: "Admin bisa post tugas tambahan ke semua Partner dashboard" ❓ PERTANYAAN: 19. Task ini seperti: - "Butuh bantuan coding fitur X, komisi Rp 500K, deadline 3 hari"? BETUL TAKS APA AJA DARI LAYANAN SITUNEO - Partner yang interested apply, admin pilih 1 partner, partner kerjakan, submit hasil, admin approve payment? JADI ADMIN KIRIM PESAN TASK KE SEMUA PARTNER , JIKA ADA PARTNER YANG AMBIL, BERATI ADA YANG MAU KERJAIN , TERUS ADMIN , JADI NANTI ADMIN PASTIKAN KE PARTNER DAN PASTIKAN , JIKA DIA BISA MENGERJAKANNYA ,DAN ADMIN KASIH PENJELASAN DETAIL TUGAS NYA , SISTEM NYA REBUTAN SIAPA YANG CEPAT AMBIL , DIA LAH YANG BERHAK MENGERJAKAN TUGAS YANG DARI ADMIN , TETAPI BISA GAGAL , JIKA ADMIN REVIEW DAN MENYAKINKAN PARTNER , JIKA ADMIN TIDAK YAKIN , AKAN GANTI KE PARTNER LAIN
+Komisi task ini:
+Langsung masuk ke Partner (tidak cascade ke SPV/Manager)? SEMUA SPV MAUPUN MANAGER AREA TERKIRIM SEMUA TUGAS DARI ADMIN
+Atau tetap cascade (Partner 70%, SPV 20%, Manager 10%)? KOMISI YANG NENTUIN DARI ADMIN NANTI  C3. Withdrawal System ❓ PERTANYAAN: 21. Withdrawal minimal Rp 50K, transfer ke bank. Apakah: - Manual (Partner request → Admin approve → Admin transfer manual via m-banking)?BETUL KAYA GITU STEP2 NYA 
+Atau ada rencana Auto (integrasi Xendit/Midtrans untuk auto disbursement)? TIDAK 
+Withdrawal fee:
+Gratis? GRATIS
+Atau ada fee admin (misal Rp 5K per withdrawal)? C4. 50 Demo Websites ❓ PERTANYAAN: 23. 50 demo ini: - Saya buat real functioning (bisa diklik-klik, ada backend)?IYA KAYA REAL TETAPI DI UTAMAIN TAMPILANNYA MUNCUL DAN BERFUNGSI SEMUA DAN LOGIC NYA BERJALAN DENGAN LANCAR SEMUA - Atau static HTML saja (cuma tampilan showcase)? - Atau screenshot/mockup (gambar saja)?
+Demo ini:
+Di-host di subdomain (demo1.situneo.my.id, demo2.situneo.my.id, dst)?
+Atau dalam 1 folder (/demos/toko-baju/, /demos/restoran/, dst)? DALAM 1 FOLDER 
+Kategori 50 demo:
+Anda mau pilih 50 kategori bisnis yang paling populer (toko online, restoran, klinik, sekolah, dll)? BOLEH KAMU ATUR
+Atau saya yang tentukan 50 kategori terbaik? BOLEH KAMU ATUR
+D1. Network Animation
+❓ PERTANYAAN: 26. Network particle animation di semua halaman: - Intensity sama semua (30-40 particles)? - Atau beda-beda (homepage 40 particles, dashboard 20 particles biar tidak berat)? IYA SEMUA BIAR KONSISTEN DAN PARTICLES NYA KAMU ATUR 
+1. Animation ini:
+   * Always on (tidak bisa di-disable user)? ALWASY
+   * Atau ada toggle button (user bisa matikan jika device lemot)?
+D2. Loading Screen
+❓ PERTANYAAN: 28. Loading screen "Memuat ke [Nama Halaman]...": - Muncul di setiap page transition? IYA SESUAI MATERI YANG SAYA KIRIM , ADA LOGO SITUNEO NYA , TERUS TAGLINE NYA , TERUS NAMA MEMUAT KE HALAMANNYA - Atau hanya page yang load data berat (dashboard, reports)?
+1. Loading minimum duration:
+   * Tidak ada minimum (langsung hilang pas page ready)?
+   * Atau min 0.5 detik biar tidak "nge-flash" terlalu cepat? 2 DETIK
+D3. Responsive Design Priority
+❓ PERTANYAAN: 30. Testing priority: - Mobile first (iPhone, Android - 375px, 414px)? - Desktop first (1920px, 2560px)? - Atau balanced (optimize semua screen size sama rata)? SAMA RATA TETAPI FOKUS KE MOBILE YA DI MAKSIMALIN , DESKTOP YANG PENTING RAPIH AJA 
+1. Untuk Admin/Manager/SPV dashboard yang complex:
+   * Wajib mobile-friendly juga (banyak table, chart, data)?
+   * Atau desktop-optimized (untuk admin lebih sering buka di laptop)?
+   * KEDUA2 NYA JUGA STABIL , TETEP DI UTAMANKAN TAMPILAN MOBILE 
+E1. Database Tables
+❓ PERTANYAAN: 32. Database 85 tables: - Saya buat semua sekaligus (1 SQL file besar)? - Atau per module (10-15 tables per batch)? LANGSUNG SEKALIGUS AJA , KETIKA ADA YANG KURANG BARU BISA DI TAMBAHKAN NANTI , YANG PENTING TABEL BANYAK GPP YANG PENTING ADA FUNGSI NYA DAN KEPAKAI
+1. Sample data:
+   * Saya isi dummy data untuk testing (100 users, 50 orders, dll)?
+   * Atau kosong (cuma structure, data input manual nanti)? KOSONGIN AJA BIAR REAL DATA AJA
+E2. File Structure
+❓ PERTANYAAN: 34. 400+ files modular, saya organize dengan struktur:
+Option A: By Role
+
+/admin/
+  /dashboard/
+  /users/
+  /orders/
+/client/
+  /dashboard/
+  /orders/
+/partner/
+  /dashboard/
+  /earnings/
+Option B: By Feature
+
+/dashboard/
+  /admin/
+  /client/
+  /partner/
+/orders/
+  /admin/
+  /client/
+/payments/
+  /admin/
+  /client/
+Mana yang Anda prefer? BY ROLE
+E3. Security Implementation
+❓ PERTANYAAN: 35. Password policy: - Min 8 karakter ✅ - Wajib ada uppercase, lowercase, number, special char? - Atau bebas (8 karakter apa aja)? BEBAS 8 KARAKTER APA AJA
+1. Session timeout:
+   * 30 menit idle (standard)?
+   * 2 jam?
+   * 1 hari (remember me)? 1 HARI
+2. Admin IP whitelist:
+   * Tidak perlu (admin bisa login dari mana saja)? ADMIN BISA LOGIN DIMANA AJA
+   * Atau wajib whitelist (cuma IP tertentu yang bisa akses admin)?
+F1. Environment
+❓ PERTANYAAN: 38. Development workflow: - Langsung ke production (https://situneo.my.id)? LANGSUNG PRODUCTION - Atau ada staging dulu (staging.situneo.my.id)?
+1. Git workflow:
+   * Push ke GitHub public (repositori terbuka)? NANTI SAYA YANG UPLOAD SENDIRI UNTUK SAYA SAVE
+   * Atau GitHub private (hanya Anda yang bisa akses)?
+F2. Documentation
+❓ PERTANYAAN: 40. Documentation level: - Basic (README.md + installation guide saja)? INI AJA BIAR SIMPEL TETAPI JELAS KE INTINYA  - Medium (+ API docs, database schema diagram)? - Complete (+ user manual, admin guide, developer docs)?
+1. Admin training:
+   * Self-explanatory UI (interface gampang dipahami sendiri)? GAMPANG DI PAHAMIN SENDIRI
+   * Atau video tutorial (saya buat screencast cara pakai admin panel)?
+F3. Backup & Recovery
+❓ PERTANYAAN: 42. Auto backup database: - Daily (setiap 24 jam)? - Weekly (setiap 7 hari)? - Atau on-demand (manual trigger dari admin)? MANUAL TRIGGER DARI ADMIN
+1. Backup retention:
+   * Keep 7 hari terakhir?
+   * Keep 30 hari terakhir? 30 HARI
+   * Atau unlimited (keep all backups)?
+G1. Payment Gateway
+❓ PERTANYAAN: 44. Untuk future (bukan sekarang), ada rencana integrate: - Midtrans (untuk payment otomatis)? - Xendit (untuk payment + disbursement)? - Keduanya? - Atau belum tahu, nanti lihat dulu? LIHAT NANTI DULU
+1. Jika auto payment nanti jadi, untuk order:
+   * Client tetap bisa manual upload bukti transfer (bank transfer)? MANUAL AJA
+   * Atau wajib pakai payment gateway (kartu kredit, e-wallet)?
+G2. Multi-Language
+❓ PERTANYAAN: 46. Website multi-language (Indonesia/English): - Public pages only (homepage, about, services)? - Atau semua pages (termasuk dashboard client, partner, admin)? SEMUA PAGES
+1. Language switch:
+   * Auto detect (dari browser language)?
+   * Atau manual toggle (user pilih sendiri)? MANUAL TOGGLE USER PILIH SENDIRI
+G3. Additional Features
+❓ PERTANYAAN: 48. Ada fitur tambahan yang belum di materi tapi Anda mau? - Live chat (customer support real-time)? ENGGA BIAR DIA LANGSUNG KE WAHTSAPP BIAR JADI DATABASE DAN BISA SAYA KUNCI - Push notification (browser notification)? - Mobile app (Android/iOS) - nanti fase 2? - API public (untuk integration dengan platform lain)?
+1. Ada halaman/section yang menurut Anda TIDAK PERLU dari yang ada di materi?
+   * Blog (jika tidak sempat maintain konten)? ADMIN BISA SETTING NANTI
+   * Career (jika belum buka lowongan)? CAREER PASTI ADA UNTUK YANG GABUNG JADI TEAM SITUNEO , BAGIAN PENGERJAAN JASA LAYANAN SITUNEO SESUAI SPECIALIS NYA NANTI , INI NANTI ADMIN YANG UPDATE2
+   * Atau semua tetap dibuat? SEMUA TETEP DI BUAT
+H1. Development Priority
+❓ PERTANYAAN: 50. Jika saya harus prioritas, urutan mana yang paling penting?
+Rank dari 1-10 (1 = paling penting): SEMUA NYA PENTING , TINGGAL KAMU ATUR AJA
+* Public website (homepage, about, services, portfolio, pricing, contact)
+* Authentication (login, register, email verification)
+* Client dashboard (order, payment, tracking)
+* Partner dashboard (earnings, referral, withdrawal)
+* SPV dashboard (team management, ARPU tracking)
+* Manager dashboard (area management)
+* Admin dashboard (full control)
+* 50 Demo websites
+* Email automation (notifications)
+* Reports & Analytics
+H2. Quality vs Speed
+❓ PERTANYAAN: 51. Anda lebih prefer: - Quality first (semua perfect, polish, butuh waktu lebih lama)? GPP SAYA MEMILIH QUALITY - Speed first (MVP dulu, polish bertahap nanti)? - Balanced (80% quality, 80% speed)?
+1. Bug tolerance:
+   * Zero bug (harus 100% functioning sebelum deliver)? NANTI KAN ADA SESI TEST SEBELUM LANJUT , HARUS AMAN SEMUA DULU 
+   * Minor bugs OK (asal fitur utama jalan, minor bugs bisa fix nanti)? BETUL , POKOK NYA SAYA MAU PERFECT
+❓ PERTANYAAN TERBUKA:
+1. Concern terbesar Anda untuk project ini apa?
+   * Performance (website harus cepat)? BEBAS YANG PENTING SUPER LENGKAP 
+   * Security (data harus aman)? AMAN
+   * Scalability (harus kuat handle 10,000+ users)? HARUS , KLO UNTUK AWAL2 NORMAL DLU AJA
+   * Maintainability (code harus gampang di-maintain)? BETUL 
+   * Atau yang lain?
+2. Success metric untuk project ini apa?
+   * Website live dan bisa terima order? IYA
+   * Partner bisa recruit client dan dapat komisi? IYA
+   * Traffic tinggi (banyak visitor)? IYA
+   * Conversion rate tinggi (visitor jadi client)?IYA
+   * Atau yang lain?
+3. Deadline yang Anda harapkan?
+   * Secepat mungkin (berapa hari ideal menurut Anda)? BEBAS 
+   * Ada deadline spesifik (tanggal berapa harus live)? BEBAS
+   * No rush, quality first (tidak masalah berapa lama)? BEBAS
+
+SEMUA MATERI YANG SAYA KIRIM ADA 70 FILE , HAL KECIL YANG BELUM KAMU PAHAM ATAU KAMU LEWATKAN , GPP KASIH PERTANYAAN , BIAR HASIL MAKSIMAL

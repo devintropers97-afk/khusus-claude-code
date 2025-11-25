@@ -1,0 +1,1079 @@
+🔷 BATCH 14: 50 DEMO WEBSITES - FULLY UNIQUE DESIGNS
+Priority: MEDIUM | Files: ~250+ | Duration: Test 5-7 hari
+📂 File Structure:
+/demos/
+├── index.php                     # Demo browser/showcase (main entry)
+├── demo-handler.php              # Central demo routing handler
+├── demo-config.php               # Demo configuration & metadata
+│
+├── /templates/                   # Shared components (DRY principle)
+│   ├── header-style-1.php       # Header variant 1
+│   ├── header-style-2.php       # Header variant 2
+│   ├── header-style-3.php       # Header variant 3
+│   ├── footer-style-1.php       # Footer variant 1
+│   ├── footer-style-2.php       # Footer variant 2
+│   ├── footer-style-3.php       # Footer variant 3
+│   ├── navbar-modern.php        # Modern navbar
+│   ├── navbar-minimal.php       # Minimal navbar
+│   ├── navbar-classic.php       # Classic navbar
+│   ├── hero-slider.php          # Hero slider component
+│   ├── hero-video.php           # Video hero component
+│   ├── hero-parallax.php        # Parallax hero component
+│   ├── contact-form.php         # Reusable contact form
+│   ├── whatsapp-button.php      # WhatsApp floating button
+│   └── gallery-lightbox.php     # Gallery lightbox component
+│
+├── /assets/
+│   ├── /css/
+│   │   ├── demo-base.css        # Base styles (shared)
+│   │   ├── demo-utilities.css   # Utility classes
+│   │   └── /themes/             # Per-demo custom CSS
+│   │       ├── toko-fashion.css
+│   │       ├── restoran.css
+│   │       └── ... (50 files)
+│   │
+│   ├── /js/
+│   │   ├── demo-common.js       # Common JS (shared)
+│   │   └── /custom/             # Per-demo custom JS
+│   │       ├── toko-fashion.js
+│   │       ├── restoran.js
+│   │       └── ... (50 files)
+│   │
+│   └── /images/                 # Demo images (Unsplash)
+│       ├── /toko-fashion/
+│       ├── /restoran/
+│       └── ... (50 folders)
+│
+└── /sites/                       # Individual demo websites
+    ├── /01-toko-fashion/
+    │   ├── index.php            # Homepage
+    │   ├── about.php            # About page
+    │   ├── products.php         # Products listing
+    │   ├── product-detail.php   # Product detail
+    │   └── contact.php          # Contact page
+    │
+    ├── /02-restoran/
+    │   ├── index.php            # Homepage
+    │   ├── menu.php             # Menu page
+    │   ├── reservation.php      # Reservation
+    │   ├── gallery.php          # Gallery
+    │   └── contact.php          # Contact
+    │
+    ├── /03-klinik-kesehatan/
+    │   ├── index.php
+    │   ├── services.php
+    │   ├── doctors.php
+    │   ├── appointment.php
+    │   └── contact.php
+    │
+    └── ... (47 more demos)
+
+/controllers/demo/
+├── DemoController.php            # Main demo controller
+├── DemoRoutingController.php     # Routing handler
+└── DemoAnalyticsController.php   # Track demo views
+
+/models/
+├── Demo.php                      # Demo model
+└── DemoAnalytics.php             # Analytics tracking
+✅ 50 DEMO WEBSITES (Fully Unique Designs):
+CATEGORY 1: E-COMMERCE (10 Demos)
+1. Toko Fashion (Fashion E-commerce)
+
+✅ Pages (5):
+
+Homepage: Hero slider, featured products, collections, testimonials
+Products: Grid with filters (category, price, size, color), pagination
+Product Detail: Image gallery, size selector, add to cart, related products
+About: Brand story, values, team
+Contact: Form, store locations, map
+
+
+✅ Design Style: Modern, clean, image-focused
+✅ Color Scheme: Black, white, gold accents
+✅ Unique Features:
+
+Product quick view modal
+Size guide popup
+Instagram feed integration
+Lookbook section
+
+
+
+2. Toko Elektronik (Electronics Store)
+
+✅ Pages (5):
+
+Homepage, Products, Product Detail, About, Contact
+
+
+✅ Design: Tech-focused, blue/silver theme
+✅ Features:
+
+Product comparison tool
+Specs table
+Video reviews
+Warranty information
+
+
+
+3. Toko HP & Aksesoris (Mobile Phone Store)
+
+✅ Pages (5):
+
+Homepage, Products, Product Detail, Trade-in, Contact
+
+
+✅ Design: Sleek, modern, gradient backgrounds
+✅ Features:
+
+Phone finder tool
+Trade-in calculator
+Carrier compatibility checker
+Accessory recommendations
+
+
+
+4. Toko Skincare & Kosmetik (Beauty Store)
+
+✅ Pages (5):
+
+Homepage, Products, Product Detail, Skin Quiz, Contact
+
+
+✅ Design: Feminine, pastel colors, soft aesthetics
+✅ Features:
+
+Skin type quiz
+Ingredient checker
+Routine builder
+Before/after gallery
+
+
+
+5. Toko Makanan & Minuman (Food & Beverage Store)
+
+✅ Pages (5):
+
+Homepage, Products, Product Detail, Recipes, Contact
+
+
+✅ Design: Warm, appetizing, earthy tones
+✅ Features:
+
+Recipe section
+Nutrition information
+Dietary filters (vegan, halal, gluten-free)
+Subscription box option
+
+
+
+6. Toko Furniture (Furniture Store)
+
+✅ Pages (5):
+
+Homepage, Products, Product Detail, 3D Viewer, Contact
+
+
+✅ Design: Minimalist, Scandinavian, wood textures
+✅ Features:
+
+Room visualizer
+AR view (placeholder)
+Dimension guide
+Customization options
+
+
+
+7. Toko Buku Online (Online Bookstore)
+
+✅ Pages (5):
+
+Homepage, Books, Book Detail, Authors, Contact
+
+
+✅ Design: Classic, library-inspired, serif fonts
+✅ Features:
+
+Book preview (first chapter)
+Author bios
+Reading lists
+Genre recommendations
+
+
+
+8. Toko Sepatu (Shoe Store)
+
+✅ Pages (5):
+
+Homepage, Products, Product Detail, Sizing Guide, Contact
+
+
+✅ Design: Sporty, dynamic, bold colors
+✅ Features:
+
+360° product view
+Size finder tool
+Sneaker release calendar
+Authentication guarantee
+
+
+
+9. Toko Jam Tangan (Watch Store)
+
+✅ Pages (5):
+
+Homepage, Collection, Watch Detail, About, Contact
+
+
+✅ Design: Luxury, elegant, dark theme
+✅ Features:
+
+Watch finder tool
+Brand stories
+Watch care guide
+Limited editions
+
+
+
+10. Toko Perhiasan (Jewelry Store)
+
+✅ Pages (5):
+
+Homepage, Collections, Product Detail, Custom Design, Contact
+
+
+✅ Design: Luxurious, sparkly, gold/rose gold accents
+✅ Features:
+
+Gemstone guide
+Custom design inquiry
+Certification info
+Gift guide
+
+
+
+
+CATEGORY 2: FOOD & BEVERAGE (8 Demos)
+11. Restoran Fine Dining
+
+✅ Pages (5):
+
+Homepage: Video hero, menu preview, reservation CTA
+Menu: Categorized menu with prices, images
+Reservation: Date/time picker, party size, special requests
+Gallery: Food photography, ambiance photos
+Contact: Location, hours, map
+
+
+✅ Design: Elegant, sophisticated, dark theme with gold accents
+✅ Features:
+
+Online reservation system
+Menu PDF download
+Chef's specials
+Private dining inquiry
+
+
+
+12. Cafe Modern
+
+✅ Pages (5):
+
+Homepage, Menu, Events, Gallery, Contact
+
+
+✅ Design: Hip, Instagram-worthy, bright and airy
+✅ Features:
+
+Event calendar
+Instagram wall
+Coffee origin stories
+Loyalty program sign-up
+
+
+
+13. Warung Makan Tradisional
+
+✅ Pages (4):
+
+Homepage, Menu, About, Contact
+
+
+✅ Design: Warm, traditional Indonesian elements, batik patterns
+✅ Features:
+
+Daily specials
+Catering menu
+Order via WhatsApp
+Authentic recipes story
+
+
+
+14. Bakery & Cake Shop
+
+✅ Pages (5):
+
+Homepage, Products, Custom Cakes, Gallery, Contact
+
+
+✅ Design: Sweet, pastel colors, playful fonts
+✅ Features:
+
+Custom cake order form
+Cake gallery
+Flavor combinations
+Delivery zones
+
+
+
+15. Cloud Kitchen (Delivery Only)
+
+✅ Pages (4):
+
+Homepage, Menu, Order, Contact
+
+
+✅ Design: Modern, app-like, mobile-first
+✅ Features:
+
+Online ordering system
+Delivery tracking (placeholder)
+Multiple brand/kitchen showcases
+Promo codes
+
+
+
+16. Bar & Lounge
+
+✅ Pages (5):
+
+Homepage, Drinks Menu, Events, Gallery, Contact
+
+
+✅ Design: Dark, moody, neon accents
+✅ Features:
+
+Cocktail menu with ingredients
+Event bookings
+DJ schedule
+VIP table reservation
+
+
+
+17. Fast Food Franchise
+
+✅ Pages (5):
+
+Homepage, Menu, Locations, Nutrition, Contact
+
+
+✅ Design: Bright, energetic, red/yellow theme
+✅ Features:
+
+Store locator
+Nutrition calculator
+Promotions slider
+Franchise inquiry
+
+
+
+18. Food Truck
+
+✅ Pages (4):
+
+Homepage, Menu, Schedule, Contact
+
+
+✅ Design: Fun, street food vibe, graffiti elements
+✅ Features:
+
+Weekly schedule/locations
+Social media feed
+Catering bookings
+Food origin story
+
+
+
+
+CATEGORY 3: SERVICES (12 Demos)
+19. Jasa Laundry
+
+✅ Pages (5):
+
+Homepage, Services, Pricing, Order, Contact
+
+
+✅ Design: Clean, fresh, blue/white theme
+✅ Features:
+
+Price calculator (per kg/item)
+Pickup/delivery booking
+Service area map
+Membership packages
+
+
+
+20. Jasa Cleaning Service
+
+✅ Pages (5):
+
+Homepage, Services, Pricing, Book Now, Contact
+
+
+✅ Design: Professional, green/blue (clean/fresh)
+✅ Features:
+
+Service packages (home, office, deep clean)
+Instant quote form
+Booking calendar
+Before/after photos
+
+
+
+21. Jasa Catering
+
+✅ Pages (5):
+
+Homepage, Packages, Menu, Gallery, Contact
+
+
+✅ Design: Appetizing, warm colors, food photography
+✅ Features:
+
+Event packages (wedding, corporate, birthday)
+Menu customization
+Portion calculator
+Testimonials
+
+
+
+22. Jasa Event Organizer
+
+✅ Pages (5):
+
+Homepage, Services, Portfolio, Pricing, Contact
+
+
+✅ Design: Creative, colorful, event photos
+✅ Features:
+
+Event types (wedding, corporate, birthday, etc)
+Portfolio galleries per event type
+Vendor partnerships
+Free consultation form
+
+
+
+23. Jasa Travel Agent
+
+✅ Pages (5):
+
+Homepage, Destinations, Packages, Gallery, Contact
+
+
+✅ Design: Adventurous, travel photos, blue/turquoise
+✅ Features:
+
+Destination guides
+Tour packages
+Custom itinerary builder
+Visa assistance info
+
+
+
+24. Salon Kecantikan (Beauty Salon)
+
+✅ Pages (5):
+
+Homepage, Services, Pricing, Gallery, Contact
+
+
+✅ Design: Chic, feminine, pink/gold theme
+✅ Features:
+
+Service menu (hair, nails, facial, makeup)
+Stylist profiles
+Online booking
+Before/after transformations
+
+
+
+25. Barbershop
+
+✅ Pages (4):
+
+Homepage, Services, Barbers, Contact
+
+
+✅ Design: Masculine, vintage, black/brown/gold
+✅ Features:
+
+Service list with duration
+Barber profiles
+Appointment booking
+Grooming tips blog
+
+
+
+26. Spa & Massage
+
+✅ Pages (5):
+
+Homepage, Treatments, Packages, Gallery, Contact
+
+
+✅ Design: Zen, calming, earth tones/green
+✅ Features:
+
+Treatment descriptions
+Package deals
+Therapist profiles
+Ambiance photos
+
+
+
+27. Gym & Fitness Center
+
+✅ Pages (5):
+
+Homepage, Classes, Trainers, Membership, Contact
+
+
+✅ Design: Energetic, motivational, red/black
+✅ Features:
+
+Class schedule
+Trainer bios
+Membership tiers
+Virtual tour
+Trial class signup
+
+
+
+28. Klinik Kesehatan (Health Clinic)
+
+✅ Pages (5):
+
+Homepage, Services, Doctors, Appointment, Contact
+
+
+✅ Design: Professional, medical, blue/white/green
+✅ Features:
+
+Medical services list
+Doctor profiles with specializations
+Online appointment booking
+Health articles/tips
+Insurance accepted
+
+
+
+29. Bengkel Mobil (Auto Repair)
+
+✅ Pages (5):
+
+Homepage, Services, Pricing, Gallery, Contact
+
+
+✅ Design: Industrial, automotive, orange/black/gray
+✅ Features:
+
+Service list (oil change, brake, engine, etc)
+Transparent pricing
+Before/after repair photos
+Appointment booking
+Car brands serviced
+
+
+
+30. Car Wash
+
+✅ Pages (4):
+
+Homepage, Services, Pricing, Contact
+
+
+✅ Design: Clean, fresh, blue/white, water elements
+✅ Features:
+
+Service packages (basic, premium, detailing)
+Membership cards
+Location & hours
+Mobile car wash option
+
+
+
+
+CATEGORY 4: PROPERTY & HOSPITALITY (6 Demos)
+31. Agen Properti (Real Estate Agent)
+
+✅ Pages (5):
+
+Homepage, Properties, Property Detail, About, Contact
+
+
+✅ Design: Professional, modern, blue/gray
+✅ Features:
+
+Property listings with filters (type, location, price)
+Property detail with image gallery
+Virtual tour embed (YouTube/360)
+Mortgage calculator
+Agent contact form
+
+
+
+32. Kontraktor Bangunan (Construction Contractor)
+
+✅ Pages (5):
+
+Homepage, Services, Projects, About, Contact
+
+
+✅ Design: Industrial, strong, yellow/black/gray
+✅ Features:
+
+Construction services
+Project portfolio
+Process timeline
+Free quote request
+
+
+
+33. Interior Designer
+
+✅ Pages (5):
+
+Homepage, Portfolio, Services, About, Contact
+
+
+✅ Design: Creative, sophisticated, monochrome with pops of color
+✅ Features:
+
+Portfolio grid with filters (residential, commercial, style)
+Service packages
+Design process
+Consultation booking
+
+
+
+34. Kos-Kosan (Boarding House)
+
+✅ Pages (4):
+
+Homepage, Rooms, Facilities, Contact
+
+
+✅ Design: Friendly, welcoming, warm colors
+✅ Features:
+
+Room types with photos
+Facilities list (WiFi, laundry, kitchen, etc)
+Pricing & availability
+Virtual tour
+Booking inquiry
+
+
+
+35. Hotel
+
+✅ Pages (5):
+
+Homepage, Rooms, Facilities, Gallery, Contact
+
+
+✅ Design: Luxurious, hospitality, elegant
+✅ Features:
+
+Room types & rates
+Online booking (or booking.com integration)
+Hotel facilities (pool, restaurant, gym)
+Guest reviews
+Location map
+
+
+
+36. Villa & Resort
+
+✅ Pages (5):
+
+Homepage, Villas, Activities, Gallery, Contact
+
+
+✅ Design: Paradise, tropical, bright/airy
+✅ Features:
+
+Villa showcases
+Activities & experiences
+Photo galleries
+Booking calendar
+Special offers
+
+
+
+
+CATEGORY 5: EDUCATION (4 Demos)
+37. Bimbingan Belajar (Tutoring Center)
+
+✅ Pages (5):
+
+Homepage, Programs, Teachers, Success Stories, Contact
+
+
+✅ Design: Educational, friendly, blue/yellow
+✅ Features:
+
+Program offerings (SD, SMP, SMA, SBMPTN)
+Teacher profiles
+Success stories (testimonials)
+Trial class signup
+Class schedule
+
+
+
+38. Kursus Bahasa (Language Course)
+
+✅ Pages (5):
+
+Homepage, Courses, Teachers, Placement Test, Contact
+
+
+✅ Design: International, multilingual flags, colorful
+✅ Features:
+
+Language offerings (English, Mandarin, Japanese, etc)
+Course levels (beginner, intermediate, advanced)
+Online/offline options
+Free placement test
+Teacher credentials
+
+
+
+39. Kursus Musik (Music School)
+
+✅ Pages (5):
+
+Homepage, Courses, Instructors, Gallery, Contact
+
+
+✅ Design: Creative, musical elements, vibrant
+✅ Features:
+
+Instrument courses (piano, guitar, vocal, drum, etc)
+Instructor bios with demo videos
+Student performances (gallery/videos)
+Trial lesson booking
+Recital schedule
+
+
+
+40. TK & Daycare (Kindergarten & Daycare)
+
+✅ Pages (5):
+
+Homepage, Programs, Facilities, Gallery, Contact
+
+
+✅ Design: Playful, kid-friendly, bright primary colors
+✅ Features:
+
+Program details (curriculum)
+Facility photos (classrooms, playground)
+Teacher credentials
+Parent testimonials
+Enrollment inquiry
+
+
+
+
+CATEGORY 6: PROFESSIONAL SERVICES (5 Demos)
+41. Konsultan Bisnis (Business Consultant)
+
+✅ Pages (5):
+
+Homepage, Services, Case Studies, About, Contact
+
+
+✅ Design: Corporate, professional, blue/gray
+✅ Features:
+
+Consulting services
+Success case studies
+Consultant team
+Free consultation booking
+Blog/insights
+
+
+
+42. Akuntan & Tax Consultant
+
+✅ Pages (5):
+
+Homepage, Services, Pricing, Resources, Contact
+
+
+✅ Design: Trustworthy, professional, green/blue
+✅ Features:
+
+Accounting services
+Tax services
+Fixed pricing packages
+Tax calculators
+Resource library (guides)
+
+
+
+43. Law Firm
+
+✅ Pages (5):
+
+Homepage, Practice Areas, Attorneys, Case Results, Contact
+
+
+✅ Design: Authoritative, professional, dark blue/gold
+✅ Features:
+
+Practice areas (corporate, criminal, family, etc)
+Attorney profiles
+Notable cases
+Free consultation request
+Legal resources
+
+
+
+44. Digital Marketing Agency
+
+✅ Pages (5):
+
+Homepage, Services, Portfolio, About, Contact
+
+
+✅ Design: Creative, modern, gradients/bright colors
+✅ Features:
+
+Marketing services (SEO, Ads, Social Media, etc)
+Client portfolio with results
+Team/agency culture
+Free audit offer
+Blog
+
+
+
+45. IT Services & Software House
+
+✅ Pages (5):
+
+Homepage, Services, Portfolio, Technologies, Contact
+
+
+✅ Design: Tech, modern, blue/cyan/dark theme
+✅ Features:
+
+IT services (web dev, mobile app, custom software)
+Project portfolio
+Tech stack
+Development process
+Free consultation
+
+
+
+
+CATEGORY 7: CREATIVE & EVENTS (3 Demos)
+46. Photography Studio
+
+✅ Pages (5):
+
+Homepage, Services, Portfolio, Packages, Contact
+
+
+✅ Design: Visual, image-focused, minimal text
+✅ Features:
+
+Photography services (wedding, portrait, product, event)
+Portfolio galleries
+Package pricing
+Booking calendar
+Photography tips blog
+
+
+
+47. Videography Service
+
+✅ Pages (5):
+
+Homepage, Services, Portfolio, About, Contact
+
+
+✅ Design: Cinematic, dark theme, video embeds
+✅ Features:
+
+Videography services (wedding, corporate, commercial)
+Video portfolio (embedded YouTube/Vimeo)
+Production process
+Package pricing
+Booking inquiry
+
+
+
+48. Wedding Organizer
+
+✅ Pages (5):
+
+Homepage, Services, Portfolio, Packages, Contact
+
+
+✅ Design: Romantic, elegant, soft pastels/gold
+✅ Features:
+
+Wedding packages (intimate, grand, destination)
+Gallery of past weddings
+Service inclusions
+Vendor partnerships
+Free consultation
+
+
+
+
+CATEGORY 8: PET & HOBBY (2 Demos)
+49. Pet Shop & Grooming
+
+✅ Pages (5):
+
+Homepage, Products, Services, Gallery, Contact
+
+
+✅ Design: Fun, pet-friendly, colorful
+✅ Features:
+
+Pet products (food, toys, accessories)
+Grooming services
+Pet adoption (if applicable)
+Grooming gallery
+Pet care tips
+
+
+
+50. Florist & Toko Bunga (Flower Shop)
+
+✅ Pages (5):
+
+Homepage, Products, Occasions, Gallery, Contact
+
+
+✅ Design: Beautiful, floral, soft feminine colors
+✅ Features:
+
+Flower arrangements
+Shop by occasion (birthday, wedding, sympathy, etc)
+Custom arrangement request
+Delivery areas
+Care instructions
+
+
+
+
+✅ Demo System Features:
+Demo Routing:
+
+✅ URL Structure:
+
+Main showcase: https://situneo.my.id/demos
+Individual demo: https://situneo.my.id/demo/toko-fashion
+Demo pages: https://situneo.my.id/demo/toko-fashion/products
+
+
+✅ Central Routing:
+
+All demos route through demo-handler.php
+Dynamic loading based on slug
+404 handling for non-existent demos
+
+
+
+Shared Components (DRY Principle):
+
+✅ Reusable Elements:
+
+3 header styles (modern, minimal, classic)
+3 footer styles
+Contact forms (single, multi-field)
+WhatsApp button
+Gallery lightbox
+Testimonial sliders
+Pricing tables
+
+
+✅ Customization:
+
+Each demo calls shared components
+Override with demo-specific CSS/JS
+Color scheme variables per demo
+
+
+
+Demo Analytics:
+
+✅ Track Per Demo:
+
+Views count
+Time spent
+Most viewed pages
+Click-through rate to "Use This Template"
+Conversion to orders
+
+
+✅ Admin Dashboard:
+
+Most popular demos
+Demo performance metrics
+A/B test different demos
+
+
+
+Demo Request Integration:
+
+✅ "Use This Template" Button:
+
+On each demo
+Pre-fills demo request form
+Auto-selects category
+Shows estimated price
+
+
+
+Quality Standards:
+
+✅ Each Demo Must Have:
+
+Minimum 3 pages (Homepage, About, Contact)
+Working contact form
+WhatsApp button
+Responsive design (mobile/tablet/desktop)
+High-quality images (Unsplash)
+SEO meta tags
+Fast loading (<3s)
+Consistent branding per demo
+Professional design
+Real content (not lorem ipsum)
+
+
+
+🧪 Testing Checklist:
+
+ All 50 demos accessible
+ Demo showcase page displays all
+ Category filtering works
+ Individual demo pages load
+ All internal links work
+ Contact forms submit
+ WhatsApp buttons work
+ Images load correctly
+ Responsive on all devices
+ No console errors
+ SEO meta tags present
+ Analytics tracking works
+ "Use This Template" CTA works
+ Demo request pre-fills
+ Fast loading (<3s per demo)
+ Cross-browser compatible

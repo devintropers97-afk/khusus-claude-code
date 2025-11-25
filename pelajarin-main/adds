@@ -1,0 +1,1009 @@
+A1. Partner Tanpa SPV - Tanggungan Client Stop Sewa
+
+Anda bilang: "Benefit kalau Partner punya SPV, ketika client cuma bayar 1 bulan (sewa), SPV & Manager ikut patungan bayar tanggungan"
+
+❓ PERTANYAAN DETAIL:
+
+
+
+
+
+Skenario: Client sewa 5 halaman (Rp 750K/bulan), min 3 bulan
+
+
+
+
+
+Bulan 1: Client bayar Rp 750K → Partner dapat Rp 300K (40%)
+
+
+
+Bulan 2: Client STOP (tidak bayar lagi)
+
+
+
+Tanggungan: Partner harus bayar berapa?
+
+
+
+
+
+A) Rp 300K (komisi bulan 1 dikembalikan penuh)?
+
+
+
+B) Rp 1.5 juta (total 2 bulan sisa kontrak: 750K × 2)? 
+
+
+
+C) Perhitungan lain?  BULAN 2 PARTNER BAYAR 150RB, BULAN KE 3 PARTNER BAYAR 150RB , JIKA ADA SPV DAN MANAGER AREA , PARTNER AKAN TERBANTU , KARNA SPV NYUMBANG 10% DAN MANAGER AREA 5%
+
+
+
+Jika Partner punya SPV & Manager, tanggungan dibagi:
+
+
+
+
+
+Partner bayar: __85___% ?
+
+
+
+SPV bayar: __10___% ?
+
+
+
+Manager bayar: __5___% ?
+
+
+
+Contoh konkrit angkanya?
+
+
+
+Jika Partner tidak punya SPV (daftar langsung): NANTI ADMIN AKAN MENAWARKAN , KE PARTNER , MAU DI PINDAHIN KE SPV ATAU TIDAK , NANTI ADMIN YANG MEREKOMENDASIIN
+
+
+
+
+
+Partner bayar sendiri 100% tanggungan? BETUL
+
+
+
+Atau tidak ada tanggungan (SITUNEO yang tanggung)? GA ADA 
+
+A2. ARPU Calculation - Detail Perhitungan
+
+Anda bilang: "Total partner dibawahnya, diakumulasi semua, tutup buku akhir bulan"
+
+❓ PERTANYAAN DETAIL:
+
+
+
+
+
+Contoh konkrit: SPV punya 10 Partner
+
+
+
+
+
+Partner 1: 5 order × Rp 1 juta = Rp 5 juta
+
+
+
+Partner 2: 3 order × Rp 2 juta = Rp 6 juta
+
+
+
+Partner 3-10: Total Rp 30 juta
+
+
+
+Total revenue bulan ini: Rp 41 juta
+
+ARPU SPV = Rp 41 juta (dari 10 partner) ✅
+
+
+
+
+
+Komisi base 10% = Rp 4.1 juta ✅
+
+
+
+Bonus ARPU tier Rp 35M-75M = Rp 1 juta ✅
+
+
+
+Total SPV dapat: Rp 5.1 juta ✅
+
+Apakah perhitungan ini BENAR? BETUL
+
+
+
+Jika bulan depan revenue turun jadi Rp 25 juta (dibawah Rp 35M):
+
+
+
+
+
+SPV tidak dapat bonus bulan itu?BETUL , JIKA ADA TIER YANG DI BAWAH 35JT YA ADA BONUS 
+
+
+
+Atau SPV turun tier bonus (dari Rp 1M ke Rp 500K)? GA ADA PENURUSAN ATAU KENAIKAN TIER SETIAP BULAN , POKOK NYA DALAM SEBULAN DIA DAPET TARGET ARPU BERAPA DAN CAPAI TARGET YANG MANA , YA ITU YANG DIA DAPET BONUS NYA
+
+A3. Tier Partner - Maintenance Rule (PENTING!)
+
+Ada kontradiksi dalam jawaban Anda:
+
+Dari TAMBAHAN1 Anda bilang: "Partner di Tier 2, bulan depan cuma 8 order → TETAP BERTAHAN di Tier 2"
+
+Tapi jawaban baru Anda bilang: "Partner di Tier 2, bulan depan cuma 8 order → TURUN ke Tier 1"
+
+❓ PERTANYAAN FINAL:
+
+
+
+
+
+Yang BENAR yang mana?
+
+
+
+
+
+A) Partner TETAP di tier (tidak pernah turun) ✅
+
+
+
+B) Partner BISA TURUN tier jika tidak maintain ✅ BETUL
+
+
+
+Jika jawaban B (bisa turun), rule lengkapnya:
+
+
+
+
+
+Tier 1 (30%): Tidak bisa turun (tier paling bawah)
+
+
+
+Tier 2 (40%): Maintenance min 10 order/bulan, atau turun ke Tier 1? JIKA DI BAWAH 10 BERTI BULAN BESOK DIA TURUN TIER
+
+
+
+Tier 3 (50%): Maintenance min 25 order/bulan, atau turun ke Tier 2? AKAN TURUN TIER JIKA DI BAWAH 25 ORDER
+
+
+
+Tier MAX (55%): Maintenance min 50 order/bulan, atau turun ke Tier 3? AKAN TURUN TIER JIKA DI BAWAH 50 ORDER
+
+
+
+Atau tidak ada maintenance (sekali naik, tidak pernah turun)? ADA TURUN DONG KLO DIA GA TARGET
+
+B1. Form Order - 2 Pilihan
+
+Anda bilang: "Form order ada 2 pilihan: Langsung order atau Demo dulu"
+
+❓ PERTANYAAN DETAIL:
+
+
+
+
+
+Di halaman Services/Pricing, ketika Client klik "Order":
+
+
+
+
+
+Muncul modal/popup: "Mau demo dulu atau langsung order?"
+
+
+
+Atau langsung ke form order, lalu ada checkbox "Request demo gratis dulu"?POKOK NYA SEMUA NYA HARUS REGIS AKUN DULU LALU ORDER , JIKA DIA MAU ORDER/MEMBUAT DEMO , NANTIKAN ADA 2 PILIHAN, MAU ORDER LANGSUNG ATAU MAU DEMO DULU
+
+
+
+Jika Client pilih "Demo dulu":
+
+
+
+
+
+Form yang muncul 26 fields lengkap (nama, bisnis, target market, fitur, dll)?
+
+
+
+Atau form singkat dulu (nama, email, jenis website), baru 26 fields nanti?
+
+
+
+Jika Client pilih "Langsung order":
+
+
+
+
+
+Tetap isi 26 fields (karena data penting untuk development)? LENGKAP , YANG PENTING CLIENT PASTI PAHAM WALUPUN ORANG BODOH PASTI BISA MENJAWAB NYA
+
+
+
+Atau form lebih singkat (tidak semua 26 fields wajib)?
+
+B2. Copy Detail Button - Format Output
+
+Anda bilang: "Plain text + JSON + File, bentuk rekapan manual dan file siap upload ke Claude AI"
+
+❓ PERTANYAAN DETAIL:
+
+
+
+
+
+Jadi 3 tombol terpisah?
+
+
+
+
+
+Button 1: "Copy as Plain Text"
+
+
+
+Button 2: "Copy as JSON"
+
+
+
+Button 3: "Download File (.txt atau .md atau .json)" SEBENERNYA SALAH 1 JUGA GA MASALAH SIH , YANG BISA DI BACA SAMA CLAUDE AI AJA , MAU TEKS AJA BOLEH BENTUK FILE JUGA BOLEH , YANG PENTING ISI FORM NYA RAPIH GITU
+
+
+
+Atau 1 tombol, muncul modal dengan 3 tab (Plain Text / JSON / Download)?
+
+
+
+Format "siap upload ke Claude AI" maksudnya:
+
+
+
+
+
+Structured prompt template seperti:
+
+      Buatkan website untuk:
+      Nama Bisnis: [nama]
+      Jenis Usaha: [jenis]
+      Target Market: [target]
+      Fitur Yang Diinginkan:
+      - [fitur 1]
+      - [fitur 2]
+      ... (dll 26 fields)
+
+
+
+
+
+Atau format lain yang Anda prefer? POKOK NYA SUPER LENGKAP AJA , BIAR AI MEMBUAT NYA , MAKSIMAL
+
+C1. Task Distribution & Selection
+
+Anda bilang: "Admin kirim pesan task ke semua Partner, sistem rebutan siapa cepat ambil"
+
+❓ PERTANYAAN DETAIL:
+
+
+
+
+
+Admin post task, muncul di dashboard:
+
+
+
+
+
+Semua Partner (100+ partner semua lihat)? BETUL
+
+
+
+Atau filter (misal: Partner yang tier 2 keatas, atau Partner dengan skill tertentu)? GA ADA FILTER
+
+
+
+Partner klik "Ambil Task":
+
+
+
+
+
+Task langsung reserved untuk Partner itu (partner lain tidak bisa ambil)?
+
+
+
+Atau Partner apply dulu, admin pilih dari yang apply (bisa 10+ partner apply)?
+
+
+
+Jika Task sudah diambil tapi Partner gagal (admin tidak yakin):
+
+
+
+
+
+Task otomatis dibuka lagi untuk Partner lain? BETUL
+
+
+
+Atau admin assign manual ke Partner lain? TIDAK 
+
+
+
+Komisi task dari admin, Anda bilang "admin yang tentukan". Maksudnya:
+
+
+
+
+
+Admin input komisi manual (misal: Rp 500K untuk task ini)? BETUL 
+
+
+
+Atau ada default (misal: 40% dari value project)?
+
+C2. Task Cascade Commission
+
+Anda bilang: "Semua SPV & Manager terkirim semua tugas dari admin"
+
+❓ PERTANYAAN DETAIL:
+
+
+
+
+
+SPV & Manager juga bisa ambil task? BISA
+
+
+
+
+
+Atau mereka cuma lihat (untuk monitor partner mereka)?
+
+
+
+Jika Partner ambil task, komisi-nya:
+
+
+
+
+
+Partner dapat 100% (tidak cascade ke SPV/Manager)? BETUL
+
+
+
+Atau tetap cascade (Partner 70%, SPV 20%, Manager 10%)? TIDAK
+
+
+
+Atau admin yang tentukan split komisi per task? 
+
+D1. Minimal Partner/SPV
+
+Anda bilang:
+
+
+
+
+
+"Minimal 1 SPV harus punya 10 Partner"
+
+
+
+"Minimal 1 Manager harus punya 3 SPV"
+
+❓ PERTANYAAN DETAIL:
+
+
+
+
+
+Jika SPV baru daftar (belum punya partner):
+
+
+
+
+
+Status: "Pending" (belum bisa aktif)? BISA AKTIF , DAN SUDAH BISA BEROPRASI , TETAPI KAN HASIL NYA GA MAKSIMAL NANTI, KLO GA SESUAI SOP
+
+
+
+Atau langsung "Active" (tapi belum dapat bonus ARPU)?
+
+
+
+Jika SPV sudah punya 5 Partner, lalu:
+
+
+
+
+
+2 Partner resign (tinggal 3 partner, dibawah min 10)
+
+
+
+SPV tetap active? TETEP AKTIF
+
+
+
+Atau diturunkan jadi Partner biasa? TIDAK
+
+
+
+Atau ada grace period (warning 1 bulan, harus recruit 7 partner lagi)? TIDAK , SEMUA DIA YANG ATUR BEBAS , PENGHASILAN DIA YANG ATUR
+
+
+
+Manager punya 2 SPV (dibawah min 3):
+
+
+
+
+
+Sama seperti SPV, ada grace period atau langsung turun? TIDAK ADA
+
+E1. Demo Functionality
+
+Anda bilang: "Real functioning tapi diutamakan tampilannya muncul dan logic berjalan lancar"
+
+❓ PERTANYAAN DETAIL:
+
+
+
+
+
+"Logic berjalan lancar" maksudnya:
+
+
+
+
+
+Frontend interactive (dropdown berfungsi, slider berfungsi, form berfungsi)?
+
+
+
+Atau backend juga (form submit save ke database, login berfungsi, dll)? SEMUA ALUR BERJALAN DAN BERFUNGSI SEMUA
+
+
+
+Jika backend juga, berarti 50 demo punya:
+
+
+
+
+
+50 database terpisah (demo1_db, demo2_db, ... demo50_db)? DATABASE LANGSUNG DI INDEXNYA NYA AJA BISA KAN KAMU ATUR , SEMUA NYAB PUBLIC
+
+
+
+Atau 1 database dengan prefix table (demo1_users, demo2_users, dst)?
+
+
+
+Atau tidak ada database (cuma frontend + sample data hardcoded)? BOLEH KAMU ATUR , POKOK NYA , DEMO SEPERTI NYATA
+
+
+
+Demo ini bisa di-customize client nanti?
+
+
+
+
+
+Atau read-only (cuma untuk showcase, client tidak bisa edit)? CUMAN UNTUK SHOWCASE AJA 
+
+E2. Demo Categories Selection
+
+❓ PERTANYAAN:
+
+
+
+
+
+Untuk 50 kategori demo, saya usulkan seperti ini (Anda setuju?):
+
+Top 50 Kategori Bisnis Indonesia:
+
+
+
+
+
+Toko Online Fashion (Baju, Sepatu, Aksesoris)
+
+
+
+Restoran / Cafe
+
+
+
+Toko Elektronik
+
+
+
+Klinik / Praktek Dokter
+
+
+
+Salon / Barbershop / Spa
+
+
+
+Sekolah / Lembaga Pendidikan
+
+
+
+Properti / Real Estate
+
+
+
+Hotel / Villa / Homestay
+
+
+
+Toko Furniture
+
+
+
+Apotek / Toko Obat
+
+
+
+Gym / Fitness Center
+
+
+
+Wedding Organizer
+
+
+
+Event Organizer
+
+
+
+Photography Studio
+
+
+
+Catering
+
+
+
+Laundry
+
+
+
+Bengkel / Service Motor-Mobil
+
+
+
+Kontraktor / Jasa Renovasi
+
+
+
+Travel Agency
+
+
+
+Toko Buku / Alat Tulis
+
+
+
+Pet Shop / Grooming
+
+
+
+Florist / Toko Bunga
+
+
+
+Bakery / Toko Kue
+
+
+
+Minimarket / Toko Kelontong
+
+
+
+Jasa Cleaning Service
+
+
+
+Konsultan (HR, Legal, Finance, dll)
+
+
+
+Software House / IT Solutions
+
+
+
+Digital Marketing Agency
+
+
+
+Toko Mainan Anak
+
+
+
+Toko Perhiasan / Emas
+
+
+
+Toko Kosmetik / Skincare
+
+
+
+Barbershop / Pangkas Rambut
+
+
+
+Notaris / Jasa Legal
+
+
+
+Kursus / Les Privat
+
+
+
+Coworking Space
+
+
+
+Toko Souvenir / Gift Shop
+
+
+
+Toko Tanaman / Nursery
+
+
+
+Jasa Arsitek / Interior Design
+
+
+
+Toko Bahan Bangunan
+
+
+
+Toko Sepeda / Aksesoris
+
+
+
+Toko Jam Tangan
+
+
+
+Toko Tas / Dompet
+
+
+
+Jasa Pengiriman / Ekspedisi
+
+
+
+Dealer Motor / Mobil
+
+
+
+Cuci Motor / Mobil
+
+
+
+Toko Alat Musik
+
+
+
+Studio Musik / Recording
+
+
+
+Jasa Pindahan
+
+
+
+Rental Kendaraan (Motor/Mobil)
+
+
+
+Toko Batik / Fashion Lokal
+
+Apakah list ini OK? Atau ada yang mau diganti? YA SETUJU AJA , SAYA PERCAYA SAMA KAMU , KAMU TAHU MANA YANG TERBAIK
+
+
+
+F1. Translation Scope
+
+Anda bilang: "Multi-language di semua pages, manual toggle user pilih"
+
+❓ PERTANYAAN DETAIL:
+
+
+
+
+
+Untuk content dynamic (nama layanan, deskripsi, blog post):
+
+
+
+
+
+Admin input 2 bahasa sekaligus (ID & EN)? IYA
+
+
+
+Atau cuma Bahasa Indonesia, English auto-translate (Google Translate API)?
+
+
+
+Untuk email notification (order confirmation, payment received, dll):
+
+
+
+
+
+Ikut bahasa yang user pilih? IKUT BAHASA YANG USER PILIH
+
+
+
+Atau selalu Bahasa Indonesia?
+
+
+
+Toggle language:
+
+
+
+
+
+Di header (flag ID/EN)? 
+
+
+
+Atau di footer?
+
+
+
+Atau keduanya?KEDUA NYA BOLEH
+
+G1. Career Page - Recruitment Flow
+
+Anda bilang: "Career pasti ada, untuk yang gabung jadi team SITUNEO (bagian pengerjaan jasa), admin yang update"
+
+❓ PERTANYAAN DETAIL:
+
+
+
+
+
+Career page untuk recruit:
+
+
+
+
+
+Internal team (developer, designer, marketing - jadi karyawan SITUNEO)? BETUL
+
+
+
+Atau Partner/Freelancer (kerja project-based, bukan karyawan)? INI JUGA DI MASUKIN DI CARRER
+
+
+
+Atau keduanya?
+
+
+
+Apply job di career:
+
+
+
+
+
+Kirim email ke carrer@situneo.my.id?
+
+
+
+Atau submit via form internal (masuk ke admin dashboard)?boleh
+
+
+
+Jika ada yang apply sebagai Developer SITUNEO:
+
+
+
+
+
+Admin review CV → interview → hire → kasih akses admin (level developer)?
+
+
+
+Atau bagaimana prosesnya? betul admin cuman 1 ya , semua nya yang control
+
+H1. Email Notifications - List Lengkap
+
+❓ PERTANYAAN:
+
+
+
+
+
+Saya buatkan 11 jenis email otomatis, ini list-nya (Anda setuju?):
+
+For Client:
+
+
+
+
+
+Welcome email (after register)
+
+
+
+Email verification
+
+
+
+Order confirmation (after submit order)
+
+
+
+Payment received (after upload bukti)
+
+
+
+Project update (progress update dari admin)
+
+
+
+Project completed (website sudah siap)
+
+
+
+Invoice (tagihan untuk sewa bulanan)
+
+For Partner/SPV/Manager: 8. Commission earned (ada komisi masuk) 9. Withdrawal approved (request withdraw disetujui) 10. Downline update (ada partner baru dibawahnya)
+
+For Admin: 11. New order notification 12. New payment proof uploaded 13. New withdrawal request 14. New demo request
+
+Total 14 email types. Ada yang mau ditambah/dikurangi? ok klo ada yang mau di tambahkan dan ada fungsi nya dan ada manfaat nya ya gpp di tambahin
+
+H2. Invoice Numbering
+
+❓ PERTANYAAN:
+
+
+
+
+
+Format invoice: INV-SITUNEO-DD-MMM-YYYY-XXXX
+
+
+
+
+
+Contoh: INV-SITUNEO-12-NOV-2025-0001
+
+
+
+XXXX = auto increment per hari?
+
+
+
+Atau auto increment global (tidak reset tiap hari)? boleh kamu atur yang terbaik untuk situneo
+
+
+
+Invoice untuk:
+
+
+
+
+
+Hanya sewa bulanan (recurring)?
+
+
+
+Atau beli putus juga dapat invoice?
+
+
+
+semua dapet invoice layanan yang paling murah juga
+
+H3. Reports & Analytics - Apa Aja?
+
+❓ PERTANYAAN:
+
+
+
+
+
+Di Admin Dashboard → Reports, saya buatkan:
+
+
+
+
+
+Revenue report (total income per hari/minggu/bulan)
+
+
+
+Order report (jumlah order, completion rate)
+
+
+
+Partner report (top performers, tier distribution)
+
+
+
+Client report (new clients, repeat clients)
+
+
+
+Commission report (total komisi paid)
+
+
+
+ARPU report (SPV & Manager performance)
+
+
+
+Service popularity (layanan paling laku)
+
+
+
+Conversion report (visitor → client rate)
+
+Apakah ada yang perlu ditambah? boleh , kamu atur pokok nya super lengkap
+
+Konfirmasi Understanding Saya
+
+❓ PERTANYAAN FINAL:
+
+
+
+
+
+Dari 70 files yang saya baca, apakah ada file spesifik yang:
+
+
+
+
+
+Saya belum baca dengan benar?
+
+
+
+Atau ada informasi penting yang saya lewatkan? kamu cek aja , menurut kamu ada hal2 yang penting atau engga , pokok nya semua materi yang saya kirim , itu semua nya penting
+
+
+
+Atau ada kontradiksi yang perlu diklarifikasi?
+
+
+
+Apakah ada fitur tersembunyi atau requirement khusus yang:
+
+
+
+
+
+Tidak tertulis di 70 files tapi sangat penting? cukup sih
+
+
+
+Atau ada di pikiran Anda tapi belum disampaikan?
+

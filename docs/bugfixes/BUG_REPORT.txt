@@ -1,0 +1,644 @@
+# 🐛 BUG REPORT & ERROR ANALYSIS - SITUNEO DIGITAL PROJECT
+
+## 📋 EXECUTIVE SUMMARY
+Setelah menganalisis seluruh codebase, ditemukan **5 bug kritis** dan **3 warning** yang harus diperbaiki segera.
+
+---
+
+## 🔴 CRITICAL BUGS
+
+### BUG #1: Missing `get()` Helper Function ⚠️ **CRITICAL**
+**Lokasi:** `/helpers/common.php`  
+**Dampak:** Fatal Error - Halaman admin tidak bisa diakses  
+**Severity:** CRITICAL
+
+**Problem:**
+- File `/admin/services/index.php` line 20-23 menggunakan function `get()` untuk mengambil query parameters
+- Function `get()` **TIDAK ADA** di file helpers manapun
+- Yang ada hanya `get_input()` (line 433 di common.php)
+
+**Evidence:**
+```php
+// admin/services/index.php (line 20-23)
+$category_id = get('category', '');      // ❌ FUNCTION NOT FOUND
+$search = get('search', '');              // ❌ FUNCTION NOT FOUND
+$status = get('status', '');              // ❌ FUNCTION NOT FOUND
+$sort = get('sort', 'name');              // ❌ FUNCTION NOT FOUND
+```
+
+**Expected:** Function `get()` should exist  
+**Actual:** Only `get_input()`, `get_ip()`, `get_initials()` exist
+
+**Fix Required:**
+Tambahkan function `get()` sebagai alias untuk `get_input()` di `/helpers/common.php`
+
+---
+
+### BUG #2: Missing Helper Files Referenced in Bootstrap
+**Lokasi:** `/config/bootstrap.php` lines 106-108  
+**Dampak:** Fatal Error - File tidak ditemukan  
+**Severity:** CRITICAL
+
+**Problem:**
+Bootstrap mencoba load 3 helper files yang TIDAK ADA:
+```php
+require_once HELPERS_PATH . 'validation.php';  // ❌ FILE NOT EXISTS
+require_once HELPERS_PATH . 'security.php';    // ❌ FILE NOT EXISTS
+require_once HELPERS_PATH . 'email.php';       // ❌ FILE NOT EXISTS
+```
+
+**Files yang ada:**
+- ✅ common.php
+- ✅ formatting.php
+- ✅ pricing.php
+- ❌ validation.php (MISSING)
+- ❌ security.php (MISSING)
+- ❌ email.php (MISSING)
+
+**Fix Required:**
+1. Buat ketiga file helper yang missing
+2. ATAU comment out baris tersebut jika tidak digunakan
+3. ATAU ubah ke `require_once` dengan file_exists() check
+
+---
+
+### BUG #3: Database Query Method Issues
+**Lokasi:** `/core/Database.php` & `/admin/services/index.php`  
+**Dampak:** Inconsistent query execution  
+**Severity:** HIGH
+
+**Problem:**
+Database class memiliki 2 cara query yang berbeda:
+1. Method chaining: `query()->bind()->fetch()`
+2. Helper method: `select($table, $columns, $where, $params)`
+
+Namun di `/admin/services/index.php`:
+```php
+// Line 51 - Uses query() with params as 2nd argument
+$total = $db->query($total_query, $params)->fetch()['count'] ?? 0;
+
+// Line 63-70 - Uses query() with params as 2nd argument
+$services = $db->query("...", $params)->fetchAll();
+```
+
+**Expected Signature:**
+```php
+public function query($sql)  // Only accepts SQL, no params
+```
+
+**Actual Usage:**
+```php
+$db->query($sql, $params)  // Passes params but method doesn't accept it
+```
+
+**Fix Required:**
+Database class `query()` method harus diupdate untuk accept optional params, ATAU semua query harus menggunakan bind() method secara eksplisit.
+
+---
+
+### BUG #4: Hard-coded Credentials in Config
+**Lokasi:** `/config/database.php` lines 19-22  
+**Dampak:** Security vulnerability  
+**Severity:** CRITICAL SECURITY ISSUE
+
+**Problem:**
+Database credentials di-hardcode dalam file config:
+```php
+define('DB_HOST', 'localhost');
+define('DB_USER', 'nrrskfvk_user_situneo_digital');
+define('DB_PASS', 'Devin1922$');  // ⚠️ PASSWORD EXPOSED
+define('DB_NAME', 'nrrskfvk_situneo_digital');
+```
+
+**Security Risks:**
+- Password visible dalam version control
+- Credentials exposed jika file leaked
+- Tidak ada environment separation (dev/staging/prod)
+
+**Fix Required:**
+1. Pindahkan credentials ke `.env` file
+2. Tambahkan `.env` ke `.gitignore`
+3. Gunakan environment variables
+
+---
+
+### BUG #5: Missing Route Handlers
+**Lokasi:** `/index.php` (multiple lines)  
+**Dampak:** 404 errors untuk beberapa routes  
+**Severity:** HIGH
+
+**Problem:**
+Routes terdefinisi tapi file handler TIDAK ADA:
+
+```php
+// Line 63 - calculator.php MISSING
+Router::get('/calculator', function() {
+    require PUBLIC_PATH . 'calculator.php';  // ❌ FILE NOT EXISTS
+});
+
+// Line 72 - portfolio-detail.php MISSING
+Router::get('/portfolio/{slug}', function($slug) {
+    require PUBLIC_PATH . 'portfolio-detail.php';  // ❌ FILE NOT EXISTS
+});
+
+// Line 77 - blog.php MISSING
+Router::get('/blog', function() {
+    require PUBLIC_PATH . 'blog.php';  // ❌ FILE NOT EXISTS
+});
+
+// Line 81 - blog-detail.php MISSING
+Router::get('/blog/{slug}', function($slug) {
+    require PUBLIC_PATH . 'blog-detail.php';  // ❌ FILE NOT EXISTS
+});
+
+// Line 91 - contact-submit.php MISSING
+Router::post('/contact', function() {
+    require PUBLIC_PATH . 'contact-submit.php';  // ❌ FILE NOT EXISTS
+});
+
+// Line 96 - demo-request.php MISSING
+Router::get('/demo', function() {
+    require PUBLIC_PATH . 'demo-request.php';  // ❌ FILE NOT EXISTS
+});
+
+// Line 99 - demo-submit.php MISSING
+Router::post('/demo', function() {
+    require PUBLIC_PATH . 'demo-submit.php';  // ❌ FILE NOT EXISTS
+});
+
+// Multiple auth handler files MISSING
+// Lines 122, 134, 142, 168, 177
+```
+
+**Files yang ada di /public:**
+- ✅ index.php
+- ✅ about.php
+- ✅ contact.php
+- ✅ portfolio.php
+- ✅ pricing.php
+- ✅ service-detail.php
+- ✅ services.php
+- ✅ demo.php
+- ✅ auth/login.php
+- ✅ auth/logout.php
+- ✅ auth/register.php
+- ✅ auth/forgot-password.php
+- ✅ auth/reset-password.php
+
+**Files MISSING:**
+- ❌ calculator.php
+- ❌ portfolio-detail.php
+- ❌ blog.php
+- ❌ blog-detail.php
+- ❌ contact-submit.php
+- ❌ demo-request.php
+- ❌ demo-submit.php
+- ❌ auth/login-submit.php
+- ❌ auth/register-submit.php
+- ❌ auth/register-freelancer.php
+- ❌ auth/forgot-password-submit.php
+- ❌ auth/reset-password-submit.php
+
+---
+
+## ⚠️ WARNINGS (Non-Critical)
+
+### WARNING #1: SQL Injection Risk in Admin Services
+**Lokasi:** `/admin/services/index.php` lines 55-70  
+**Severity:** MEDIUM
+
+**Problem:**
+Variables langsung dimasukkan ke SQL query tanpa proper escaping:
+```php
+$order_by = match($sort) {
+    'price_asc' => 's.one_time_price ASC',
+    'price_desc' => 's.one_time_price DESC',
+    'newest' => 's.created_at DESC',
+    'oldest' => 's.created_at ASC',
+    default => 's.name ASC'
+};
+
+// Line 68 - Direct variable in query
+$services = $db->query("
+    SELECT s.*, c.name as category_name
+    FROM services s
+    LEFT JOIN categories c ON s.category_id = c.id
+    $where
+    ORDER BY $order_by
+    LIMIT $per_page OFFSET $offset
+", $params)->fetchAll();
+```
+
+**Risk:** 
+Meskipun menggunakan `match()` expression yang aman, best practice adalah menggunakan prepared statements untuk semua dynamic content.
+
+---
+
+### WARNING #2: Inline Queries in View
+**Lokasi:** `/admin/services/index.php` lines 146, 153  
+**Severity:** LOW
+
+**Problem:**
+Database queries di dalam view template:
+```php
+<h4><?= number_format($db->query("SELECT COUNT(*) as count FROM services WHERE is_active = 1")->fetch()['count'] ?? 0) ?></h4>
+<h4><?= number_format($db->query("SELECT COUNT(*) as count FROM services WHERE is_active = 0")->fetch()['count'] ?? 0) ?></h4>
+```
+
+**Best Practice:** Move queries to controller/top of file for separation of concerns.
+
+---
+
+### WARNING #3: No Input Sanitization in Login
+**Lokasi:** `/public/auth/login.php` lines 21-22  
+**Severity:** LOW
+
+**Problem:**
+Input langsung dari POST tanpa sanitization:
+```php
+$email = post('email');
+$password = post('password');
+```
+
+**Note:** Validator memang ada di line 25-34, tapi input tidak di-sanitize sebelum validasi.
+
+---
+
+## 📝 TASKS FOR CLAUDE CODE
+
+### 🔥 PRIORITY 1 - IMMEDIATE FIXES (DO FIRST)
+
+#### TASK 1: Fix Missing `get()` Function
+```bash
+# File to edit: /helpers/common.php
+# Add after line 439 (after get_input function)
+```
+
+**Instructions:**
+1. Open `/helpers/common.php`
+2. After the `get_input()` function (around line 439)
+3. Add this function:
+```php
+/**
+ * Get GET input (alias for get_input)
+ * Shorter alternative to get_input()
+ */
+function get($key = null, $default = null) {
+    return get_input($key, $default);
+}
+```
+
+#### TASK 2: Fix Bootstrap Missing Files
+```bash
+# File to edit: /config/bootstrap.php
+# Lines to fix: 106-108
+```
+
+**Option A - Create Empty Files (QUICK FIX):**
+```bash
+cd /helpers
+touch validation.php security.php email.php
+
+# Add header to each:
+# <?php
+# defined('SITUNEO_ACCESS') or die('Direct access not permitted');
+```
+
+**Option B - Comment Out (SAFER):**
+Change lines 106-108 to:
+```php
+// require_once HELPERS_PATH . 'validation.php';  // TODO: Create file or remove
+// require_once HELPERS_PATH . 'security.php';    // TODO: Create file or remove  
+// require_once HELPERS_PATH . 'email.php';       // TODO: Create file or remove
+```
+
+#### TASK 3: Fix Database Query Method
+```bash
+# File to edit: /core/Database.php
+# Method to modify: query()
+```
+
+**Instructions:**
+Change the `query()` method signature from:
+```php
+public function query($sql) {
+```
+
+To:
+```php
+public function query($sql, $params = []) {
+    $start_time = microtime(true);
+
+    $this->statement = $this->pdo->prepare($sql);
+
+    // Auto-bind params if provided
+    if (!empty($params)) {
+        foreach ($params as $key => $value) {
+            $param_key = is_string($key) && strpos($key, ':') === 0 ? $key : ':' . $key;
+            $this->bind($param_key, $value);
+        }
+    }
+
+    if (DB_LOG_QUERIES) {
+        $this->query_log[] = [
+            'sql' => $sql,
+            'params' => $params,
+            'time' => 0,
+            'timestamp' => date('Y-m-d H:i:s')
+        ];
+    }
+
+    return $this;
+}
+```
+
+---
+
+### 🟡 PRIORITY 2 - SECURITY FIXES
+
+#### TASK 4: Move Database Credentials to .env
+```bash
+# Files to create/edit:
+# 1. Create /.env
+# 2. Create /.env.example  
+# 3. Edit /config/database.php
+# 4. Create or update /.gitignore
+```
+
+**Step 1: Create `.env` file:**
+```bash
+# Database Configuration
+DB_HOST=localhost
+DB_USER=nrrskfvk_user_situneo_digital
+DB_PASS=Devin1922$
+DB_NAME=nrrskfvk_situneo_digital
+DB_CHARSET=utf8mb4
+DB_COLLATE=utf8mb4_unicode_ci
+```
+
+**Step 2: Create `.env.example`:**
+```bash
+DB_HOST=localhost
+DB_USER=your_database_user
+DB_PASS=your_database_password
+DB_NAME=your_database_name
+DB_CHARSET=utf8mb4
+DB_COLLATE=utf8mb4_unicode_ci
+```
+
+**Step 3: Update `/config/database.php`:**
+Replace lines 19-24 with:
+```php
+// Load from .env file or environment variables
+define('DB_HOST', getenv('DB_HOST') ?: 'localhost');
+define('DB_USER', getenv('DB_USER') ?: '');
+define('DB_PASS', getenv('DB_PASS') ?: '');
+define('DB_NAME', getenv('DB_NAME') ?: '');
+define('DB_CHARSET', getenv('DB_CHARSET') ?: 'utf8mb4');
+define('DB_COLLATE', getenv('DB_COLLATE') ?: 'utf8mb4_unicode_ci');
+```
+
+**Step 4: Update `.gitignore`:**
+```bash
+# Add these lines
+.env
+config/database.php.local
+*.log
+```
+
+**Step 5: Add .env loader to bootstrap:**
+Add this to `/config/bootstrap.php` BEFORE requiring config files (around line 46):
+```php
+// Load .env file if exists
+$env_file = dirname(__DIR__) . '/.env';
+if (file_exists($env_file)) {
+    $env_lines = file($env_file, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+    foreach ($env_lines as $line) {
+        if (strpos(trim($line), '#') === 0) continue;
+        list($key, $value) = explode('=', $line, 2);
+        $key = trim($key);
+        $value = trim($value);
+        putenv("$key=$value");
+        $_ENV[$key] = $value;
+    }
+}
+```
+
+---
+
+### 🟢 PRIORITY 3 - CREATE MISSING FILES
+
+#### TASK 5: Create Missing Route Handler Files
+
+**A. Create `/public/calculator.php`**
+```php
+<?php
+/**
+ * Service Price Calculator
+ */
+defined('SITUNEO_ACCESS') or die('Direct access not permitted');
+
+$page_title = 'Price Calculator - SITUNEO DIGITAL';
+include INCLUDES_PATH . 'header/public-header.php';
+?>
+
+<section class="calculator-section py-5">
+    <div class="container">
+        <h1>Price Calculator</h1>
+        <p class="text-muted">Calculate your project cost</p>
+        <!-- TODO: Implement calculator logic -->
+        <div class="alert alert-info">
+            Calculator feature coming soon!
+        </div>
+    </div>
+</section>
+
+<?php include INCLUDES_PATH . 'footer/public-footer.php'; ?>
+```
+
+**B. Create `/public/portfolio-detail.php`**
+```php
+<?php
+defined('SITUNEO_ACCESS') or die('Direct access not permitted');
+
+$slug = Router::getParam('slug');
+$page_title = 'Portfolio Detail - SITUNEO DIGITAL';
+include INCLUDES_PATH . 'header/public-header.php';
+?>
+
+<section class="portfolio-detail py-5">
+    <div class="container">
+        <h1>Portfolio: <?= htmlspecialchars($slug) ?></h1>
+        <!-- TODO: Fetch and display portfolio item -->
+        <div class="alert alert-info">
+            Portfolio detail page - Coming soon!
+        </div>
+    </div>
+</section>
+
+<?php include INCLUDES_PATH . 'footer/public-footer.php'; ?>
+```
+
+**C. Create `/public/blog.php`**
+```php
+<?php
+defined('SITUNEO_ACCESS') or die('Direct access not permitted');
+
+$page_title = 'Blog - SITUNEO DIGITAL';
+include INCLUDES_PATH . 'header/public-header.php';
+?>
+
+<section class="blog-section py-5">
+    <div class="container">
+        <h1>Blog</h1>
+        <p class="text-muted">Latest articles and updates</p>
+        <!-- TODO: Implement blog listing -->
+        <div class="alert alert-info">
+            Blog feature coming soon!
+        </div>
+    </div>
+</section>
+
+<?php include INCLUDES_PATH . 'footer/public-footer.php'; ?>
+```
+
+**D. Create `/public/blog-detail.php`**
+```php
+<?php
+defined('SITUNEO_ACCESS') or die('Direct access not permitted');
+
+$slug = Router::getParam('slug');
+$page_title = 'Blog - SITUNEO DIGITAL';
+include INCLUDES_PATH . 'header/public-header.php';
+?>
+
+<section class="blog-detail py-5">
+    <div class="container">
+        <h1>Blog Post: <?= htmlspecialchars($slug) ?></h1>
+        <!-- TODO: Fetch and display blog post -->
+        <div class="alert alert-info">
+            Blog detail page - Coming soon!
+        </div>
+    </div>
+</section>
+
+<?php include INCLUDES_PATH . 'footer/public-footer.php'; ?>
+```
+
+**E. Create `/public/contact-submit.php`**
+```php
+<?php
+defined('SITUNEO_ACCESS') or die('Direct access not permitted');
+
+if (!is_post()) {
+    Router::redirect('contact');
+}
+
+// TODO: Implement contact form submission
+// - Validate input
+// - Save to database
+// - Send email
+// - Redirect with success message
+
+Session::flashSuccess('Thank you for contacting us! We will get back to you soon.');
+Router::redirect('contact');
+```
+
+**F. Create `/public/demo-request.php`**
+```php
+<?php
+defined('SITUNEO_ACCESS') or die('Direct access not permitted');
+
+$page_title = 'Request Demo - SITUNEO DIGITAL';
+include INCLUDES_PATH . 'header/public-header.php';
+?>
+
+<section class="demo-section py-5">
+    <div class="container">
+        <h1>Request a Demo</h1>
+        <!-- TODO: Implement demo request form -->
+        <div class="alert alert-info">
+            Demo request form - Coming soon!
+        </div>
+    </div>
+</section>
+
+<?php include INCLUDES_PATH . 'footer/public-footer.php'; ?>
+```
+
+**G. Create `/public/demo-submit.php`**
+```php
+<?php
+defined('SITUNEO_ACCESS') or die('Direct access not permitted');
+
+if (!is_post()) {
+    Router::redirect('demo');
+}
+
+// TODO: Implement demo request submission
+Session::flashSuccess('Demo request submitted successfully!');
+Router::redirect('demo');
+```
+
+**H. Create all auth handler files:**
+
+Create: `/public/auth/login-submit.php`
+Create: `/public/auth/register-submit.php`
+Create: `/public/auth/register-freelancer.php`
+Create: `/public/auth/forgot-password-submit.php`
+Create: `/public/auth/reset-password-submit.php`
+
+**Note:** Most auth logic is already in the view files (e.g., login.php has form handling). These submit files can be created as redirects or the routes can be updated to not require separate submit files.
+
+---
+
+## 📊 VERIFICATION CHECKLIST
+
+After completing all tasks, verify:
+
+### Critical Fixes Verification:
+- [ ] Function `get()` exists in `/helpers/common.php`
+- [ ] No "undefined function get()" errors in admin panel
+- [ ] Bootstrap loads without fatal errors
+- [ ] Database queries work with params
+- [ ] All routes have corresponding handler files
+- [ ] No 404 errors on navigation
+
+### Security Verification:
+- [ ] `.env` file created with credentials
+- [ ] `.gitignore` includes `.env`
+- [ ] `/config/database.php` reads from environment variables
+- [ ] No hardcoded passwords in version-controlled files
+
+### Code Quality Verification:
+- [ ] All helper functions properly documented
+- [ ] No SQL injection vulnerabilities
+- [ ] Input validation in place
+- [ ] Error handling implemented
+
+---
+
+## 🚀 DEPLOYMENT STEPS
+
+1. **Test in development first**
+2. **Backup database before deploying**
+3. **Set up .env file on server**
+4. **Test all routes and functionality**
+5. **Monitor error logs for 24 hours**
+
+---
+
+## 📞 CONTACT & SUPPORT
+
+If any issues arise during fixes:
+1. Check PHP error logs
+2. Review database connection
+3. Verify file permissions
+4. Check PHP version compatibility (requires PHP 7.4+)
+
+---
+
+**Generated:** 2025-11-09  
+**Analyzer:** Claude Sonnet 4  
+**Project:** SITUNEO DIGITAL  
+**Total Issues Found:** 8 (5 Critical + 3 Warnings)

@@ -1,0 +1,592 @@
+🔷 BATCH 10: ADMIN PANEL - REPORTS & ANALYTICS
+Priority: MEDIUM | Files: ~50 | Duration: Test 3-4 hari
+📂 Files to Create:
+/admin/
+├── /reports/
+│   ├── dashboard.php             # Reports overview dashboard
+│   │
+│   ├── /sales/
+│   │   ├── daily.php            # Daily sales report
+│   │   ├── weekly.php           # Weekly sales report
+│   │   ├── monthly.php          # Monthly sales report
+│   │   ├── yearly.php           # Yearly sales report
+│   │   ├── custom-range.php     # Custom date range
+│   │   ├── by-service.php       # Sales by service
+│   │   ├── by-category.php      # Sales by category
+│   │   ├── by-package.php       # Sales by package
+│   │   ├── by-partner.php       # Sales by referring partner
+│   │   └── export.php           # Export sales data
+│   │
+│   ├── /revenue/
+│   │   ├── overview.php         # Revenue overview
+│   │   ├── mrr.php              # Monthly Recurring Revenue
+│   │   ├── arr.php              # Annual Recurring Revenue
+│   │   ├── profit-loss.php      # Profit & Loss statement
+│   │   ├── cashflow.php         # Cash flow report
+│   │   ├── revenue-forecast.php # Revenue forecasting 🆕
+│   │   ├── by-payment-method.php # Revenue by payment method
+│   │   └── export.php           # Export revenue data
+│   │
+│   ├── /commissions/
+│   │   ├── total-paid.php       # Total commissions paid
+│   │   ├── by-partner.php       # Commissions by partner
+│   │   ├── by-tier.php          # Commissions by tier
+│   │   ├── by-role.php          # Partner/SPV/Manager breakdown
+│   │   ├── pending.php          # Pending commission report
+│   │   ├── trend.php            # Commission trend analysis
+│   │   └── export.php           # Export commission data
+│   │
+│   ├── /partners/
+│   │   ├── overview.php         # Partner overview stats
+│   │   ├── top-performers.php   # Top performing partners
+│   │   ├── conversion-rate.php  # Referral conversion rates
+│   │   ├── growth.php           # Partner growth over time
+│   │   ├── tier-distribution.php # Partners per tier
+│   │   ├── churn.php            # Partner churn rate
+│   │   ├── ltv.php              # Partner Lifetime Value 🆕
+│   │   └── export.php           # Export partner data
+│   │
+│   ├── /clients/
+│   │   ├── overview.php         # Client overview stats
+│   │   ├── new-clients.php      # New client acquisition
+│   │   ├── active-clients.php   # Active clients report
+│   │   ├── churn.php            # Client churn rate
+│   │   ├── ltv.php              # Client Lifetime Value
+│   │   ├── retention.php        # Client retention rate
+│   │   ├── satisfaction.php     # Client satisfaction (reviews)
+│   │   └── export.php           # Export client data
+│   │
+│   ├── /subscriptions/
+│   │   ├── overview.php         # Subscription overview
+│   │   ├── active.php           # Active subscriptions
+│   │   ├── expiring.php         # Expiring soon
+│   │   ├── renewal-rate.php     # Renewal rate
+│   │   ├── cancellation.php     # Cancellation analysis
+│   │   ├── three-month-rule.php # <3 month stops tracking
+│   │   └── export.php           # Export subscription data
+│   │
+│   ├── /jobs/
+│   │   ├── overview.php         # Job board overview
+│   │   ├── completion-rate.php  # Job completion rate
+│   │   ├── partner-performance.php # Partner job performance
+│   │   ├── late-deliveries.php  # Late delivery tracking
+│   │   ├── quality-scores.php   # Quality score tracking 🆕
+│   │   └── export.php           # Export job data
+│   │
+│   ├── /payments/
+│   │   ├── overview.php         # Payment overview
+│   │   ├── verification-time.php # Avg verification time
+│   │   ├── success-rate.php     # Payment success rate
+│   │   ├── failed-payments.php  # Failed/rejected payments
+│   │   ├── by-method.php        # Payments by method (bank/QRIS)
+│   │   └── export.php           # Export payment data
+│   │
+│   ├── /withdrawals/
+│   │   ├── overview.php         # Withdrawal overview
+│   │   ├── processing-time.php  # Avg processing time
+│   │   ├── approval-rate.php    # Approval vs rejection rate
+│   │   ├── by-partner.php       # Withdrawals by partner
+│   │   └── export.php           # Export withdrawal data
+│   │
+│   └── /custom/
+│       ├── query-builder.php    # Custom SQL report builder 🆕
+│       ├── saved-reports.php    # Save custom reports
+│       └── scheduled-reports.php # Schedule email reports 🆕
+│
+├── /analytics/
+│   ├── dashboard.php             # Analytics main dashboard
+│   │
+│   ├── /website/
+│   │   ├── traffic.php          # Website traffic overview
+│   │   ├── page-views.php       # Page views by page
+│   │   ├── bounce-rate.php      # Bounce rate analysis
+│   │   ├── user-behavior.php    # User behavior flow
+│   │   ├── conversion-funnel.php # Conversion funnel
+│   │   ├── utm-tracking.php     # UTM parameter tracking
+│   │   ├── referral-sources.php # Traffic sources
+│   │   └── device-breakdown.php # Device/browser breakdown
+│   │
+│   ├── /marketing/
+│   │   ├── roi.php              # Marketing ROI
+│   │   ├── cac.php              # Customer Acquisition Cost
+│   │   ├── campaign-performance.php # Campaign tracking
+│   │   ├── a-b-testing.php      # A/B test results 🆕
+│   │   └── social-media.php     # Social media analytics
+│   │
+│   ├── /performance/
+│   │   ├── page-speed.php       # Page load times
+│   │   ├── api-performance.php  # API response times
+│   │   ├── database-queries.php # Slow query log
+│   │   ├── error-tracking.php   # Error rate tracking
+│   │   └── uptime.php           # Server uptime monitoring
+│   │
+│   └── /predictions/              # 🆕 AI-POWERED ANALYTICS
+│       ├── revenue-forecast.php # Revenue prediction (ML)
+│       ├── churn-prediction.php # Client churn prediction
+│       ├── demand-forecast.php  # Service demand forecast
+│       └── partner-success.php  # Partner success prediction
+│
+├── /export/
+│   ├── csv.php                   # CSV export handler
+│   ├── excel.php                 # Excel export (XLSX)
+│   ├── pdf.php                   # PDF export
+│   └── json.php                  # JSON export (API)
+│
+└── /dashboards/                   # 🆕 CUSTOM DASHBOARDS
+    ├── executive.php             # Executive dashboard
+    ├── operations.php            # Operations dashboard
+    ├── finance.php               # Finance dashboard
+    ├── marketing.php             # Marketing dashboard
+    └── custom-builder.php        # Build custom dashboard
+
+/controllers/admin/
+├── ReportController.php
+├── AnalyticsController.php
+├── ExportController.php
+├── DashboardController.php
+└── PredictionController.php      # 🆕
+
+/models/
+├── Report.php
+├── Analytics.php
+├── Export.php
+├── CustomReport.php
+├── PredictionModel.php           # 🆕
+└── Dashboard.php
+
+/includes/admin/
+├── chart-line.php                # Line chart component
+├── chart-bar.php                 # Bar chart component
+├── chart-pie.php                 # Pie chart component
+├── chart-area.php                # Area chart component
+├── chart-donut.php               # Donut chart component
+├── stats-card.php                # Stats card component
+├── trend-indicator.php           # Trend up/down indicator
+└── date-range-picker.php         # Date range selector
+
+/assets/js/
+├── chart-init.js                 # Chart.js initialization
+├── chart-update.js               # Real-time chart updates
+├── report-generator.js           # Report generation UI
+├── export-handler.js             # Export functionality
+├── analytics-dashboard.js        # Analytics dashboard
+├── custom-query-builder.js       # SQL query builder UI 🆕
+└── prediction-visualizer.js      # Prediction charts 🆕
+
+/cron/
+├── generate-daily-reports.php    # Auto-generate daily reports
+├── send-weekly-digest.php        # Email weekly digest to admin
+├── send-monthly-reports.php      # Email monthly reports
+└── backup-analytics-data.php     # Backup analytics data
+✅ Features Completed:
+Sales Reports:
+
+✅ Daily/Weekly/Monthly/Yearly Reports:
+
+Total sales (count & revenue)
+Average order value
+Sales by order type (beli putus vs sewa)
+Comparison with previous period (% change)
+Visual charts (line, bar, area)
+
+
+✅ Sales Breakdown:
+
+By service (top selling services)
+By category (top categories)
+By package (package performance)
+By referring partner (top partners)
+By payment method
+
+
+✅ Custom Date Range:
+
+Select start & end date
+Compare periods
+Export selected range
+
+
+
+Revenue Reports:
+
+✅ Revenue Overview:
+
+Total revenue (all time)
+Revenue today
+Revenue this month
+Revenue this year
+Revenue trend chart (12 months)
+
+
+✅ MRR & ARR:
+
+Monthly Recurring Revenue (from subscriptions)
+Annual Recurring Revenue
+MRR growth rate
+Churn impact on MRR
+
+
+✅ Profit & Loss Statement:
+
+Revenue (sales + subscriptions)
+Costs:
+
+Commission paid (Partner/SPV/Manager)
+Withdrawal processing
+Hosting costs (manual input)
+Marketing costs (manual input)
+Operational costs (manual input)
+
+
+Gross profit
+Net profit
+Profit margin %
+
+
+✅ Cash Flow Report:
+
+Cash inflows (payments received)
+Cash outflows (commissions, withdrawals, costs)
+Net cash flow
+Cash flow by month
+
+
+✅ 🆕 Revenue Forecast:
+
+Predict next 3/6/12 months revenue
+Based on historical data + trends
+Confidence interval
+Best/worst case scenarios
+Seasonal adjustment
+
+
+
+Commission Reports:
+
+✅ Total Commissions:
+
+Total paid to partners
+Total paid to SPVs
+Total paid to Managers
+Pending commissions
+Commission as % of revenue
+
+
+✅ Commission Breakdown:
+
+By partner (top earners)
+By tier (Tier 1 vs 2 vs 3 vs MAX)
+By role (Partner/SPV/Manager split)
+Commission trend over time
+
+
+✅ Commission Analytics:
+
+Average commission per order
+Commission payout frequency
+Commission to revenue ratio
+
+
+
+Partner Reports:
+
+✅ Top Performers:
+
+Top 10/20/50 partners by revenue
+Top by referrals
+Top by conversion rate
+Top by ARPU (for SPVs/Managers)
+
+
+✅ Conversion Rates:
+
+Referral link clicks → registrations
+Registrations → first orders
+First orders → repeat customers
+Conversion rate by partner tier
+
+
+✅ Partner Growth:
+
+New partners per month
+Partner tier progression
+Partner retention rate
+Partner churn
+
+
+✅ 🆕 Partner LTV (Lifetime Value):
+
+Average LTV per partner
+LTV by tier
+LTV prediction
+Payback period
+
+
+
+Client Reports:
+
+✅ New Client Acquisition:
+
+New clients per day/week/month
+Acquisition channels (organic, partner referral, direct)
+Cost per acquisition (CPA)
+
+
+✅ Client Retention:
+
+Retention rate (monthly cohorts)
+Churn rate
+Churn reasons analysis
+Win-back campaigns effectiveness
+
+
+✅ Client LTV:
+
+Average customer lifetime value
+LTV by acquisition channel
+LTV by service type
+LTV prediction model
+
+
+✅ Client Satisfaction:
+
+Average review rating
+NPS (Net Promoter Score)
+Satisfaction trend
+Review sentiment analysis 🆕
+
+
+
+Subscription Reports:
+
+✅ Subscription Metrics:
+
+Total active subscriptions
+New subscriptions
+Renewed subscriptions
+Cancelled subscriptions
+Renewal rate
+
+
+✅ Expiring Subscriptions:
+
+Expiring in 7/14/30 days
+Renewal reminders sent
+Renewal success rate
+
+
+✅ <3 Month Stops Tracking:
+
+Subscriptions stopped before 3 months
+Auto-deduct applied
+Follow-up success rate
+Financial impact (revenue lost, commissions reclaimed)
+
+
+
+Job Board Reports:
+
+✅ Job Completion:
+
+Total jobs posted
+Completion rate
+Average completion time
+On-time delivery rate
+
+
+✅ Partner Performance on Jobs:
+
+Jobs completed per partner
+Average quality score
+Late delivery rate
+Penalty rate
+
+
+✅ 🆕 Quality Scoring:
+
+Admin rates completed jobs (1-5 stars)
+Track quality trends per partner
+Quality impact on future job assignments
+
+
+
+Analytics Dashboard:
+
+✅ Website Analytics:
+
+Total visitors
+Page views
+Bounce rate
+Average session duration
+Top pages
+Traffic sources (organic, social, direct, referral)
+UTM campaign tracking
+Device breakdown (desktop 60%, mobile 35%, tablet 5%)
+
+
+✅ Conversion Funnel:
+
+  Homepage Visit → Service Page → Pricing → Registration → Order → Payment
+  Track drop-off at each stage
+  Optimize weak points
+
+✅ Marketing ROI:
+
+Campaign spending (manual input)
+Revenue from campaign (UTM tracking)
+ROI calculation
+CAC (Customer Acquisition Cost)
+ROAS (Return on Ad Spend)
+
+
+✅ 🆕 A/B Testing:
+
+Create A/B tests (landing page variants)
+Track conversion for each variant
+Statistical significance calculator
+Auto-select winning variant
+
+
+
+🆕 AI-Powered Predictions:
+
+✅ Revenue Forecasting:
+
+Machine learning model (linear regression, ARIMA)
+Predict next 3/6/12 months
+Confidence intervals
+Seasonal patterns detection
+
+
+✅ Churn Prediction:
+
+Predict which clients likely to churn
+Churn risk score (0-100%)
+Factors contributing to churn
+Recommended retention actions
+
+
+✅ Demand Forecasting:
+
+Predict service demand
+Optimal inventory (for physical products - future)
+Staffing recommendations
+
+
+✅ Partner Success Prediction:
+
+Predict partner performance
+Identify high-potential partners early
+Recommend training/support
+
+
+
+Custom Reporting:
+
+✅ 🆕 Query Builder:
+
+Visual SQL query builder
+Select tables & columns
+Apply filters
+Group by
+Sort
+Generate report
+Save report template
+
+
+✅ Saved Reports:
+
+Save frequently used reports
+One-click re-run
+Share with staff
+
+
+✅ 🆕 Scheduled Reports:
+
+Schedule email delivery (daily, weekly, monthly)
+Select recipients
+Choose format (PDF, Excel, CSV)
+Auto-send on schedule
+
+
+
+🆕 Executive Dashboards:
+
+✅ Executive Dashboard:
+
+KPIs at-a-glance
+Revenue trend
+Key metrics (MRR, ARR, CAC, LTV)
+Top performers
+Critical alerts
+
+
+✅ Operations Dashboard:
+
+Order pipeline
+Pending approvals (payments, withdrawals, partners)
+Support ticket queue
+Job board status
+
+
+✅ Finance Dashboard:
+
+Revenue & expenses
+Profit margin
+Cash flow
+Outstanding payments
+Commission payout schedule
+
+
+✅ Marketing Dashboard:
+
+Campaign performance
+Traffic sources
+Conversion funnel
+ROI metrics
+Lead generation
+
+
+
+Export Functionality:
+
+✅ Export Formats:
+
+CSV (comma-separated)
+Excel (XLSX with formatting)
+PDF (professional reports)
+JSON (for API integration)
+
+
+✅ Export Options:
+
+Current view
+Selected rows
+All data (paginated)
+Custom date range
+Include charts (PDF only)
+
+
+
+🧪 Testing Checklist:
+
+ Daily sales report accurate
+ Revenue charts display correctly
+ MRR calculation correct
+ Profit & Loss statement accurate
+ Commission breakdown correct
+ Top partners display correctly
+ Client LTV calculates properly
+ Subscription metrics accurate
+ <3 month stops tracking works
+ Job completion rate correct
+ Website analytics display
+ Conversion funnel tracks properly
+ Revenue forecast generates
+ Churn prediction works
+ Query builder functional
+ Scheduled reports send
+ Executive dashboard loads
+ Export to CSV works
+ Export to Excel works
+ Export to PDF works

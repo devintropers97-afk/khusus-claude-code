@@ -1,0 +1,563 @@
+# 🚀 SITUNEO DIGITAL - COMPLETE PROJECT SPECIFICATION
+
+## 📊 PROJECT SCOPE: COMPLETE WEBSITE (BUKAN BATCH!)
+
+Buat SEMUA website LENGKAP dalam 1 project:
+- **400+ FILES** (bukan 250!)
+- **85 TABLES** database
+- **50 DEMO WEBSITES** (bukan 10!)
+- **5 DASHBOARDS** complete (Admin, Manager, SPV, Partner, Client)
+- **SEMUA FITUR** automation & intelligence
+
+## 🏢 COMPANY INFO
+```
+Nama: PT SITUNEO DIGITAL SOLUSI INDONESIA
+NIB: 20250-9261-4570-4515-5453
+NPWP: 90.296.264.6-002.000
+Direktur: Devin Prasetyo Hermawan
+Website: https://situneo.my.id
+Email: vins@situneo.my.id
+WhatsApp: +62 831-7386-8915
+
+Database:
+- Host: localhost
+- User: nrrskfvk_user_situneo_digital
+- Pass: Devin1922$
+- Name: nrrskfvk_situneo_digital
+
+Bank: BCA 2750424018 A/N Devin Prasetyo Hermawan
+```
+
+## 💰 BUSINESS MODEL
+
+### Pricing:
+**Beli Putus:** Rp 350K/halaman
+**Sewa Bulanan:** Rp 150K/halaman/bulan (NO SETUP FEE!)
+
+### Layanan: 232+ services dalam 10 divisi
+### Kategori Bisnis: 53 kategori → 1500+ website types
+
+## 👥 ROLE SYSTEM (5 ROLES)
+
+1. **ADMIN** - GOD MODE (control everything)
+2. **MANAGER AREA** - Manage SPV (komisi 5% + bonus ARPU)
+3. **SPV** - Manage Partner (komisi 10% + bonus ARPU)
+4. **PARTNER** - Sales (komisi 30-55% tier-based)
+5. **CLIENT** - Customer (order & bayar)
+
+## 💸 COMMISSION SYSTEM
+
+### Partner Tiers:
+```
+TIER 1: 0-10 order → 30%
+TIER 2: 10-25 order → 40%
+TIER 3: 50+ order → 50%
+TIER MAX: 75+ order → 55%
+Maintenance: TETAP BERTAHAN (tidak turun tier)
+```
+
+### Hierarchy Commission:
+```
+SPV: 10% dari partner downline + Bonus ARPU
+Manager: 5% dari SPV & partner + Bonus ARPU
+
+SPV Bonus Tiers:
+- ARPU Rp 15M → Bonus Rp 500K
+- ARPU Rp 35M → Bonus Rp 1M
+- ARPU Rp 75M → Bonus Rp 2M
+- ARPU Rp 200M+ → Bonus Rp 10M
+
+Manager Bonus Tiers:
+- ARPU Rp 45M → Bonus Rp 1M
+- ARPU Rp 105M → Bonus Rp 2M
+- ARPU Rp 225M → Bonus Rp 3M
+- ARPU Rp 600M+ → Bonus Rp 15M
+```
+
+### Commission Rules:
+- **Beli Putus:** Komisi dibayar setelah client lunas + admin approve + serah terima
+- **Sewa Bulanan:** Komisi 1 bulan pertama saja, client wajib berlangganan min 3 bulan
+- **Jika client stop <3 bulan:** Partner kena potong komisi
+
+## 🗄️ DATABASE (85 TABLES)
+
+Buat database lengkap dengan struktur:
+- User Management (6 tables)
+- Client Tables (6 tables)
+- Partner Tables (10 tables)
+- SPV Tables (8 tables)
+- Manager Tables (8 tables)
+- Hierarchy Tables (4 tables)
+- Service Tables (7 tables)
+- Order Tables (5 tables)
+- Payment Tables (5 tables)
+- Demo Tables (3 tables)
+- Commission Tables (6 tables)
+- Withdrawal Tables (4 tables)
+- Admin Task Tables (5 tables)
+- Website Content Tables (6 tables)
+- Leaderboard Tables (4 tables)
+- Admin Settings (5 tables)
+- Notification Tables (3 tables)
+- Analytics Tables (7 tables)
+- Support Tables (3 tables)
+- SEO Tables (3 tables)
+- Media Tables (2 tables)
+
+## 🎨 DESIGN SYSTEM
+
+### Colors:
+```css
+--primary-blue: #1E5C99
+--dark-blue: #0F3057
+--gold: #FFB400
+--bright-gold: #FFD700
+--gradient-primary: linear-gradient(135deg, #1E5C99 0%, #0F3057 100%)
+--gradient-gold: linear-gradient(135deg, #FFD700 0%, #FFB400 100%)
+```
+
+### Typography:
+- Body: Inter
+- Heading: Plus Jakarta Sans
+
+### Animations (SEMUA HALAMAN):
+- Network particle background (30-40 particles LOW intensity)
+- Circuit pattern overlay
+- AOS (Animate On Scroll)
+- GSAP animations
+- Loading screen dinamis (tampilkan "Memuat ke [Nama Halaman]...")
+
+### UI Components:
+- Loading screen (setiap page)
+- NIB badge (footer, medium size)
+- FREE DEMO banner (floating always visible)
+- Pop-up demo (muncul 10 detik di homepage)
+- WhatsApp button (floating kanan bawah)
+- Back to top button
+- Order notification popup
+
+## 📄 PUBLIC PAGES (Singkat & Inti Saja!)
+
+1. **Homepage** (PREMIUM design!)
+2. **About** (singkat)
+3. **Services** (preview 232+ services)
+4. **Pricing** (preview paket)
+5. **Portfolio** (preview 50 demos)
+6. **Contact** (form singkat)
+7. **Blog** (optional)
+8. **Career** (optional)
+9. **Terms & Conditions**
+10. **Privacy Policy**
+11. **Sitemap** (HTML)
+
+**SEMUA CTA ARAHIN KE REGISTER/LOGIN!**
+
+## 🔐 AUTHENTICATION
+
+### Login (Split Design 2 Sections):
+- Section Left: Form
+- Section Right: Branding/benefits
+
+### Register:
+1. **Register Client** (simple)
+2. **Register Partner/SPV/Manager** dengan:
+   - Pilih role
+   - Upload KTP
+   - Upload CV
+   - Alamat Domisili lengkap
+   - Kode Referral (optional)
+   - Status: Pending → Admin Approve → Active
+
+### Referral Links:
+```
+Partner→Client: situneo.my.id/register/client/USERNAME
+SPV→Partner: situneo.my.id/register/partner/USERNAME
+Manager→SPV: situneo.my.id/register/spv/USERNAME
+```
+
+## 📊 DASHBOARDS (FULL FEATURES!)
+
+### 1. CLIENT DASHBOARD
+- Dashboard overview
+- Order system (create, track, view)
+- Demo request form (26 fields!)
+- Payment upload (bukti transfer)
+- Invoices (view, download PDF)
+- Order tracking (real-time status)
+- Support tickets
+- Profile management
+
+### 2. PARTNER DASHBOARD
+- Dashboard overview
+- Earnings (total, pending, available)
+- Tier progression chart
+- Referral link generator (custom username)
+- QR code referral
+- Client list (dari referral)
+- Withdrawal request (min Rp 50K)
+- Task board (tugas dari admin)
+- Performance stats
+- Leaderboard (public)
+- Profile management
+
+### 3. SPV DASHBOARD
+- Dashboard overview
+- Team management (partner list)
+- Partner performance tracking
+- Earnings breakdown (10% base + bonus)
+- ARPU tracking (real-time)
+- Bonus tier progress
+- Referral link generator
+- Team leaderboard
+- Withdrawal management
+- Profile management
+
+### 4. MANAGER DASHBOARD
+- Dashboard overview
+- Area management
+- SPV list & performance
+- Partner list (all in area)
+- Hierarchy tree view
+- Earnings breakdown (5% base + bonus)
+- ARPU tracking (real-time)
+- Bonus tier progress
+- Area statistics
+- Referral link generator
+- Withdrawal management
+- Profile management
+
+### 5. ADMIN DASHBOARD (GOD MODE!)
+
+**User Management:**
+- All users (CRUD)
+- Clients list
+- Partners list
+- SPV list
+- Managers list
+- User detail & edit
+
+**Hierarchy Management:**
+- Tree view visualization
+- Assign Partner→SPV
+- Assign SPV→Manager
+- Reassign (ubah atasan)
+
+**Service Management:**
+- 232+ services (CRUD)
+- Categories management
+- Pricing management
+
+**Order Management:**
+- All orders
+- Order detail
+- Assign to partner
+- Update status
+- Upload hasil project
+
+**Payment Management:**
+- Pending payments (verify bukti transfer)
+- Payment history
+- Approve/Reject
+
+**Partner Applications:**
+- Pending applications (Partner/SPV/Manager)
+- View documents (KTP, CV)
+- Approve/Reject
+- Schedule interview
+
+**Commission Management:**
+- All commissions overview
+- Partner commissions
+- SPV commissions (10% + bonus)
+- Manager commissions (5% + bonus)
+- ARPU tracking
+- Bonus tier tracking
+- Manual adjustment
+
+**Demo Requests:**
+- All demo requests
+- Demo detail (26 fields)
+- **"Copy Detail" button** (copy semua data formatted untuk AI)
+
+**Withdrawal Management:**
+- Pending withdrawals (all roles)
+- Approve/Reject (min Rp 50K)
+- Transfer bank & QRIS
+
+**Task Management:**
+- Post tasks untuk partner
+- Task applications (partner yang apply)
+- Assign task
+- Review submissions
+- Approve payment
+
+**Website Content Management:**
+- Edit homepage sections
+- Edit services catalog
+- Edit pricing packages
+- Edit portfolio demos
+- Edit about, contact, dll
+
+**Leaderboard Management:**
+- Manage public leaderboards
+- Top Partners
+- Top SPV
+- Top Managers
+
+**Reports & Analytics:**
+- Revenue reports
+- Order statistics
+- Partner performance
+- SPV performance
+- Manager performance
+- Hierarchy reports
+- Commission breakdown
+
+**Settings:**
+- Company info
+- SMTP settings
+- Tier settings
+- Email templates
+- SEO settings
+- Backup database
+
+## 🎬 50 DEMO WEBSITES (PRODUCTION-READY!)
+
+Buat 50 demo websites di folder `/demos/` dengan:
+- **Real business names** (terlihat nyata tapi demo)
+- **Full functioning** (bukan static HTML!)
+- **Perfect design** (paling bagus & mahal untuk convince client!)
+- **Unsplash images** (sesuai tema)
+
+### TOP 50 Demos:
+```
+1. Toko Baju Modis Jakarta
+2. Restoran Nusantara Enak
+3. Klinik Sehat Keluarga
+4. Konsultan Bisnis Profesional
+5. Kursus Online Berkualitas
+6. Laundry Express Cepat
+7. Properti Rumah Impian
+8. Cuci Mobil Premium Shine
+9. Service Laptop Cepat Aman
+10. Hotel Grand Jakarta
+11. Toko Sepatu Sneakers Premium
+12. Cafe Kopi Artisan
+13. Salon Kecantikan Modern
+14. Gym & Fitness Center
+15. Apotek Online Lengkap
+16. Wedding Organizer Elegant
+17. Travel Agent Adventure
+18. Pet Shop & Grooming
+19. Fotografi Profesional
+20. Interior Design Studio
+21. Bengkel Motor Terpercaya
+22. Toko Elektronik Gadget
+23. Barbershop Vintage
+24. Bakery & Pastry Shop
+25. Rental Mobil Murah
+26. Klinik Gigi Spesialis
+27. Event Organizer Premium
+28. Catering Prasmanan Enak
+29. Toko Buku Online
+30. Spa & Massage Therapy
+31. Kontraktor Bangunan
+32. Jasa Cleaning Service
+33. Studio Musik Recording
+34. Toko Furniture Modern
+35. Tempat Les Privat
+36. Jasa Desain Grafis
+37. Toko Tanaman Hias
+38. Warung Makan Sederhana
+39. Toko Kue & Cake
+40. Jasa Service AC
+41. Percetakan Digital
+42. Toko Alat Tulis
+43. Bengkel Las & Bubut
+44. Toko Mainan Anak
+45. Jasa Pindahan & Logistik
+46. Toko Hijab Fashion
+47. Kursus Bahasa Inggris
+48. Toko Sepeda & Aksesoris
+49. Jasa Arsitek Bangunan
+50. Toko Kosmetik & Skincare
+```
+
+URL: `situneo.my.id/demos/nama-bisnis/`
+
+## 🌐 PUBLIC LEADERBOARD
+
+Halaman public (accessible tanpa login):
+- `/leaderboard/partners.php` - Top Partners
+- `/leaderboard/spv.php` - Top SPV
+- `/leaderboard/managers.php` - Top Managers
+
+Tampilkan:
+- Ranking
+- Nama (atau username)
+- Total orders
+- Total earnings (optional)
+- Achievement badges
+
+## 🎯 SPECIAL FEATURES
+
+### 1. Demo Request Form (26 Fields)
+```
+Bagian 1: Tentang Usaha (3 fields)
+Bagian 2: Tampilan Website (3 fields)
+Bagian 3: Halaman Website (2 fields)
+Bagian 4: Fitur Website (2 fields)
+Bagian 5: Gambar & Logo (2 fields)
+Bagian 6: Isi & Kontak (5 fields)
+Bagian 7: Catatan Akhir (2 fields)
++ Fields lainnya untuk lengkap
+
+Total: 26 fields
+```
+
+**"Copy Detail" Button:**
+- Format output: Structured text untuk AI
+- Include semua 26 fields
+- Formatted siap paste ke ChatGPT/Claude
+- Button label: "Salin Data" atau "Copy Detail" (BUKAN "Copy for AI")
+
+### 2. Email Notifications (Auto-send)
+```
+✅ Registration confirmation
+✅ Partner application submitted
+✅ Partner approved
+✅ Order notification (to client & admin)
+✅ Payment received
+✅ Order completed
+✅ Commission earned
+✅ Withdrawal requested
+✅ Withdrawal approved
+✅ Password reset
+✅ Demo request submitted
+```
+
+### 3. Invoice System
+- Format: `INV-SITUNEO-20-OKT-2025`
+- Admin generate manual
+- Auto-email to client
+
+### 4. Commission Automation
+- Calculate real-time after admin approve order
+- Cascade to Partner→SPV→Manager
+- ARPU tracking real-time
+
+### 5. Image Optimization
+- WebP format (fallback JPG/PNG)
+- Lazy loading all images
+- Auto-compress on upload
+
+## 💻 TECH STACK
+```
+Backend:
+- PHP 7.4+ (ea-php74)
+- MySQL 8.0+
+- MySQLi & PDO
+- PHPMailer (cPanel SMTP)
+
+Frontend:
+- HTML5 + CSS3
+- Bootstrap 5.3.3
+- JavaScript ES6+
+- GSAP animations
+- AOS (Animate On Scroll)
+- Chart.js (reports)
+- Canvas API (network background)
+
+Libraries:
+- Bootstrap Icons 1.11.3
+- Google Analytics: G-RPW3MZ3RPY
+- reCAPTCHA v3 (akan setup)
+
+Hosting:
+- cPanel shared hosting
+- URL: https://situneo.my.id
+- SSL: Active
+```
+
+## 🎯 QUALITY TARGET
+
+**"Website paling bagus & paling mahal se-Indonesia!"**
+
+Requirements:
+✅ Design: WOW factor, premium, konsisten
+✅ Fitur: Lengkap & berfungsi sempurna
+✅ Performance: Fast loading (< 3 detik)
+✅ SEO: Complete (meta tags, schema, sitemap)
+✅ Mobile: Perfect responsive (mobile-first)
+✅ Security: Complete (CSRF, XSS, SQL injection, dll)
+✅ Code: Clean, documented, modular (400+ files!)
+✅ UX: Smooth, "orang bodoh pun paham"
+
+## 📦 DELIVERABLE
+
+Output yang diharapkan:
+1. **ZIP file** - Ready upload ke cPanel
+2. **Database SQL file** - 85 tables dengan struktur lengkap
+3. **README.md** - Simple installation guide
+4. **Test accounts:**
+```
+   Admin: admin@situneo.my.id / admin123
+   Client: client@situneo.my.id / client123
+   Partner: partner@situneo.my.id / partner123
+   SPV: spv@situneo.my.id / spv123
+   Manager: manager@situneo.my.id / manager123
+```
+
+## ⚡ AUTOMATION & INTELLIGENCE
+
+Semua sistem harus OTOMATIS:
+- Commission calculation (real-time)
+- ARPU tracking (real-time)
+- Tier progression (automatic)
+- Email notifications (auto-send)
+- Invoice generation (auto after admin approval)
+- Image optimization (auto on upload)
+- Analytics tracking (auto)
+
+## 🔒 SECURITY
+
+Must have:
+- Password hashing (bcrypt)
+- CSRF protection (all forms)
+- SQL injection prevention (prepared statements)
+- XSS protection (htmlspecialchars all output)
+- Session security
+- File upload validation
+- Rate limiting
+- reCAPTCHA v3
+- SSL Certificate
+- .htaccess rules
+
+## 📱 RESPONSIVE
+
+- Mobile-first approach
+- Tablet optimized
+- Desktop unlimited
+- Touch-friendly
+- Fast loading
+- Lazy loading images
+
+---
+
+# 🎯 CRITICAL NOTES
+
+1. **MODULAR:** 400+ files, 1 file = 1 purpose
+2. **NAMING:** Simple, "orang bodoh pun tahu"
+3. **CONSISTENCY:** Brand colors & design di semua halaman
+4. **PUBLIC PAGES:** Singkat, inti saja, CTA ke register/login
+5. **DASHBOARDS:** Full features, lengkap untuk masing-masing role
+6. **DEMOS:** Production-ready, terlihat nyata, paling bagus!
+7. **AUTOMATION:** Semua sistem otomatis & intelligent
+8. **SECURITY:** Complete protection
+9. **PERFORMANCE:** Fast & optimized
+
+---
+
+# ✅ READY TO BUILD?
+
+Buat SEMUA (400+ files) dalam 1 project complete!

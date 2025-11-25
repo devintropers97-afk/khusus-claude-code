@@ -1,0 +1,426 @@
+🔷 BATCH 7: ADMIN PANEL - ORDER & PAYMENT MANAGEMENT
+Priority: HIGH | Files: ~55 | Duration: Test 3-4 hari
+📂 Files to Create:
+/admin/
+├── /orders/
+│   ├── index.php                 # All orders list
+│   ├── pending.php               # Pending orders
+│   ├── paid.php                  # Paid orders (waiting to process)
+│   ├── in-progress.php           # Orders in progress
+│   ├── completed.php             # Completed orders
+│   ├── cancelled.php             # Cancelled orders
+│   ├── view.php                  # Order detail
+│   ├── edit.php                  # Edit order
+│   ├── update-status.php         # Update order status
+│   ├── assign-to-partner.php     # Assign order to partner (for execution)
+│   ├── cancel.php                # Cancel order
+│   ├── refund.php                # Process refund
+│   ├── timeline.php              # Order timeline visualization
+│   ├── bulk-update.php           # Bulk status update
+│   └── export.php                # Export orders
+│
+├── /payments/
+│   ├── index.php                 # All payments list
+│   ├── pending-verification.php  # Pending payment verifications ⭐
+│   ├── verify-payment.php        # Verify payment (approve/reject) ⭐
+│   ├── verified.php              # Verified payments
+│   ├── rejected.php              # Rejected payments
+│   ├── view-proof.php            # View payment proof (image viewer)
+│   ├── bulk-verify.php           # Bulk verification
+│   ├── reminders.php             # Send payment reminders
+│   ├── statistics.php            # Payment statistics
+│   └── export.php                # Export payments
+│
+├── /invoices/
+│   ├── index.php                 # All invoices
+│   ├── generate.php              # Generate invoice
+│   ├── view.php                  # View invoice (PDF preview)
+│   ├── download.php              # Download invoice PDF
+│   ├── send-email.php            # Send invoice via email
+│   ├── edit-template.php         # Edit invoice template
+│   ├── unpaid.php                # Unpaid invoices
+│   ├── overdue.php               # Overdue invoices
+│   └── bulk-send.php             # Bulk email invoices
+│
+├── /subscriptions/
+│   ├── index.php                 # All subscriptions
+│   ├── active.php                # Active subscriptions
+│   ├── expiring.php              # Expiring soon (7 days)
+│   ├── expired.php               # Expired subscriptions
+│   ├── cancelled.php             # Cancelled subscriptions
+│   ├── view.php                  # Subscription detail
+│   ├── renew.php                 # Manually renew subscription
+│   ├── cancel.php                # Cancel subscription
+│   ├── send-reminder.php         # Send renewal reminder
+│   ├── payment-history.php       # Subscription payment history
+│   ├── statistics.php            # Subscription analytics
+│   └── monitor-stops.php         # Monitor <3 month stops ⭐
+│
+├── /refunds/
+│   ├── index.php                 # All refund requests
+│   ├── pending.php               # Pending refund approval
+│   ├── approve-refund.php        # Approve refund
+│   ├── reject-refund.php         # Reject refund
+│   ├── processed.php             # Processed refunds
+│   └── statistics.php            # Refund statistics
+│
+└── /commission-triggers/          # 🆕 Auto-commission system
+    ├── payment-approved.php      # Triggered when payment approved
+    ├── calculate-commission.php  # Calculate partner/SPV/Manager commission
+    ├── distribute-commission.php # Distribute to all levels
+    ├── commission-log.php        # Commission calculation log
+    └── manual-trigger.php        # Manual commission recalculation
+
+/controllers/admin/
+├── OrderController.php
+├── PaymentController.php
+├── InvoiceController.php
+├── SubscriptionController.php
+├── RefundController.php
+└── CommissionTriggerController.php
+
+/models/
+├── OrderManagement.php
+├── PaymentManagement.php
+├── Invoice.php
+├── InvoiceTemplate.php
+├── Subscription.php
+├── SubscriptionPayment.php
+├── Refund.php
+└── CommissionTrigger.php
+
+/includes/admin/
+├── order-status-badge.php        # Order status badge component
+├── payment-proof-viewer.php      # Payment proof modal viewer
+├── invoice-preview.php           # Invoice preview modal
+└── commission-breakdown.php      # Commission breakdown display
+
+/assets/js/
+├── order-management.js           # Order CRUD operations
+├── payment-verification.js       # Payment verification UI
+├── invoice-generator.js          # Invoice generation
+├── subscription-monitor.js       # Subscription monitoring
+└── commission-calculator.js      # Commission calculation UI
+
+/cron/
+├── send-payment-reminders.php    # Daily: Send payment reminders
+├── send-renewal-reminders.php    # Daily: Send subscription renewal reminders
+├── mark-overdue-invoices.php     # Daily: Mark overdue invoices
+├── auto-cancel-expired.php       # Daily: Cancel expired subscriptions
+└── commission-reconciliation.php # Weekly: Reconcile all commissions
+✅ Features Completed:
+Order Management:
+
+✅ Order List with Filters:
+
+All orders datatable
+Filter by status (pending, paid, in-progress, completed, cancelled)
+Filter by order type (beli putus, sewa bulanan)
+Filter by date range
+Search by order number, client name
+Sort by date, amount, status
+
+
+✅ Order Detail Page:
+
+Order information (number, date, type, amount)
+Client information
+Partner information (referred by)
+Service details & customization
+Payment status
+Order timeline (ordered → paid → in-progress → completed)
+Assigned partner (for execution)
+Status history with timestamps
+Admin notes (internal)
+
+
+✅ Order Status Management:
+
+Update status manually
+Pending → Paid (after payment verification)
+Paid → In Progress (work started)
+In Progress → Completed (delivered)
+Any → Cancelled (with reason)
+Auto email notification on status change
+
+
+✅ Assign to Partner:
+
+Assign order execution to available partner
+Job board integration
+Track assigned jobs
+Monitor completion
+
+
+✅ Bulk Operations:
+
+Bulk status update
+Bulk assignment
+Bulk export
+
+
+✅ Order analytics & reporting
+
+Payment Management:
+
+✅ Pending Payment Verification (CRITICAL):
+
+List of payments awaiting verification
+Display payment proof (image/screenshot)
+Payment method (bank transfer/QRIS)
+Payment amount & order details
+Verify Payment Actions:
+
+✅ APPROVE:
+
+Mark payment as verified
+Update order status to "Paid"
+TRIGGER AUTO-COMMISSION CALCULATION:
+
+Get order amount
+Get partner tier
+Calculate partner commission (30-55%)
+If partner has SPV: Calculate SPV commission (10%)
+If SPV has Manager: Calculate Manager commission (5%)
+Insert commissions into partner_commissions table
+Update partner available balance
+Send commission earned email to partner
+If SPV: Send commission earned email to SPV
+If Manager: Send commission earned email to Manager
+
+
+Generate invoice
+Send payment confirmation email to client
+Send order received email to client
+
+
+❌ REJECT:
+
+Mark payment as rejected
+Provide rejection reason
+Send rejection email to client
+Payment stays pending
+
+
+
+
+
+
+✅ Payment Proof Viewer:
+
+Lightbox image viewer
+Zoom in/out
+Download proof
+Compare with bank statement
+
+
+✅ Bulk Verification:
+
+Approve multiple payments at once
+Reject multiple payments
+Auto-commission for bulk approvals
+
+
+✅ Payment Statistics:
+
+Total payments (today, this month, all time)
+Payment method breakdown
+Average payment amount
+Payment success rate
+Pending payment count
+
+
+✅ Payment Reminders:
+
+Auto-send reminder after 24 hours
+Manual reminder sending
+Reminder template customization
+
+
+
+Invoice Management:
+
+✅ Invoice Generation:
+
+Auto-generate on payment verification
+Invoice format: INV-SITUNEO-DD-MMM-YYYY-XXXXX
+Example: INV-SITUNEO-15-NOV-2025-00123
+
+
+✅ Invoice Template:
+
+Company header (logo, name, address, NIB, NPWP)
+Client details
+Order details & breakdown
+Subtotal, discount, tax (if applicable), total
+Payment method
+Terms & conditions
+Footer (bank accounts, contact)
+Professional design (PDF generation)
+
+
+✅ Invoice Actions:
+
+View invoice (PDF preview)
+Download invoice (PDF download)
+Send via email
+Regenerate invoice
+Edit invoice template (admin only)
+
+
+✅ Invoice Status:
+
+Unpaid
+Paid
+Overdue (auto-mark after due date)
+Cancelled
+
+
+✅ Bulk Invoice Operations:
+
+Bulk email sending
+Bulk download (ZIP)
+Bulk mark as paid
+
+
+
+Subscription Management:
+
+✅ Active Subscriptions:
+
+List all active subscriptions
+Client info
+Subscription plan
+Monthly amount
+Start date
+Next billing date
+Auto-renew status
+Total months subscribed ⭐
+
+
+✅ Expiring Subscriptions:
+
+Subscriptions expiring in 7 days
+Auto-send renewal reminder
+One-click renewal
+
+
+✅ Subscription Stop Monitor (CRITICAL):
+
+Track all stopped/cancelled subscriptions
+Check 3-month rule:
+
+If subscribed < 3 months:
+→ Flag for auto-deduct
+→ Show partner who will be affected
+→ Show deduction amount
+→ Option to give partner follow-up chance (7 days)
+→ If no follow-up or failed: Auto-deduct commission
+
+
+Manual override (admin can waive penalty)
+Deduction history tracking
+
+
+✅ Subscription Renewal:
+
+Auto-renew (if enabled)
+Manual renewal (admin can renew manually)
+Renewal reminders (email + notification)
+
+
+✅ Subscription Cancellation:
+
+Client requests cancellation
+Admin processes cancellation
+Check 3-month rule
+Apply penalty if needed
+Send cancellation confirmation
+
+
+✅ Subscription Analytics:
+
+Active subscription count
+MRR (Monthly Recurring Revenue)
+Churn rate
+Renewal rate
+Average subscription duration
+
+
+
+Refund Management:
+
+✅ Refund request list
+✅ Approve/reject refund
+✅ Refund reasons tracking
+✅ Partial refund support
+✅ Refund to original payment method
+✅ Commission reversal on refund
+✅ Refund statistics
+
+Auto-Commission System (CRITICAL):
+
+✅ Trigger on Payment Approval:
+
+  When admin approves payment:
+  1. Get order details (amount, partner_id)
+  2. Get partner tier (30%, 40%, 50%, 55%)
+  3. Calculate partner commission
+  4. Check if partner has SPV:
+     - Yes: Calculate SPV commission (10% of order)
+     - Check if SPV has Manager:
+       - Yes: Calculate Manager commission (5% of order)
+  5. Insert commissions into database
+  6. Update balances
+  7. Send email notifications
+  8. Log commission calculation
+
+✅ Commission Breakdown Display:
+
+Show commission distribution per order
+Partner: Rp XXX (XX%)
+SPV: Rp XXX (10%)
+Manager: Rp XXX (5%)
+SITUNEO: Rp XXX (remaining)
+
+
+✅ Manual Trigger:
+
+Recalculate commission (if error)
+Adjust commission manually
+Commission reconciliation tool
+
+
+✅ Commission Log:
+
+Track all commission calculations
+Audit trail
+Error logging
+
+
+
+🧪 Testing Checklist:
+
+ Order list displays correctly
+ Can update order status
+ Status change sends email
+ Can assign order to partner
+ Payment verification page works
+ Can approve payment
+ Auto-commission triggers on payment approval
+ Commission calculates correctly (Partner/SPV/Manager)
+ Commission emails sent to all recipients
+ Can reject payment
+ Payment proof viewer works
+ Invoice generates correctly
+ Invoice PDF downloads
+ Invoice email sends
+ Subscription list accurate
+ Expiring subscriptions show correctly
+ Renewal reminders send
+ Subscription stop monitor works
+ <3 month rule triggers correctly
+ Auto-deduct processes properly
+ Refund approval works
+ Commission reversal on refund
+ Bulk operations functional

@@ -1,0 +1,60 @@
+1. BATCH DEVELOPMENT : bebas, yang penting lengkap 
+2. FOKUS DESAIN DULU? iya maksud saya mungkin database di jadi satu sm script php nya 
+3. SISTEM KOMISI FREELANCER Sistem tier yang Anda jelaskan: iya sudah betul
+4. FITUR YANG WAJIB ADA DI BATCH 1 Dari semua fitur yang ada, mana yang WAJIB di batch 1: pokok semua lengkap klo ada tambahkan , bisa di tambahkan
+5.FITUR YANG BISA NANTI (BATCH SELANJUTNYA) Fitur apa yang bisa ditunda ke batch berikutnya: pokok nya lengkap semua nya
+6. DATABASE STRUCTURE Anda mau berapa tabel untuk batch 1: full extended
+7. DATABASE CONNECTION File "database wajib" menyebutkan: betul
+8. PAYMENT GATEWAY: manual dulu
+9. EMAIL SERVICE : pakai server cpanel
+10. WHATSAPP INTEGRATION : iya sudah benar nomor nya , whatsapp nya pakai wa me 
+11. GOOGLE SERVICES :google api belum punya , google analituc sudah buat ada di materi , recapcha aktif kamu atur 
+12. LOGO & IMAGES : klo logo sudah benar , pakai unsplash sesuai materi nya , bebas pakai demo tapi kaya real dulu 
+13. TEXT CONTENT : kamu sesuaikan aja 
+14. PORTFOLIO SHOWCASE :pakai image placeholder dulu sesuai isi demo nya , link demo arahin ke link https:situneo.my.id/demo/nama 
+15. STRUKTUR FOLDER PREFERENCE Anda mau struktur seperti apa: option C
+16. FILE NAMING CONVENTION : POKOK NYA UNTUK PHP , KAMU ATUR 
+17. HOSTING ENVIRONMENT : Hosting: cPanel (shared) , PHP 7.4 (ea-php74) , MySQL ,URL: https://situneo.my.id (production) 
+18. FILE UPLOAD
+Hasil final mau dalam bentuk:
+✅ ZIP file langsung upload ke cPanel? iya
+✅ ZIP + Documentation (README.md)?tidak perlu
+✅ ZIP + SQL file untuk import database? boleh
+19. DEVICE SUPPORT
+Mobile-first approach? (sudah pasti yes kan? ✅) iya dong
+Tablet optimization?
+Desktop resolution max? (1920px, 2560px, atau unlimited?) unlimited
+20. BROWSER SUPPORT
+Modern browsers saja (Chrome, Firefox, Safari, Edge)? boleh
+IE 11 support? (hopefully NO 😄) tidak
+21. SECURITY FEATURES Untuk batch 1, mana yang harus ada: 
+Semua yang di atas?
+22. PERFORMANCE OPTIMIZATION
+Image lazy loading? iya
+CSS/JS minification?boleh
+Browser caching? boleh
+CDN untuk Bootstrap/icons? boleh 
+23. ANIMATION & EFFECTS File Anda sudah include: Semua ini tetap dipakai kan? iya dong klo bisa lengkap
+24. SPECIAL FEATURES
+Order notification (popup kiri bawah)? iya dong
+Floating WhatsApp button (kanan bawah)? iya dong
+Back to top button? boleh 
+Dark mode toggle? (atau stick dengan dark theme saja?)  Stick dengan Dark Theme saja
+25. DOCUMENTATION Anda mau saya buatkan: buat semua nya
+26. EXTRAS : pakai semua lengkap
+
+Mohon konfirmasi hal-hal berikut:
+
+Apakah asumsi Batch 1 saya benar? (7 public + 2 auth pages, no dashboard yet?) bebas yang penting lengkap
+
+Apakah saya langsung coding semua atau Anda mau review struktur folder dulu? review struktur dulu 
+
+Untuk testing, pakai database lokal atau langsung ke database production (nrrskfvk_situneo_digital)? langsung ke sini (nrrskfvk_situneo_digital)
+
+Hasil akhir ZIP file → langsung bisa upload ke cPanel dan jalan tanpa konfigurasi tambahan? langsung jalan 
+
+Apakah ada halaman/fitur spesifik yang PRIORITAS TERTINGGI dan harus perfect dulu? ga ada bebas
+
+Timeline batch 1 ini → butuh berapa lama menurut ekspektasi Anda? secepet nya
+
+intinya saya mau tampil semua nya dulu , jadi untuk demo semua nya , jika sudah aman semua , saya akan kesini lagi untuk menyambungkan dan bikin secara real , karna saya mau pastiin isi materi , desain dan tampilan dan fitur2 nya 

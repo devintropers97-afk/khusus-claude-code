@@ -1,0 +1,281 @@
+🚀 MASTER DEVELOPMENT PLAN - LANJUTAN BATCH 4-15
+
+🔷 BATCH 4: PARTNER DASHBOARD - CORE
+Priority: HIGH | Files: ~55 | Duration: Test 3-4 hari
+📂 Files to Create:
+/partner/
+├── dashboard.php                  # Main dashboard (earnings, stats, recent commissions)
+├── /referrals/
+│   ├── index.php                 # Referral overview & stats
+│   ├── link.php                  # Custom referral link management
+│   ├── clients.php               # Referred clients list
+│   ├── tracking.php              # Click tracking & analytics
+│   ├── qr-code.php               # Generate QR code for referral
+│   └── share.php                 # Social media share templates
+│
+├── /commissions/
+│   ├── index.php                 # Commission overview
+│   ├── pending.php               # Pending commissions (not paid yet)
+│   ├── paid.php                  # Paid commissions history
+│   ├── breakdown.php             # Detailed commission breakdown
+│   ├── calculator.php            # Commission calculator tool
+│   └── tier-progress.php         # Progress to next tier
+│
+├── /withdrawals/
+│   ├── index.php                 # Withdrawal overview
+│   ├── request.php               # Request new withdrawal
+│   ├── pending.php               # Pending withdrawal requests
+│   ├── history.php               # Withdrawal history
+│   ├── bank-accounts.php         # Manage bank accounts
+│   └── qris-setup.php            # QRIS account setup
+│
+├── /jobs/                         # Job Board System
+│   ├── index.php                 # Available jobs list
+│   ├── detail.php                # Job detail page
+│   ├── apply.php                 # Apply to job
+│   ├── my-jobs.php               # My job applications
+│   ├── in-progress.php           # Jobs in progress
+│   ├── submit.php                # Submit completed work
+│   ├── completed.php             # Completed jobs
+│   └── earnings.php              # Job earnings history
+│
+├── /downlines/                    # For SPV & Manager
+│   ├── index.php                 # Downline overview
+│   ├── partners.php              # List of downline partners (SPV only)
+│   ├── spvs.php                  # List of downline SPVs (Manager only)
+│   ├── performance.php           # Downline performance metrics
+│   ├── arpu-tracker.php          # ARPU tracking for bonuses
+│   └── assign-partner.php        # Assign partner to SPV (Manager only)
+│
+├── /performance/
+│   ├── index.php                 # Performance overview
+│   ├── monthly.php               # Monthly performance report
+│   ├── yearly.php                # Yearly performance report
+│   ├── kpi.php                   # KPI tracking
+│   └── goals.php                 # Set & track goals
+│
+├── /profile/
+│   ├── index.php                 # Profile overview
+│   ├── edit.php                  # Edit profile
+│   ├── change-password.php       # Change password
+│   ├── bank-accounts.php         # Bank account management
+│   ├── documents.php             # Upload documents (KTP, NPWP)
+│   ├── upgrade-tier.php          # Tier upgrade info
+│   └── preferences.php           # Notification preferences
+│
+├── /marketing/                    # 🆕 BONUS!
+│   ├── materials.php             # Marketing materials download
+│   ├── templates.php             # Email/message templates
+│   ├── social-media.php          # Social media content
+│   └── training.php              # Partner training videos
+│
+└── /analytics/                    # 🆕 BONUS!
+    ├── overview.php              # Analytics dashboard
+    ├── conversion.php            # Conversion tracking
+    ├── traffic-source.php        # Traffic source analysis
+    └── client-behavior.php       # Client behavior insights
+
+/controllers/partner/
+├── DashboardController.php
+├── ReferralController.php
+├── CommissionController.php
+├── WithdrawalController.php
+├── JobBoardController.php
+├── DownlineController.php
+├── PerformanceController.php
+├── ProfileController.php
+├── MarketingController.php       # 🆕 BONUS!
+└── AnalyticsController.php       # 🆕 BONUS!
+
+/models/
+├── Partner.php
+├── PartnerTier.php
+├── Referral.php
+├── Commission.php
+├── CommissionHistory.php
+├── Withdrawal.php
+├── WithdrawalRequest.php
+├── PartnerJob.php
+├── JobApplication.php
+├── JobSubmission.php
+├── Downline.php
+├── SPV.php
+├── Manager.php
+├── PartnerPerformance.php
+├── PartnerKPI.php
+└── PartnerTracking.php
+
+/includes/partner/
+├── header.php                    # Partner dashboard header
+├── sidebar.php                   # Partner sidebar (role-based)
+├── footer.php                    # Partner dashboard footer
+├── stats-card.php                # Reusable stats card component
+└── commission-badge.php          # Commission tier badge
+
+/assets/css/
+├── partner-dashboard.css         # Partner-specific styles
+└── partner-responsive.css        # Partner mobile styles
+
+/assets/js/
+├── partner-dashboard.js          # Partner dashboard scripts
+├── referral-tracker.js           # Referral tracking scripts
+├── commission-calculator.js      # Commission calculator
+├── chart-partner.js              # Partner analytics charts
+└── qr-generator.js               # QR code generator
+✅ Features Completed:
+Dashboard:
+
+✅ Real-time earnings summary (today, this month, all time)
+✅ Commission breakdown (pending, available, withdrawn)
+✅ Current tier display with progress bar
+✅ Recent commissions list
+✅ Quick stats (total clients, active clients, conversion rate)
+✅ Referral link generator
+✅ Performance chart (last 12 months)
+
+Referral System:
+
+✅ Custom username for referral link
+✅ Link format: https://situneo.my.id/register/{custom-username}
+✅ Click tracking with analytics
+✅ Referred clients list with status
+✅ Conversion tracking (clicks → registrations → orders)
+✅ QR code generation for offline sharing
+✅ Social media share buttons (WhatsApp, Facebook, Instagram)
+✅ Multiple referral links (for different campaigns)
+
+Commission System:
+
+✅ Auto-calculation on payment approval:
+
+Client pays → Admin approves → Commission calculated automatically
+Cascade: Partner (30-55%) + SPV (10%) + Manager (5%)
+
+
+✅ Commission breakdown by order
+✅ Tier-based commission (Tier 1: 30%, Tier 2: 40%, Tier 3: 50%, Tier MAX: 55%)
+✅ Pending commissions (waiting for payment)
+✅ Available balance (ready to withdraw)
+✅ Commission history with filters
+✅ Real-time tier progress tracker
+✅ Tier maintenance (never goes down)
+✅ Commission calculator tool
+
+Withdrawal System:
+
+✅ Minimum withdrawal: Rp 50,000
+✅ Withdrawal methods:
+
+Bank Transfer (BCA, Mandiri, BNI, BRI, etc)
+QRIS (e-wallet)
+
+
+✅ Bank account management (add/edit/delete)
+✅ Withdrawal request form
+✅ Admin approval workflow:
+
+Partner request → Admin review → Admin approve → Admin upload transfer proof
+
+
+✅ Withdrawal history with status
+✅ Email notifications (request, approval, completion)
+✅ Processing time tracker
+
+Job Board System:
+
+✅ Browse available jobs from admin
+✅ Job categories (website dev, content, design, etc)
+✅ Job details (description, deadline, commission, requirements)
+✅ Apply to jobs (with proposal/message)
+✅ Admin approval for applications
+✅ Job status tracking (applied → approved → in progress → submitted → completed)
+✅ Submit work with files/links
+✅ Admin review & approval
+✅ Penalty system:
+
+On-time delivery: Full commission
+Late 1-3 days: Warning
+Late 4-7 days: -10% commission
+Late >7 days: -25% commission + warning
+Multiple late: Blacklist from job board
+
+
+✅ Job earnings separate from referral commissions
+
+Downline Management (SPV & Manager):
+
+✅ SPV Features:
+
+View all downline partners
+Monitor partner performance
+Track downline orders & commissions
+ARPU tracking for bonus tiers
+10% commission from downline orders
+Bonus tiers (Rp 500K - Rp 10jt based on ARPU)
+
+
+✅ Manager Features:
+
+View all downline SPVs & partners
+Assign partners to SPVs
+Monitor area performance
+ARPU tracking for area
+5% commission from all downline orders
+Bonus tiers (Rp 1jt - Rp 15jt based on ARPU)
+
+
+✅ Downline performance dashboard
+✅ ARPU calculator & tracker
+✅ Bonus tier progress visualization
+
+🆕 BONUS Features:
+
+✅ Marketing Materials Library:
+
+Downloadable banners, flyers, brochures
+Email templates (personalized with referral link)
+WhatsApp message templates
+Social media post templates
+Video marketing materials
+
+
+✅ Training Center:
+
+Onboarding videos
+Sales training modules
+Product knowledge base
+Best practices guides
+Success stories
+
+
+✅ Advanced Analytics:
+
+Traffic source tracking
+Conversion funnel analysis
+Client behavior insights
+A/B testing for referral campaigns
+ROI calculator
+
+
+
+🧪 Testing Checklist:
+
+ Dashboard shows correct earnings
+ Referral link generates properly
+ Click tracking works
+ Commission calculates automatically on payment approval
+ Tier progression works correctly
+ Tier never goes down (maintenance)
+ Withdrawal request creates properly
+ Admin can approve withdrawals
+ Bank account management works
+ Job board displays available jobs
+ Can apply to jobs
+ Submit job works
+ Penalty system applies correctly
+ SPV sees downline partners
+ Manager sees SPVs & partners
+ ARPU tracking accurate
+ Bonus tiers calculate correctly
+ Marketing materials download
+ QR code generates

@@ -1,0 +1,540 @@
+🔷 BATCH 1: CORE FOUNDATION & DATABASE SETUP
+Priority: CRITICAL | Files: ~50 | Duration: Saya test 2 hari
+📂 File Structure:
+/
+├── .env.example                    # Template environment variables
+├── .htaccess                       # Security + URL rewriting + CORS
+├── index.php                       # Main entry point dengan routing
+├── composer.json                   # Dependencies (PHPMailer, etc)
+│
+├── /config/
+│   ├── database.php               # PDO connection dengan .env
+│   ├── app.php                    # App constants & settings
+│   ├── mail.php                   # SMTP configuration
+│   ├── constants.php              # Global constants (ROLES, STATUS, etc)
+│   └── routes.php                 # URL routing rules
+│
+├── /core/
+│   ├── Database.php               # PDO wrapper class dengan connection pooling
+│   ├── Model.php                  # Base Model (CRUD operations)
+│   ├── Controller.php             # Base Controller
+│   ├── Router.php                 # URL Router dengan middleware support
+│   ├── Session.php                # Session management (secure, httponly)
+│   ├── Auth.php                   # Authentication & Authorization
+│   ├── Validator.php              # Input validation class
+│   ├── Sanitizer.php              # XSS & SQL injection prevention
+│   ├── Upload.php                 # File upload handler (images, docs)
+│   ├── Paginator.php              # Pagination helper
+│   ├── Mailer.php                 # Email sender (PHPMailer wrapper)
+│   ├── Response.php               # JSON/HTML response handler
+│   └── Logger.php                 # Error & activity logging
+│
+├── /helpers/
+│   ├── common.php                 # Common functions (redirect, asset, etc)
+│   ├── formatting.php             # Format helpers (currency, date, phone)
+│   ├── pricing.php                # Price calculation logic
+│   ├── commission.php             # Commission calculation (cascade)
+│   ├── validation.php             # Validation rules & messages
+│   ├── security.php               # CSRF token, password hash, etc
+│   └── email.php                  # Email template helpers
+│
+├── /middleware/
+│   ├── AuthMiddleware.php         # Check if user logged in
+│   ├── RoleMiddleware.php         # Check user role permissions
+│   ├── CSRFMiddleware.php         # CSRF protection
+│   └── RateLimitMiddleware.php    # Rate limiting (login attempts)
+│
+└── /database/
+    ├── schema.sql                 # Complete 100+ tables schema
+    ├── seed_categories.sql        # 53 categories data
+    ├── seed_services.sql          # 232+ services data
+    ├── seed_settings.sql          # Default settings
+    ├── seed_admin.sql             # Default admin account
+    └── seed_website_types.sql     # 1500+ website types
+🗄️ Database Tables (100+ Tables - ALL CREATED):
+User Management (15 tables):
+sql1. users (id, username, email, password, role, status, etc)
+2. user_roles (5 roles: admin, manager, spv, partner, client)
+3. user_permissions (granular permissions)
+4. user_profiles (bio, address, phone, etc)
+5. user_sessions (active sessions tracking)
+6. user_login_history (login attempts, IP, device)
+7. user_notifications (in-app notifications)
+8. user_preferences (language, timezone, theme)
+9. user_bank_accounts (for withdrawals)
+10. user_documents (KTP, NPWP, selfie verification)
+11. password_resets (reset tokens)
+12. email_verifications (verification tokens)
+13. two_factor_auth (2FA secrets for admin)
+14. user_addresses (multiple addresses)
+15. user_activity_logs (all user actions)
+Partner System (25 tables):
+sql16. partners (partner data, tier, total orders, ARPU)
+17. partner_tiers (Tier 1-MAX configurations)
+18. partner_referrals (tracking referral links)
+19. partner_commissions (commission records)
+20. partner_commission_history (historical data)
+21. partner_withdrawals (withdrawal requests)
+22. partner_withdrawal_history (completed withdrawals)
+23. partner_hierarchies (SPV → Partner, Manager → SPV)
+24. spv_users (SPV-specific data)
+25. manager_users (Manager-specific data)
+26. spv_bonuses (ARPU bonus tier 1-4)
+27. manager_bonuses (ARPU bonus tier 1-4)
+28. partner_earnings (all earning sources)
+29. partner_penalties (late delivery, quality issues)
+30. partner_performance (monthly metrics)
+31. partner_kpi (targets vs actual)
+32. partner_tracking_links (click tracking)
+33. partner_jobs (job board system)
+34. partner_job_applications (partner applies to jobs)
+35. partner_job_submissions (work submissions)
+36. partner_job_reviews (admin reviews)
+37. partner_leaderboard (top performers)
+38. partner_badges (achievements, certifications)
+39. partner_referral_tree (multi-level visualization)
+40. partner_payout_schedule (automatic payout settings)
+Client System (20 tables):
+sql41. clients (client data, referred_by_partner_id)
+42. client_orders (all orders)
+43. client_order_items (order line items)
+44. client_order_status_history (status timeline)
+45. client_payments (payment records)
+46. client_payment_methods (saved payment info)
+47. client_invoices (invoice generation)
+48. client_subscriptions (recurring payments)
+49. client_subscription_history (payment history)
+50. client_websites (owned websites)
+51. client_website_edits (edit request tracking)
+52. client_support_tickets (help desk)
+53. client_support_messages (ticket replies)
+54. client_reviews (service reviews)
+55. client_testimonials (approved testimonials)
+56. client_refunds (refund requests)
+57. client_loyalty_points (reward system - BONUS!)
+58. client_referrals (client refer client - BONUS!)
+59. client_custom_dashboards (premium client access)
+60. client_analytics (website performance metrics)
+Services & Products (15 tables):
+sql61. business_categories (53 main categories)
+62. business_subcategories (sub-categories)
+63. services (232+ services)
+64. service_categories (service grouping)
+65. service_packages (bundling 6 packages)
+66. service_addons (additional features)
+67. service_pricing (dynamic pricing rules)
+68. service_features (included features)
+69. website_types (1500+ auto-generated types)
+70. website_templates (reusable templates)
+71. pricing_tiers (tier-based pricing)
+72. discount_codes (promo codes)
+73. service_faqs (per-service FAQs)
+74. service_reviews (client reviews)
+75. popular_services (trending services)
+Content & Marketing (10 tables):
+sql76. pages (static pages: about, terms, privacy)
+77. blog_posts (blog content)
+78. blog_categories (blog organization)
+79. blog_tags (post tags)
+80. post_comments (user comments)
+81. portfolios (showcase work)
+82. portfolio_images (gallery)
+83. testimonials (client feedback)
+84. faqs (general FAQs)
+85. contact_messages (contact form submissions)
+Demo System (5 tables):
+sql86. demos (50 demo websites)
+87. demo_categories (demo organization)
+88. demo_requests (client demo requests)
+89. demo_analytics (views, clicks per demo)
+90. demo_feedback (demo ratings)
+System & Settings (15+ tables):
+sql91. settings (global settings)
+92. languages (id, en)
+93. translations (multi-language strings)
+94. email_templates (14+ email types)
+95. email_queue (outgoing email queue)
+96. email_logs (sent email history)
+97. sms_queue (future SMS - BONUS!)
+98. notifications (system notifications)
+99. notification_templates (notification formats)
+100. activity_logs (system-wide activity)
+101. error_logs (error tracking)
+102. api_logs (API call tracking - BONUS!)
+103. backup_logs (database backups)
+104. cron_jobs (scheduled tasks)
+105. system_maintenance (maintenance mode)
+106. file_uploads (uploaded files metadata)
+107. media_library (image/video management - BONUS!)
+108. webhooks (webhook integrations - BONUS!)
+```
+
+#### **🎨 Assets Created:**
+```
+/assets/
+├── /css/
+│   ├── variables.css              # CSS custom properties
+│   ├── reset.css                  # CSS reset
+│   ├── typography.css             # Font styles
+│   ├── layout.css                 # Grid & flexbox
+│   ├── components.css             # Buttons, cards, forms
+│   ├── animations.css             # Transitions & animations
+│   └── responsive.css             # Media queries
+│
+├── /js/
+│   ├── app.js                     # Main JS initialization
+│   ├── network-animation.js       # Canvas particle animation
+│   ├── circuit-pattern.js         # Circuit background
+│   ├── smooth-scroll.js           # GSAP smooth scroll
+│   ├── aos-init.js                # AOS scroll animations
+│   ├── form-validation.js         # Client-side validation
+│   └── utils.js                   # Helper functions
+│
+└── /images/
+    ├── /logo/
+    │   ├── logo.svg               # Main logo
+    │   ├── logo-white.svg         # White variant
+    │   └── favicon.ico            # Favicon
+    ├── /icons/                    # Custom icons
+    └── /placeholders/             # Placeholder images
+```
+
+#### **✅ Features Completed:**
+- ✅ Complete 100+ database tables with relationships
+- ✅ Secure PDO database connection with prepared statements
+- ✅ MVC architecture foundation
+- ✅ Authentication & authorization framework
+- ✅ CSRF protection system
+- ✅ Rate limiting (login attempts, API calls)
+- ✅ Input validation & sanitization
+- ✅ File upload security
+- ✅ Email system foundation (PHPMailer)
+- ✅ Error & activity logging
+- ✅ Session management (secure, httponly)
+- ✅ Network particle animation (Canvas)
+- ✅ Circuit pattern background
+- ✅ Responsive CSS framework
+- ✅ 53 categories pre-populated
+- ✅ 232+ services pre-populated
+- ✅ 1500+ website types auto-generated
+- ✅ Default admin account created
+
+#### **🧪 Testing Checklist:**
+- [ ] Database connects successfully
+- [ ] All 100+ tables created without errors
+- [ ] Seed data imported correctly
+- [ ] .htaccess URL rewriting works
+- [ ] CSRF tokens generated
+- [ ] Session starts properly
+- [ ] Error logging functional
+- [ ] Network animation renders
+- [ ] Responsive layout works (mobile/desktop)
+
+#### **📦 Deliverables:**
+- ✅ ZIP file: `situneo-batch-1-foundation.zip`
+- ✅ Database SQL: `situneo-complete-schema.sql`
+- ✅ Seed Data SQL: `situneo-seed-data.sql`
+- ✅ README: `BATCH-1-INSTALLATION.md`
+- ✅ Changelog: `BATCH-1-CHANGELOG.md`
+
+---
+
+### **🔷 BATCH 2: AUTHENTICATION SYSTEM**
+**Priority: CRITICAL | Files: ~45 | Duration: Test 2-3 hari**
+
+#### **📂 Files to Create:**
+```
+/auth/
+├── login.php                      # Login page (admin, client, partner)
+├── register-client.php            # Client registration
+├── register-partner.php           # Partner registration (approval needed)
+├── logout.php                     # Logout handler
+├── forgot-password.php            # Password reset request
+├── reset-password.php             # Password reset form
+├── verify-email.php               # Email verification
+├── resend-verification.php        # Resend verification email
+└── two-factor-auth.php            # 2FA setup (admin only)
+
+/controllers/
+├── AuthController.php             # Handle all auth logic
+├── LoginController.php            # Login processing
+├── RegisterController.php         # Registration processing
+├── PasswordController.php         # Password reset logic
+└── VerificationController.php     # Email verification
+
+/models/
+├── User.php                       # User model
+├── Partner.php                    # Partner model
+├── Client.php                     # Client model
+├── Session.php                    # Session model
+└── LoginAttempt.php               # Login attempt tracking
+
+/views/auth/
+├── login.view.php                 # Login view template
+├── register-client.view.php       # Client registration view
+├── register-partner.view.php      # Partner registration view
+├── forgot-password.view.php       # Forgot password view
+├── reset-password.view.php        # Reset password view
+├── verify-email.view.php          # Verification view
+└── two-factor.view.php            # 2FA setup view
+
+/emails/
+├── welcome-client.php             # Welcome email (client)
+├── welcome-partner.php            # Welcome email (partner)
+├── partner-approval-pending.php   # Partner awaiting approval
+├── partner-approved.php           # Partner approved
+├── partner-rejected.php           # Partner rejected
+├── email-verification.php         # Verification email
+├── password-reset.php             # Password reset email
+└── login-alert.php                # New login notification
+
+/includes/components/
+├── alert.php                      # Alert component
+├── form-input.php                 # Form input component
+├── form-error.php                 # Error message component
+└── loading-spinner.php            # Loading animation
+
+/admin/partners/
+├── pending-approval.php           # Pending partner approvals
+└── approve-partner.php            # Approve/reject partner
+```
+
+#### **✅ Features Completed:**
+- ✅ **Login System**:
+  - Multi-role login (admin, manager, spv, partner, client)
+  - Remember me functionality
+  - Rate limiting (5 attempts per 15 minutes)
+  - IP & device tracking
+  - Session hijacking protection
+  
+- ✅ **Registration**:
+  - Client: Hybrid (direct OR via referral link)
+  - Partner: Requires admin approval
+  - Custom referral username validation
+  - Email verification required
+  - Password strength validation (min 8 char, uppercase, number, symbol)
+  
+- ✅ **Password Management**:
+  - Forgot password with email token
+  - Secure password reset
+  - Password history (prevent reuse)
+  - Bcrypt hashing with salt
+  
+- ✅ **Security**:
+  - CAPTCHA on login/register (Google reCAPTCHA v3)
+  - CSRF protection on all forms
+  - SQL injection prevention
+  - XSS prevention
+  - Session fixation protection
+  - Brute force protection
+  
+- ✅ **2FA** (Admin only):
+  - Google Authenticator compatible
+  - Backup codes generation
+  - Recovery options
+  
+- ✅ **Email Notifications**:
+  - Welcome emails (client & partner)
+  - Email verification
+  - Password reset
+  - Partner approval/rejection
+  - Login from new device alert
+
+#### **🧪 Testing Checklist:**
+- [ ] Client can register direct (without referral)
+- [ ] Client can register via partner referral link
+- [ ] Partner registration creates pending approval
+- [ ] Admin can approve/reject partners
+- [ ] Email verification works
+- [ ] Password reset functional
+- [ ] Rate limiting blocks brute force
+- [ ] CAPTCHA validates
+- [ ] 2FA works for admin
+- [ ] Remember me persists session
+- [ ] All emails send successfully
+
+---
+
+### **🔷 BATCH 3: CLIENT DASHBOARD (PRIORITY!)**
+**Priority: HIGH | Files: ~60 | Duration: Test 3-4 hari**
+
+#### **📂 Files to Create:**
+```
+/client/
+├── dashboard.php                  # Main dashboard (stats, recent orders)
+├── /orders/
+│   ├── index.php                 # Order list (all, pending, completed)
+│   ├── create.php                # Create new order (service selection)
+│   ├── create-step-2.php         # Order details & customization
+│   ├── create-step-3.php         # Review & confirm
+│   ├── detail.php                # Order detail page
+│   ├── tracking.php              # Order status tracking
+│   ├── cancel.php                # Cancel order request
+│   └── history.php               # Order history
+│
+├── /payments/
+│   ├── index.php                 # Payment list
+│   ├── pay.php                   # Payment page (bank/QRIS)
+│   ├── upload-proof.php          # Upload payment proof
+│   ├── invoice.php               # View/download invoice
+│   ├── history.php               # Payment history
+│   └── methods.php               # Saved payment methods
+│
+├── /websites/
+│   ├── index.php                 # My websites list
+│   ├── detail.php                # Website detail & analytics
+│   ├── request-edit.php          # Request minor edit
+│   ├── custom-dashboard.php      # Premium client dashboard (>5jt)
+│   └── renew-subscription.php    # Renew subscription
+│
+├── /support/
+│   ├── index.php                 # Support tickets list
+│   ├── create.php                # Create new ticket
+│   ├── detail.php                # Ticket conversation
+│   └── close.php                 # Close ticket
+│
+├── /profile/
+│   ├── index.php                 # Profile overview
+│   ├── edit.php                  # Edit profile
+│   ├── change-password.php       # Change password
+│   ├── bank-accounts.php         # Bank accounts (future)
+│   ├── addresses.php             # Saved addresses
+│   ├── preferences.php           # Language, notifications
+│   └── documents.php             # Upload KTP, NPWP
+│
+├── /loyalty/                      # 🆕 BONUS FEATURE!
+│   ├── points.php                # Loyalty points balance
+│   ├── rewards.php               # Redeem rewards
+│   └── history.php               # Points history
+│
+└── /referrals/                    # 🆕 BONUS FEATURE!
+    ├── index.php                 # Client refer client program
+    ├── referral-link.php         # Get referral link
+    └── earnings.php              # Referral earnings
+
+/controllers/client/
+├── DashboardController.php
+├── OrderController.php
+├── PaymentController.php
+├── WebsiteController.php
+├── SupportController.php
+├── ProfileController.php
+├── LoyaltyController.php         # 🆕 BONUS!
+└── ReferralController.php        # 🆕 BONUS!
+
+/models/
+├── Order.php
+├── OrderItem.php
+├── Payment.php
+├── Invoice.php
+├── Subscription.php
+├── Website.php
+├── SupportTicket.php
+├── TicketMessage.php
+├── LoyaltyPoint.php              # 🆕 BONUS!
+└── ClientReferral.php            # 🆕 BONUS!
+
+/includes/client/
+├── header.php                    # Client dashboard header
+├── sidebar.php                   # Client sidebar navigation
+├── footer.php                    # Client dashboard footer
+└── breadcrumb.php                # Breadcrumb navigation
+
+/assets/css/
+├── client-dashboard.css          # Client-specific styles
+└── client-responsive.css         # Client mobile styles
+
+/assets/js/
+├── client-dashboard.js           # Client dashboard scripts
+├── order-calculator.js           # Real-time price calculator
+├── payment-upload.js             # Payment proof uploader
+└── chart-client.js               # Client analytics charts
+✅ Features Completed:
+Dashboard:
+
+✅ Real-time stats (total orders, active subscriptions, spent)
+✅ Recent orders timeline
+✅ Payment reminders
+✅ Quick actions (new order, pay invoice, support)
+✅ Notifications center
+
+Order System:
+
+✅ Multi-step order creation:
+
+Step 1: Select category & service
+Step 2: Customize (pages, features, addons)
+Step 3: Review & confirm
+
+
+✅ Real-time price calculator
+✅ Order tracking (pending → paid → in progress → completed)
+✅ Order status timeline visualization
+✅ Cancel order (before payment)
+✅ Referral code input (optional)
+✅ One-time vs Subscription toggle
+
+Payment System:
+
+✅ Payment methods:
+
+Bank Transfer (manual upload proof)
+QRIS (upload screenshot)
+
+
+✅ Upload payment proof with validation
+✅ Invoice generation (PDF download)
+✅ Payment status (pending → verified → failed)
+✅ Payment reminders (email + in-app)
+✅ Payment history with filters
+
+Website Management:
+
+✅ View all owned websites
+✅ Website analytics (visits, conversions - basic)
+✅ Request minor edits (text, images)
+✅ Renew subscription (for sewa bulanan)
+✅ Premium dashboard access (orders >5jt)
+
+Support System:
+
+✅ Create support ticket
+✅ Ticket categories (technical, billing, general)
+✅ Ticket priority (low, medium, high)
+✅ Real-time conversation (like chat)
+✅ File attachments (screenshots, docs)
+✅ Auto-reply on ticket creation
+✅ Email notifications on replies
+
+🆕 BONUS Features:
+
+✅ Loyalty Points:
+
+Earn points per order
+Redeem for discounts
+Points expiry tracking
+
+
+✅ Client Referral Program:
+
+Client can refer other clients
+Get discount/cashback on referral
+Referral tracking dashboard
+
+
+
+🧪 Testing Checklist:
+
+ Dashboard loads with correct stats
+ Can create order (3 steps)
+ Price calculator works real-time
+ Can upload payment proof
+ Invoice generates correctly
+ Order status updates
+ Can request minor edits
+ Support tickets functional
+ Email notifications sent
+ Premium dashboard (>5jt) accessible
+ Loyalty points accumulate
+ Referral link generates
+
