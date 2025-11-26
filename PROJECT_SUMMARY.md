@@ -1,5 +1,16 @@
 # SITUNEO DIGITAL - PROJECT SUMMARY & DOCUMENTATION INDEX
 
+## ⚠️ IMPORTANT: MULTIPLE VERSIONS FOUND
+
+This repository contains **3 DIFFERENT VERSIONS** of the SITUNEO DIGITAL project specifications. Please read **[VERSION_COMPARISON.md](./VERSION_COMPARISON.md)** for detailed analysis of all versions.
+
+**Quick Summary:**
+- **VERSION 1** (lanjutan-main): Simple 3-role system, 280 files, 17 tables
+- **VERSION 2** (pelajarin-main): Production 5-role system, 400+ files, 85+ tables ⭐ **RECOMMENDED**
+- **VERSION 3** (bacth1-15-main): Enterprise system, 730 files, 100+ tables
+
+---
+
 ## 🎯 Project Overview
 
 **SITUNEO DIGITAL** (PT SITUNEO DIGITAL SOLUSI INDONESIA) is a comprehensive digital services platform offering 232+ services across 10 specialized divisions.
