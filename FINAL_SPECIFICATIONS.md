@@ -50,7 +50,7 @@ This document represents the **FINAL, COMPLETE, and AUTHORITATIVE** specificatio
 
 **Legal Entity:**
 - **Nama Resmi:** PT SITUNEO DIGITAL SOLUSI INDONESIA
-- **NIB (Nomor Induk Berusaha):** 20250-9261-4570-4515-5453
+- **NIB (Nomor Induk Berusaha):** 1401250064281
 - **NPWP:** 90.296.264.6-002.000
 - **Direktur Utama:** Devin Prasetyo Hermawan
 - **Tahun Berdiri:** 2020

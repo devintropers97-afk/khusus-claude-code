@@ -67,7 +67,7 @@ Build complete SITUNEO Digital Platform dengan:
 ### 1. COMPANY INFO
 ```
 PT SITUNEO DIGITAL SOLUSI INDONESIA
-NIB: 20250-9261-4570-4515-5453
+NIB: 1401250064281
 Website: https://situneo.my.id
 Database: nrrskfvk_situneo_digital
 DB User: nrrskfvk_user_situneo_digital

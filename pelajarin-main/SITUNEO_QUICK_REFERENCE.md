@@ -341,7 +341,7 @@ Jl. Bekasi Timur IX Dalam No. 27
 Jakarta Timur 13450, Indonesia
 
 LEGAL:
-NIB: 20250-9261-4570-4515-5453
+NIB: 1401250064281
 NPWP: 90.296.264.6-002.000
 ```
 

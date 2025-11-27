@@ -1142,7 +1142,7 @@ typeSelect.addEventListener('change', calculatePrice);
             <div class="col-md-2">
                 <div class="nib-badge">
                     <img src="<?= asset('img/nib-badge.png') ?>" alt="NIB Badge" class="img-fluid pulse-animation">
-                    <p class="text-white-50 small mt-2">NIB: 20250-9261-4570-4515-5453</p>
+                    <p class="text-white-50 small mt-2">NIB: 1401250064281</p>
                 </div>
             </div>
         </div>

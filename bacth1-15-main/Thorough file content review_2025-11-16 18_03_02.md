@@ -482,7 +482,7 @@ Saya telah **SELESAI MEMBACA dengan LENGKAP dan MENYELURUH** seluruh materi proj
 #### **5. Company Data:**
 - ✅ PT Permata Cahaya Abadi
 - ✅ Director: Devin Prasetyo Hermawan  
-- ✅ NIB: 20250-9261-4570-4515-5453
+- ✅ NIB: 1401250064281
 - ✅ Website: https://situneo.my.id
 - ✅ WhatsApp: +62 831-7386-8915
 - ✅ Database: nrrskfvk_situneo_digital (password: Devin1922$)
@@ -4180,7 +4180,7 @@ Claude:
   - Phone number
   - WhatsApp number (+62 831-7386-8915)
   - Address (Jl. Bekasi Timur IX Dalam No. 27, Jakarta Timur)
-  - NIB (20250-9261-4570-4515-5453)
+  - NIB (1401250064281)
   - NPWP (90.296.264.6-002.000)
   
 - ✅ **Social Media:**

@@ -16,7 +16,7 @@ This repository contains **3 DIFFERENT VERSIONS** of the SITUNEO DIGITAL project
 **SITUNEO DIGITAL** (PT SITUNEO DIGITAL SOLUSI INDONESIA) is a comprehensive digital services platform offering 232+ services across 10 specialized divisions.
 
 - **Company Name:** PT SITUNEO DIGITAL SOLUSI INDONESIA
-- **NIB:** 20250-9261-4570-4515-5453
+- **NIB:** 1401250064281
 - **Website:** https://situneo.my.id
 - **Contact:** vins@situneo.my.id | +62 831-7386-8915
 
@@ -351,7 +351,7 @@ Create a platform that looks worth hundreds of millions, convincing clients to o
 ## 📄 License
 
 **PT SITUNEO DIGITAL SOLUSI INDONESIA**
-NIB: 20250-9261-4570-4515-5453
+NIB: 1401250064281
 NPWP: 90.296.264.6-002.000
 
 ---

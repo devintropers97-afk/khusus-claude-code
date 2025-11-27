@@ -166,7 +166,7 @@ Selama proses review mendalam terhadap **122 files** di repository ini, ditemuka
 
 ### 📋 Critical Specifications
 - **Company:** PT SITUNEO DIGITAL SOLUSI INDONESIA
-- **NIB:** 20250-9261-4570-4515-5453
+- **NIB:** 1401250064281
 - **NPWP:** 90.296.264.6-002.000
 - **Pricing:** Rp 350K one-time OR Rp 150K/month per page
 - **Vision 2035:** Largest digital platform in Indonesia

@@ -244,7 +244,7 @@ Follow `docs/instructions/SITUNEO_BATCH_BREAKDOWN_COMPLETE.md`
 - 📧 Email: vins@situneo.my.id
 - 📱 WhatsApp: +62 831-7386-8915
 - 🏦 Bank: BCA 2750424018 A/N Devin Prasetyo Hermawan
-- 🏢 NIB: 20250-9261-4570-4515-5453
+- 🏢 NIB: 1401250064281
 - 📋 NPWP: 90.296.264.6-002.000
 
 ---
