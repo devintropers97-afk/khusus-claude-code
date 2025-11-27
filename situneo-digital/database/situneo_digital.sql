@@ -407,20 +407,811 @@ CREATE TABLE `admin_failed_jobs` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ==============================================
--- NOTE: Remaining categories (C-N) with 178 tables
--- will be added incrementally in future BATCHES
+-- CATEGORY C: PARTNER SYSTEM (28 tables)
 -- ==============================================
 
--- This is BATCH 1 focusing on:
--- - Complete User Management System (18 tables)
--- - Complete Admin System (12 tables)
--- - Core authentication and authorization
--- Total: 30 essential tables for foundation
+-- 1. Partner Profiles
+CREATE TABLE `partner_profiles` (
+  `id` BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  `user_id` BIGINT UNSIGNED NOT NULL UNIQUE,
+  `partner_code` VARCHAR(50) NOT NULL UNIQUE COMMENT 'Unique partner code',
+  `company_name` VARCHAR(255),
+  `company_type` ENUM('individual', 'pt', 'cv', 'ud', 'other'),
+  `tier` ENUM('tier1', 'tier2', 'tier3', 'tier4') DEFAULT 'tier1',
+  `commission_rate` DECIMAL(5,2) DEFAULT 30.00 COMMENT 'Commission percentage',
+  `spv_id` BIGINT UNSIGNED COMMENT 'Assigned SPV',
+  `manager_id` BIGINT UNSIGNED COMMENT 'Assigned Manager',
+  `status` ENUM('pending', 'active', 'suspended', 'terminated') DEFAULT 'pending',
+  `approved_at` TIMESTAMP NULL,
+  `approved_by` BIGINT UNSIGNED,
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  INDEX `idx_code` (`partner_code`),
+  INDEX `idx_spv` (`spv_id`),
+  INDEX `idx_manager` (`manager_id`),
+  INDEX `idx_tier` (`tier`),
+  FOREIGN KEY (`user_id`) REFERENCES `users`(`id`) ON DELETE CASCADE,
+  FOREIGN KEY (`spv_id`) REFERENCES `users`(`id`) ON DELETE SET NULL,
+  FOREIGN KEY (`manager_id`) REFERENCES `users`(`id`) ON DELETE SET NULL,
+  FOREIGN KEY (`approved_by`) REFERENCES `users`(`id`) ON DELETE SET NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Partner extended profiles';
 
--- Future batches will add:
--- C: Partner System (28 tables)
--- D: SPV System (15 tables)
--- E: Manager System (15 tables)
+-- 2. Partner Commission Tiers
+CREATE TABLE `partner_commission_tiers` (
+  `id` INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  `tier_name` VARCHAR(50) NOT NULL,
+  `tier_level` INT NOT NULL,
+  `min_sales` DECIMAL(15,2) DEFAULT 0,
+  `max_sales` DECIMAL(15,2),
+  `commission_rate` DECIMAL(5,2) NOT NULL COMMENT 'Percentage',
+  `description` TEXT,
+  `is_active` BOOLEAN DEFAULT TRUE,
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  UNIQUE KEY `unique_tier` (`tier_level`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Insert default commission tiers
+INSERT INTO `partner_commission_tiers` (`tier_name`, `tier_level`, `min_sales`, `max_sales`, `commission_rate`, `description`) VALUES
+('Tier 1 - Bronze', 1, 0, 10000000, 30.00, 'New partners, 0-10 Juta/bulan'),
+('Tier 2 - Silver', 2, 10000000, 25000000, 40.00, 'Growing partners, 10-25 Juta/bulan'),
+('Tier 3 - Gold', 3, 25000000, 50000000, 50.00, 'Established partners, 25-50 Juta/bulan'),
+('Tier 4 - Platinum', 4, 50000000, NULL, 55.00, 'Top partners, 50+ Juta/bulan');
+
+-- 3. Partner Sales Targets
+CREATE TABLE `partner_sales_targets` (
+  `id` BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  `partner_id` BIGINT UNSIGNED NOT NULL,
+  `year` INT NOT NULL,
+  `month` INT NOT NULL,
+  `target_amount` DECIMAL(15,2) NOT NULL,
+  `achieved_amount` DECIMAL(15,2) DEFAULT 0,
+  `achievement_percentage` DECIMAL(5,2) DEFAULT 0,
+  `status` ENUM('pending', 'in_progress', 'achieved', 'failed') DEFAULT 'pending',
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  UNIQUE KEY `unique_target` (`partner_id`, `year`, `month`),
+  FOREIGN KEY (`partner_id`) REFERENCES `users`(`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- 4. Partner Commissions
+CREATE TABLE `partner_commissions` (
+  `id` BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  `partner_id` BIGINT UNSIGNED NOT NULL,
+  `order_id` BIGINT UNSIGNED,
+  `commission_type` ENUM('direct_sale', 'recurring', 'bonus', 'arpu') DEFAULT 'direct_sale',
+  `base_amount` DECIMAL(15,2) NOT NULL COMMENT 'Base order amount',
+  `commission_rate` DECIMAL(5,2) NOT NULL,
+  `commission_amount` DECIMAL(15,2) NOT NULL,
+  `status` ENUM('pending', 'approved', 'paid', 'cancelled') DEFAULT 'pending',
+  `approved_at` TIMESTAMP NULL,
+  `approved_by` BIGINT UNSIGNED,
+  `paid_at` TIMESTAMP NULL,
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  INDEX `idx_partner_status` (`partner_id`, `status`),
+  INDEX `idx_order` (`order_id`),
+  FOREIGN KEY (`partner_id`) REFERENCES `users`(`id`) ON DELETE CASCADE,
+  FOREIGN KEY (`approved_by`) REFERENCES `users`(`id`) ON DELETE SET NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- 5. Partner Withdrawals
+CREATE TABLE `partner_withdrawals` (
+  `id` BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  `partner_id` BIGINT UNSIGNED NOT NULL,
+  `amount` DECIMAL(15,2) NOT NULL,
+  `bank_account_id` BIGINT UNSIGNED,
+  `status` ENUM('pending', 'approved', 'processing', 'completed', 'rejected') DEFAULT 'pending',
+  `proof_of_payment` VARCHAR(255),
+  `notes` TEXT,
+  `approved_at` TIMESTAMP NULL,
+  `approved_by` BIGINT UNSIGNED,
+  `completed_at` TIMESTAMP NULL,
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  INDEX `idx_partner_status` (`partner_id`, `status`),
+  FOREIGN KEY (`partner_id`) REFERENCES `users`(`id`) ON DELETE CASCADE,
+  FOREIGN KEY (`bank_account_id`) REFERENCES `user_bank_accounts`(`id`) ON DELETE SET NULL,
+  FOREIGN KEY (`approved_by`) REFERENCES `users`(`id`) ON DELETE SET NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- 6-28. Additional Partner Tables
+CREATE TABLE `partner_clients` (
+  `id` BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  `partner_id` BIGINT UNSIGNED NOT NULL,
+  `client_id` BIGINT UNSIGNED NOT NULL,
+  `acquisition_date` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  `status` ENUM('active', 'inactive', 'churned') DEFAULT 'active',
+  `lifetime_value` DECIMAL(15,2) DEFAULT 0,
+  `total_orders` INT DEFAULT 0,
+  `last_order_at` TIMESTAMP NULL,
+  UNIQUE KEY `unique_partner_client` (`partner_id`, `client_id`),
+  FOREIGN KEY (`partner_id`) REFERENCES `users`(`id`) ON DELETE CASCADE,
+  FOREIGN KEY (`client_id`) REFERENCES `users`(`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE `partner_performance` (
+  `id` BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  `partner_id` BIGINT UNSIGNED NOT NULL,
+  `year` INT NOT NULL,
+  `month` INT NOT NULL,
+  `total_sales` DECIMAL(15,2) DEFAULT 0,
+  `total_orders` INT DEFAULT 0,
+  `new_clients` INT DEFAULT 0,
+  `active_clients` INT DEFAULT 0,
+  `total_commission` DECIMAL(15,2) DEFAULT 0,
+  `tier_achieved` ENUM('tier1', 'tier2', 'tier3', 'tier4'),
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  UNIQUE KEY `unique_performance` (`partner_id`, `year`, `month`),
+  FOREIGN KEY (`partner_id`) REFERENCES `users`(`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE `partner_marketing_materials` (
+  `id` BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  `title` VARCHAR(255),
+  `description` TEXT,
+  `file_type` ENUM('image', 'video', 'pdf', 'link'),
+  `file_url` VARCHAR(255),
+  `category` VARCHAR(50),
+  `is_active` BOOLEAN DEFAULT TRUE,
+  `created_by` BIGINT UNSIGNED,
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (`created_by`) REFERENCES `users`(`id`) ON DELETE SET NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE `partner_training_modules` (
+  `id` INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  `title` VARCHAR(255),
+  `description` TEXT,
+  `content` LONGTEXT,
+  `video_url` VARCHAR(255),
+  `duration_minutes` INT,
+  `order` INT DEFAULT 0,
+  `is_mandatory` BOOLEAN DEFAULT FALSE,
+  `is_active` BOOLEAN DEFAULT TRUE,
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE `partner_training_progress` (
+  `id` BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  `partner_id` BIGINT UNSIGNED NOT NULL,
+  `module_id` INT UNSIGNED NOT NULL,
+  `status` ENUM('not_started', 'in_progress', 'completed') DEFAULT 'not_started',
+  `progress_percentage` INT DEFAULT 0,
+  `completed_at` TIMESTAMP NULL,
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  UNIQUE KEY `unique_progress` (`partner_id`, `module_id`),
+  FOREIGN KEY (`partner_id`) REFERENCES `users`(`id`) ON DELETE CASCADE,
+  FOREIGN KEY (`module_id`) REFERENCES `partner_training_modules`(`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE `partner_referrals` (
+  `id` BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  `referrer_partner_id` BIGINT UNSIGNED NOT NULL,
+  `referred_partner_id` BIGINT UNSIGNED NOT NULL,
+  `referral_code` VARCHAR(50),
+  `bonus_amount` DECIMAL(15,2) DEFAULT 0,
+  `bonus_paid` BOOLEAN DEFAULT FALSE,
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (`referrer_partner_id`) REFERENCES `users`(`id`) ON DELETE CASCADE,
+  FOREIGN KEY (`referred_partner_id`) REFERENCES `users`(`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE `partner_territories` (
+  `id` BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  `partner_id` BIGINT UNSIGNED NOT NULL,
+  `province` VARCHAR(100),
+  `city` VARCHAR(100),
+  `is_exclusive` BOOLEAN DEFAULT FALSE,
+  `assigned_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (`partner_id`) REFERENCES `users`(`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE `partner_contracts` (
+  `id` BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  `partner_id` BIGINT UNSIGNED NOT NULL,
+  `contract_number` VARCHAR(100) UNIQUE,
+  `contract_type` ENUM('standard', 'exclusive', 'trial'),
+  `start_date` DATE NOT NULL,
+  `end_date` DATE,
+  `terms` LONGTEXT,
+  `contract_file` VARCHAR(255),
+  `status` ENUM('draft', 'active', 'expired', 'terminated') DEFAULT 'draft',
+  `signed_at` TIMESTAMP NULL,
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (`partner_id`) REFERENCES `users`(`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE `partner_meetings` (
+  `id` BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  `partner_id` BIGINT UNSIGNED NOT NULL,
+  `spv_id` BIGINT UNSIGNED,
+  `meeting_type` ENUM('onboarding', 'review', 'training', 'support'),
+  `meeting_date` TIMESTAMP,
+  `duration_minutes` INT,
+  `location` VARCHAR(255),
+  `notes` TEXT,
+  `status` ENUM('scheduled', 'completed', 'cancelled') DEFAULT 'scheduled',
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (`partner_id`) REFERENCES `users`(`id`) ON DELETE CASCADE,
+  FOREIGN KEY (`spv_id`) REFERENCES `users`(`id`) ON DELETE SET NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE `partner_support_tickets` (
+  `id` BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  `partner_id` BIGINT UNSIGNED NOT NULL,
+  `ticket_number` VARCHAR(50) UNIQUE,
+  `subject` VARCHAR(255),
+  `message` TEXT,
+  `category` VARCHAR(50),
+  `priority` ENUM('low', 'medium', 'high', 'urgent') DEFAULT 'medium',
+  `status` ENUM('open', 'in_progress', 'resolved', 'closed') DEFAULT 'open',
+  `assigned_to` BIGINT UNSIGNED,
+  `resolved_at` TIMESTAMP NULL,
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (`partner_id`) REFERENCES `users`(`id`) ON DELETE CASCADE,
+  FOREIGN KEY (`assigned_to`) REFERENCES `users`(`id`) ON DELETE SET NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE `partner_ticket_replies` (
+  `id` BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  `ticket_id` BIGINT UNSIGNED NOT NULL,
+  `user_id` BIGINT UNSIGNED NOT NULL,
+  `message` TEXT,
+  `attachments` JSON,
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (`ticket_id`) REFERENCES `partner_support_tickets`(`id`) ON DELETE CASCADE,
+  FOREIGN KEY (`user_id`) REFERENCES `users`(`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE `partner_incentives` (
+  `id` BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  `partner_id` BIGINT UNSIGNED NOT NULL,
+  `incentive_type` ENUM('performance_bonus', 'tier_upgrade', 'special_promo', 'referral_bonus'),
+  `amount` DECIMAL(15,2),
+  `description` TEXT,
+  `eligibility_criteria` JSON,
+  `status` ENUM('pending', 'approved', 'paid') DEFAULT 'pending',
+  `valid_from` DATE,
+  `valid_until` DATE,
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (`partner_id`) REFERENCES `users`(`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE `partner_ratings` (
+  `id` BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  `partner_id` BIGINT UNSIGNED NOT NULL,
+  `client_id` BIGINT UNSIGNED NOT NULL,
+  `rating` INT CHECK (`rating` BETWEEN 1 AND 5),
+  `review` TEXT,
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (`partner_id`) REFERENCES `users`(`id`) ON DELETE CASCADE,
+  FOREIGN KEY (`client_id`) REFERENCES `users`(`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE `partner_documents` (
+  `id` BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  `partner_id` BIGINT UNSIGNED NOT NULL,
+  `document_type` VARCHAR(50),
+  `document_name` VARCHAR(255),
+  `file_path` VARCHAR(255),
+  `uploaded_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (`partner_id`) REFERENCES `users`(`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE `partner_activity_logs` (
+  `id` BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  `partner_id` BIGINT UNSIGNED NOT NULL,
+  `activity_type` VARCHAR(50),
+  `description` TEXT,
+  `metadata` JSON,
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (`partner_id`) REFERENCES `users`(`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE `partner_price_lists` (
+  `id` BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  `partner_id` BIGINT UNSIGNED,
+  `tier` ENUM('tier1', 'tier2', 'tier3', 'tier4'),
+  `service_category` VARCHAR(100),
+  `markup_percentage` DECIMAL(5,2) DEFAULT 0,
+  `is_custom` BOOLEAN DEFAULT FALSE,
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (`partner_id`) REFERENCES `users`(`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE `partner_payment_methods` (
+  `id` BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  `partner_id` BIGINT UNSIGNED NOT NULL,
+  `method_type` ENUM('bank_transfer', 'e_wallet', 'crypto'),
+  `method_details` JSON,
+  `is_default` BOOLEAN DEFAULT FALSE,
+  `is_verified` BOOLEAN DEFAULT FALSE,
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (`partner_id`) REFERENCES `users`(`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE `partner_notifications` (
+  `id` BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  `partner_id` BIGINT UNSIGNED NOT NULL,
+  `notification_type` VARCHAR(50),
+  `title` VARCHAR(255),
+  `message` TEXT,
+  `is_read` BOOLEAN DEFAULT FALSE,
+  `read_at` TIMESTAMP NULL,
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (`partner_id`) REFERENCES `users`(`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE `partner_settings` (
+  `id` BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  `partner_id` BIGINT UNSIGNED NOT NULL UNIQUE,
+  `auto_approve_orders` BOOLEAN DEFAULT FALSE,
+  `email_notifications` BOOLEAN DEFAULT TRUE,
+  `sms_notifications` BOOLEAN DEFAULT FALSE,
+  `commission_notification` BOOLEAN DEFAULT TRUE,
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  FOREIGN KEY (`partner_id`) REFERENCES `users`(`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE `partner_arpu_tracking` (
+  `id` BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  `partner_id` BIGINT UNSIGNED NOT NULL,
+  `year` INT NOT NULL,
+  `month` INT NOT NULL,
+  `total_revenue` DECIMAL(15,2) DEFAULT 0,
+  `active_clients` INT DEFAULT 0,
+  `arpu` DECIMAL(15,2) DEFAULT 0 COMMENT 'Average Revenue Per User',
+  `bonus_earned` DECIMAL(15,2) DEFAULT 0,
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  UNIQUE KEY `unique_arpu` (`partner_id`, `year`, `month`),
+  FOREIGN KEY (`partner_id`) REFERENCES `users`(`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE `partner_tier_history` (
+  `id` BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  `partner_id` BIGINT UNSIGNED NOT NULL,
+  `previous_tier` ENUM('tier1', 'tier2', 'tier3', 'tier4'),
+  `new_tier` ENUM('tier1', 'tier2', 'tier3', 'tier4'),
+  `previous_rate` DECIMAL(5,2),
+  `new_rate` DECIMAL(5,2),
+  `reason` TEXT,
+  `effective_date` DATE,
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (`partner_id`) REFERENCES `users`(`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE `partner_leaderboard` (
+  `id` BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  `partner_id` BIGINT UNSIGNED NOT NULL,
+  `year` INT NOT NULL,
+  `month` INT NOT NULL,
+  `total_sales` DECIMAL(15,2),
+  `rank` INT,
+  `prize_amount` DECIMAL(15,2) DEFAULT 0,
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  UNIQUE KEY `unique_leaderboard` (`partner_id`, `year`, `month`),
+  FOREIGN KEY (`partner_id`) REFERENCES `users`(`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- ==============================================
+-- CATEGORY D: SPV SYSTEM (15 tables)
+-- ==============================================
+
+-- 1. SPV Profiles
+CREATE TABLE `spv_profiles` (
+  `id` BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  `user_id` BIGINT UNSIGNED NOT NULL UNIQUE,
+  `employee_id` VARCHAR(50) UNIQUE,
+  `manager_id` BIGINT UNSIGNED,
+  `territory` VARCHAR(100),
+  `target_partners` INT DEFAULT 0,
+  `current_partners` INT DEFAULT 0,
+  `commission_rate` DECIMAL(5,2) DEFAULT 10.00 COMMENT 'SPV commission percentage',
+  `status` ENUM('active', 'inactive', 'on_leave') DEFAULT 'active',
+  `hired_date` DATE,
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  FOREIGN KEY (`user_id`) REFERENCES `users`(`id`) ON DELETE CASCADE,
+  FOREIGN KEY (`manager_id`) REFERENCES `users`(`id`) ON DELETE SET NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- 2-15. Additional SPV Tables
+CREATE TABLE `spv_partner_assignments` (
+  `id` BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  `spv_id` BIGINT UNSIGNED NOT NULL,
+  `partner_id` BIGINT UNSIGNED NOT NULL,
+  `assigned_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  `status` ENUM('active', 'inactive', 'transferred') DEFAULT 'active',
+  UNIQUE KEY `unique_assignment` (`spv_id`, `partner_id`),
+  FOREIGN KEY (`spv_id`) REFERENCES `users`(`id`) ON DELETE CASCADE,
+  FOREIGN KEY (`partner_id`) REFERENCES `users`(`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE `spv_performance` (
+  `id` BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  `spv_id` BIGINT UNSIGNED NOT NULL,
+  `year` INT NOT NULL,
+  `month` INT NOT NULL,
+  `total_partners` INT DEFAULT 0,
+  `active_partners` INT DEFAULT 0,
+  `total_sales` DECIMAL(15,2) DEFAULT 0,
+  `total_commission` DECIMAL(15,2) DEFAULT 0,
+  `target_achievement` DECIMAL(5,2) DEFAULT 0,
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  UNIQUE KEY `unique_performance` (`spv_id`, `year`, `month`),
+  FOREIGN KEY (`spv_id`) REFERENCES `users`(`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE `spv_commissions` (
+  `id` BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  `spv_id` BIGINT UNSIGNED NOT NULL,
+  `partner_id` BIGINT UNSIGNED,
+  `order_id` BIGINT UNSIGNED,
+  `base_amount` DECIMAL(15,2),
+  `commission_rate` DECIMAL(5,2),
+  `commission_amount` DECIMAL(15,2),
+  `status` ENUM('pending', 'approved', 'paid') DEFAULT 'pending',
+  `paid_at` TIMESTAMP NULL,
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (`spv_id`) REFERENCES `users`(`id`) ON DELETE CASCADE,
+  FOREIGN KEY (`partner_id`) REFERENCES `users`(`id`) ON DELETE SET NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE `spv_targets` (
+  `id` BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  `spv_id` BIGINT UNSIGNED NOT NULL,
+  `year` INT NOT NULL,
+  `month` INT NOT NULL,
+  `partner_recruitment_target` INT,
+  `sales_target` DECIMAL(15,2),
+  `achieved_partners` INT DEFAULT 0,
+  `achieved_sales` DECIMAL(15,2) DEFAULT 0,
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  UNIQUE KEY `unique_target` (`spv_id`, `year`, `month`),
+  FOREIGN KEY (`spv_id`) REFERENCES `users`(`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE `spv_partner_reviews` (
+  `id` BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  `spv_id` BIGINT UNSIGNED NOT NULL,
+  `partner_id` BIGINT UNSIGNED NOT NULL,
+  `review_date` DATE,
+  `performance_rating` INT CHECK (`performance_rating` BETWEEN 1 AND 5),
+  `comments` TEXT,
+  `action_items` TEXT,
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (`spv_id`) REFERENCES `users`(`id`) ON DELETE CASCADE,
+  FOREIGN KEY (`partner_id`) REFERENCES `users`(`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE `spv_tasks` (
+  `id` BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  `spv_id` BIGINT UNSIGNED NOT NULL,
+  `task_type` VARCHAR(50),
+  `title` VARCHAR(255),
+  `description` TEXT,
+  `priority` ENUM('low', 'medium', 'high') DEFAULT 'medium',
+  `status` ENUM('pending', 'in_progress', 'completed') DEFAULT 'pending',
+  `due_date` DATE,
+  `completed_at` TIMESTAMP NULL,
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (`spv_id`) REFERENCES `users`(`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE `spv_reports` (
+  `id` BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  `spv_id` BIGINT UNSIGNED NOT NULL,
+  `report_type` VARCHAR(50),
+  `report_period` VARCHAR(50),
+  `report_data` JSON,
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (`spv_id`) REFERENCES `users`(`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE `spv_activities` (
+  `id` BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  `spv_id` BIGINT UNSIGNED NOT NULL,
+  `activity_type` VARCHAR(50),
+  `partner_id` BIGINT UNSIGNED,
+  `description` TEXT,
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (`spv_id`) REFERENCES `users`(`id`) ON DELETE CASCADE,
+  FOREIGN KEY (`partner_id`) REFERENCES `users`(`id`) ON DELETE SET NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE `spv_training_completed` (
+  `id` BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  `spv_id` BIGINT UNSIGNED NOT NULL,
+  `training_name` VARCHAR(255),
+  `completed_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  `certificate_url` VARCHAR(255),
+  FOREIGN KEY (`spv_id`) REFERENCES `users`(`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE `spv_attendance` (
+  `id` BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  `spv_id` BIGINT UNSIGNED NOT NULL,
+  `date` DATE NOT NULL,
+  `check_in` TIME,
+  `check_out` TIME,
+  `status` ENUM('present', 'absent', 'leave', 'sick') DEFAULT 'present',
+  `notes` TEXT,
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  UNIQUE KEY `unique_attendance` (`spv_id`, `date`),
+  FOREIGN KEY (`spv_id`) REFERENCES `users`(`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE `spv_leaves` (
+  `id` BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  `spv_id` BIGINT UNSIGNED NOT NULL,
+  `leave_type` ENUM('annual', 'sick', 'emergency', 'unpaid'),
+  `start_date` DATE,
+  `end_date` DATE,
+  `reason` TEXT,
+  `status` ENUM('pending', 'approved', 'rejected') DEFAULT 'pending',
+  `approved_by` BIGINT UNSIGNED,
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (`spv_id`) REFERENCES `users`(`id`) ON DELETE CASCADE,
+  FOREIGN KEY (`approved_by`) REFERENCES `users`(`id`) ON DELETE SET NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE `spv_incentives` (
+  `id` BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  `spv_id` BIGINT UNSIGNED NOT NULL,
+  `incentive_type` VARCHAR(50),
+  `amount` DECIMAL(15,2),
+  `description` TEXT,
+  `period` VARCHAR(50),
+  `status` ENUM('pending', 'approved', 'paid') DEFAULT 'pending',
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (`spv_id`) REFERENCES `users`(`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE `spv_notifications` (
+  `id` BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  `spv_id` BIGINT UNSIGNED NOT NULL,
+  `notification_type` VARCHAR(50),
+  `title` VARCHAR(255),
+  `message` TEXT,
+  `is_read` BOOLEAN DEFAULT FALSE,
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (`spv_id`) REFERENCES `users`(`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE `spv_escalations` (
+  `id` BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  `spv_id` BIGINT UNSIGNED NOT NULL,
+  `partner_id` BIGINT UNSIGNED,
+  `issue_type` VARCHAR(50),
+  `description` TEXT,
+  `priority` ENUM('low', 'medium', 'high', 'critical') DEFAULT 'medium',
+  `status` ENUM('open', 'in_progress', 'resolved') DEFAULT 'open',
+  `resolved_at` TIMESTAMP NULL,
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (`spv_id`) REFERENCES `users`(`id`) ON DELETE CASCADE,
+  FOREIGN KEY (`partner_id`) REFERENCES `users`(`id`) ON DELETE SET NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- ==============================================
+-- CATEGORY E: MANAGER SYSTEM (15 tables)
+-- ==============================================
+
+-- 1. Manager Profiles
+CREATE TABLE `manager_profiles` (
+  `id` BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  `user_id` BIGINT UNSIGNED NOT NULL UNIQUE,
+  `employee_id` VARCHAR(50) UNIQUE,
+  `department` VARCHAR(100),
+  `region` VARCHAR(100),
+  `commission_rate` DECIMAL(5,2) DEFAULT 5.00 COMMENT 'Manager commission percentage',
+  `status` ENUM('active', 'inactive', 'on_leave') DEFAULT 'active',
+  `hired_date` DATE,
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  FOREIGN KEY (`user_id`) REFERENCES `users`(`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- 2-15. Additional Manager Tables
+CREATE TABLE `manager_spv_assignments` (
+  `id` BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  `manager_id` BIGINT UNSIGNED NOT NULL,
+  `spv_id` BIGINT UNSIGNED NOT NULL,
+  `assigned_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  `status` ENUM('active', 'inactive') DEFAULT 'active',
+  UNIQUE KEY `unique_assignment` (`manager_id`, `spv_id`),
+  FOREIGN KEY (`manager_id`) REFERENCES `users`(`id`) ON DELETE CASCADE,
+  FOREIGN KEY (`spv_id`) REFERENCES `users`(`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE `manager_performance` (
+  `id` BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  `manager_id` BIGINT UNSIGNED NOT NULL,
+  `year` INT NOT NULL,
+  `month` INT NOT NULL,
+  `total_spvs` INT DEFAULT 0,
+  `total_partners` INT DEFAULT 0,
+  `total_sales` DECIMAL(15,2) DEFAULT 0,
+  `total_commission` DECIMAL(15,2) DEFAULT 0,
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  UNIQUE KEY `unique_performance` (`manager_id`, `year`, `month`),
+  FOREIGN KEY (`manager_id`) REFERENCES `users`(`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE `manager_commissions` (
+  `id` BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  `manager_id` BIGINT UNSIGNED NOT NULL,
+  `spv_id` BIGINT UNSIGNED,
+  `partner_id` BIGINT UNSIGNED,
+  `order_id` BIGINT UNSIGNED,
+  `base_amount` DECIMAL(15,2),
+  `commission_rate` DECIMAL(5,2),
+  `commission_amount` DECIMAL(15,2),
+  `status` ENUM('pending', 'approved', 'paid') DEFAULT 'pending',
+  `paid_at` TIMESTAMP NULL,
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (`manager_id`) REFERENCES `users`(`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE `manager_targets` (
+  `id` BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  `manager_id` BIGINT UNSIGNED NOT NULL,
+  `year` INT NOT NULL,
+  `month` INT NOT NULL,
+  `sales_target` DECIMAL(15,2),
+  `team_target` INT,
+  `achieved_sales` DECIMAL(15,2) DEFAULT 0,
+  `achieved_team` INT DEFAULT 0,
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  UNIQUE KEY `unique_target` (`manager_id`, `year`, `month`),
+  FOREIGN KEY (`manager_id`) REFERENCES `users`(`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE `manager_reports` (
+  `id` BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  `manager_id` BIGINT UNSIGNED NOT NULL,
+  `report_type` VARCHAR(50),
+  `report_period` VARCHAR(50),
+  `report_data` JSON,
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (`manager_id`) REFERENCES `users`(`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE `manager_meetings` (
+  `id` BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  `manager_id` BIGINT UNSIGNED NOT NULL,
+  `meeting_type` VARCHAR(50),
+  `meeting_date` TIMESTAMP,
+  `attendees` JSON,
+  `agenda` TEXT,
+  `notes` TEXT,
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (`manager_id`) REFERENCES `users`(`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE `manager_decisions` (
+  `id` BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  `manager_id` BIGINT UNSIGNED NOT NULL,
+  `decision_type` VARCHAR(50),
+  `subject` VARCHAR(255),
+  `decision` TEXT,
+  `impact` TEXT,
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (`manager_id`) REFERENCES `users`(`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE `manager_approvals` (
+  `id` BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  `manager_id` BIGINT UNSIGNED NOT NULL,
+  `approval_type` VARCHAR(50),
+  `reference_id` BIGINT UNSIGNED,
+  `reference_table` VARCHAR(100),
+  `status` ENUM('pending', 'approved', 'rejected') DEFAULT 'pending',
+  `notes` TEXT,
+  `decided_at` TIMESTAMP NULL,
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (`manager_id`) REFERENCES `users`(`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE `manager_kpis` (
+  `id` BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  `manager_id` BIGINT UNSIGNED NOT NULL,
+  `kpi_name` VARCHAR(100),
+  `target_value` DECIMAL(15,2),
+  `actual_value` DECIMAL(15,2),
+  `unit` VARCHAR(50),
+  `year` INT,
+  `month` INT,
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (`manager_id`) REFERENCES `users`(`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE `manager_team_reviews` (
+  `id` BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  `manager_id` BIGINT UNSIGNED NOT NULL,
+  `spv_id` BIGINT UNSIGNED NOT NULL,
+  `review_date` DATE,
+  `performance_rating` INT CHECK (`performance_rating` BETWEEN 1 AND 5),
+  `strengths` TEXT,
+  `improvements` TEXT,
+  `action_plan` TEXT,
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (`manager_id`) REFERENCES `users`(`id`) ON DELETE CASCADE,
+  FOREIGN KEY (`spv_id`) REFERENCES `users`(`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE `manager_budgets` (
+  `id` BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  `manager_id` BIGINT UNSIGNED NOT NULL,
+  `budget_category` VARCHAR(100),
+  `allocated_amount` DECIMAL(15,2),
+  `spent_amount` DECIMAL(15,2) DEFAULT 0,
+  `year` INT,
+  `quarter` INT,
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (`manager_id`) REFERENCES `users`(`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE `manager_initiatives` (
+  `id` BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  `manager_id` BIGINT UNSIGNED NOT NULL,
+  `initiative_name` VARCHAR(255),
+  `description` TEXT,
+  `start_date` DATE,
+  `end_date` DATE,
+  `budget` DECIMAL(15,2),
+  `status` ENUM('planning', 'in_progress', 'completed', 'cancelled') DEFAULT 'planning',
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (`manager_id`) REFERENCES `users`(`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE `manager_notifications` (
+  `id` BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  `manager_id` BIGINT UNSIGNED NOT NULL,
+  `notification_type` VARCHAR(50),
+  `title` VARCHAR(255),
+  `message` TEXT,
+  `is_read` BOOLEAN DEFAULT FALSE,
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (`manager_id`) REFERENCES `users`(`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE `manager_dashboards` (
+  `id` BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  `manager_id` BIGINT UNSIGNED NOT NULL,
+  `dashboard_config` JSON,
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  FOREIGN KEY (`manager_id`) REFERENCES `users`(`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE `manager_strategic_plans` (
+  `id` BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  `manager_id` BIGINT UNSIGNED NOT NULL,
+  `plan_name` VARCHAR(255),
+  `objectives` TEXT,
+  `strategies` TEXT,
+  `timeline` VARCHAR(100),
+  `kpis` JSON,
+  `status` ENUM('draft', 'active', 'completed') DEFAULT 'draft',
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (`manager_id`) REFERENCES `users`(`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- ==============================================
+-- BATCH 2 SUMMARY
+-- ==============================================
+-- Added Categories C, D, E:
+-- - Partner System: 28 tables
+-- - SPV System: 15 tables
+-- - Manager System: 15 tables
+-- Total new tables in BATCH 2: 58 tables
+-- Total tables so far: 88 tables (30 from BATCH 1 + 58 from BATCH 2)
+--
+-- Remaining for future batches:
 -- F: Client System (25 tables)
 -- G: Services & Orders (20 tables)
 -- H: Portfolio & Showcase (10 tables)
@@ -430,7 +1221,7 @@ CREATE TABLE `admin_failed_jobs` (
 -- L: Content Management (12 tables)
 -- M: Analytics & Tracking (10 tables)
 -- N: System & Configuration (10 tables)
-
--- Total tables in system: 208 (planned)
--- Tables in BATCH 1: 30 (completed)
--- Remaining for future batches: 178
+--
+-- Total planned: 208 tables
+-- Completed: 88 tables
+-- Remaining: 120 tables
