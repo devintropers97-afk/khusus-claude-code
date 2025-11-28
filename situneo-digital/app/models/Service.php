@@ -377,4 +377,129 @@ class Service {
             'featured_count' => $featuredCount
         ];
     }
+
+    /**
+     * Count total services with filters
+     *
+     * @param array $filters
+     * @return int
+     */
+    public function count($filters = []) {
+        $where = ['is_active = TRUE'];
+        $params = [];
+
+        if (!empty($filters['category_id'])) {
+            $where[] = 'category_id = :category_id';
+            $params[':category_id'] = $filters['category_id'];
+        }
+
+        if (!empty($filters['category_slug'])) {
+            $where[] = 'category_id = (SELECT id FROM service_categories WHERE slug = :category_slug)';
+            $params[':category_slug'] = $filters['category_slug'];
+        }
+
+        if (!empty($filters['service_type'])) {
+            $where[] = 'service_type = :service_type';
+            $params[':service_type'] = $filters['service_type'];
+        }
+
+        if (!empty($filters['search'])) {
+            $where[] = '(name LIKE :search OR description LIKE :search)';
+            $params[':search'] = '%' . $filters['search'] . '%';
+        }
+
+        if (isset($filters['is_featured'])) {
+            $where[] = 'is_featured = :is_featured';
+            $params[':is_featured'] = $filters['is_featured'];
+        }
+
+        $whereStr = implode(' AND ', $where);
+
+        $this->db->query("SELECT COUNT(*) as total FROM services WHERE $whereStr");
+
+        foreach ($params as $param => $value) {
+            $this->db->bind($param, $value);
+        }
+
+        $result = $this->db->single();
+        return $result['total'] ?? 0;
+    }
+
+    /**
+     * Increment service views
+     *
+     * @param int $serviceId
+     * @return bool
+     */
+    public function incrementViews($serviceId) {
+        try {
+            $this->db->query("UPDATE services SET views = views + 1 WHERE id = :id");
+            $this->db->bind(':id', $serviceId);
+            return $this->db->execute();
+        } catch (Exception $e) {
+            logError('Failed to increment views: ' . $e->getMessage());
+            return false;
+        }
+    }
+
+    /**
+     * Get related services by category
+     *
+     * @param int $serviceId Current service ID to exclude
+     * @param int $categoryId Category ID
+     * @param int $limit Number of related services
+     * @return array
+     */
+    public function getRelated($serviceId, $categoryId, $limit = 4) {
+        $this->db->query("
+            SELECT
+                s.*,
+                sc.name as category_name
+            FROM services s
+            LEFT JOIN service_categories sc ON s.category_id = sc.id
+            WHERE s.is_active = TRUE
+                AND s.category_id = :category_id
+                AND s.id != :service_id
+            ORDER BY s.views DESC, s.created_at DESC
+            LIMIT :limit
+        ");
+
+        $this->db->bind(':category_id', $categoryId);
+        $this->db->bind(':service_id', $serviceId);
+        $this->db->bind(':limit', $limit, PDO::PARAM_INT);
+
+        return $this->db->resultSet();
+    }
+
+    /**
+     * Get category by slug
+     *
+     * @param string $slug
+     * @return array|false
+     */
+    public function getCategoryBySlug($slug) {
+        $this->db->query("SELECT * FROM service_categories WHERE slug = :slug AND is_active = TRUE");
+        $this->db->bind(':slug', $slug);
+        return $this->db->single();
+    }
+
+    /**
+     * Get service count per category
+     *
+     * @return array
+     */
+    public function getCategoriesWithCount() {
+        $this->db->query("
+            SELECT
+                sc.*,
+                COUNT(s.id) as service_count
+            FROM service_categories sc
+            LEFT JOIN services s ON sc.id = s.category_id AND s.is_active = TRUE
+            WHERE sc.is_active = TRUE
+            GROUP BY sc.id
+            ORDER BY sc.sort_order ASC, sc.name ASC
+        ");
+
+        return $this->db->resultSet();
+    }
 }

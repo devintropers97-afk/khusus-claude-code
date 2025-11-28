@@ -122,6 +122,16 @@ class Client {
     }
 
     /**
+     * Alias for findById - Find client by user ID
+     *
+     * @param int $userId
+     * @return array|false
+     */
+    public function findByUserId($userId) {
+        return $this->findById($userId);
+    }
+
+    /**
      * Find client by client code
      *
      * @param string $clientCode

@@ -467,4 +467,160 @@ class Order {
         $this->db->bind(':order_id', $orderId);
         return $this->db->resultSet();
     }
+
+    /**
+     * Get order items with service details
+     *
+     * @param int $orderId
+     * @return array
+     */
+    public function getOrderItems($orderId) {
+        $this->db->query("
+            SELECT
+                oi.*,
+                s.name as service_name,
+                s.service_code,
+                s.slug as service_slug
+            FROM order_items oi
+            LEFT JOIN services s ON oi.service_id = s.id
+            WHERE oi.order_id = :order_id
+            ORDER BY oi.id ASC
+        ");
+
+        $this->db->bind(':order_id', $orderId);
+        return $this->db->resultSet();
+    }
+
+    /**
+     * Add payment proof to order
+     *
+     * @param int $orderId
+     * @param array $data
+     * @return bool
+     */
+    public function addPaymentProof($orderId, $data) {
+        try {
+            $this->db->beginTransaction();
+
+            // Update order with payment proof
+            $this->db->query("
+                UPDATE orders
+                SET payment_proof = :payment_proof,
+                    payment_proof_date = :payment_date,
+                    payment_proof_amount = :payment_amount,
+                    payment_proof_notes = :payment_notes,
+                    payment_status = 'partial',
+                    updated_at = NOW()
+                WHERE id = :order_id
+            ");
+
+            $this->db->bind(':payment_proof', $data['payment_proof']);
+            $this->db->bind(':payment_date', $data['payment_date']);
+            $this->db->bind(':payment_amount', $data['payment_amount']);
+            $this->db->bind(':payment_notes', $data['payment_notes']);
+            $this->db->bind(':order_id', $orderId);
+            $this->db->execute();
+
+            // Log status change
+            $this->logStatus($orderId, 'pending', 'Payment proof uploaded, awaiting verification');
+
+            $this->db->commit();
+            return true;
+
+        } catch (Exception $e) {
+            $this->db->rollback();
+            logError('Add payment proof failed: ' . $e->getMessage());
+            return false;
+        }
+    }
+
+    /**
+     * Verify payment and update order status
+     *
+     * @param int $orderId
+     * @param int $verifiedBy
+     * @return bool
+     */
+    public function verifyPayment($orderId, $verifiedBy) {
+        try {
+            $this->db->beginTransaction();
+
+            // Update order payment status
+            $this->db->query("
+                UPDATE orders
+                SET payment_status = 'paid',
+                    status = 'confirmed',
+                    payment_verified_by = :verified_by,
+                    payment_verified_at = NOW(),
+                    updated_at = NOW()
+                WHERE id = :order_id
+            ");
+
+            $this->db->bind(':verified_by', $verifiedBy);
+            $this->db->bind(':order_id', $orderId);
+            $this->db->execute();
+
+            // Log status change
+            $this->logStatus($orderId, 'confirmed', 'Payment verified and confirmed', $verifiedBy);
+
+            // Approve commissions
+            $this->approveCommissions($orderId);
+
+            $this->db->commit();
+            return true;
+
+        } catch (Exception $e) {
+            $this->db->rollback();
+            logError('Verify payment failed: ' . $e->getMessage());
+            return false;
+        }
+    }
+
+    /**
+     * Get order by order number
+     *
+     * @param string $orderNumber
+     * @return array|false
+     */
+    public function findByOrderNumber($orderNumber) {
+        $this->db->query("
+            SELECT
+                o.*,
+                c.first_name as client_first_name,
+                c.last_name as client_last_name,
+                c.email as client_email,
+                p.first_name as partner_first_name,
+                p.last_name as partner_last_name
+            FROM orders o
+            LEFT JOIN users c ON o.client_id = c.id
+            LEFT JOIN users p ON o.partner_id = p.id
+            WHERE o.order_number = :order_number
+        ");
+
+        $this->db->bind(':order_number', $orderNumber);
+        return $this->db->single();
+    }
+
+    /**
+     * Get recent orders
+     *
+     * @param int $limit
+     * @return array
+     */
+    public function getRecent($limit = 10) {
+        $this->db->query("
+            SELECT
+                o.*,
+                c.first_name as client_first_name,
+                c.last_name as client_last_name,
+                (SELECT COUNT(*) FROM order_items WHERE order_id = o.id) as items_count
+            FROM orders o
+            LEFT JOIN users c ON o.client_id = c.id
+            ORDER BY o.created_at DESC
+            LIMIT :limit
+        ");
+
+        $this->db->bind(':limit', $limit, PDO::PARAM_INT);
+        return $this->db->resultSet();
+    }
 }
